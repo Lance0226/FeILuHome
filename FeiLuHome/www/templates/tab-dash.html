@@ -1,28 +1,29 @@
-<ion-view view-title="Dashboard">
+
+
+<ion-view view-title="首页">
   <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
+      <ion-slide-box on-silde-changed="slideHasChanged($index)">
+      <ion-slide>
+      <div class="row">
+        <div class="col col-100">
+          <img src="img/home_page1.png"  style="width:100%">
         </div>
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
+      </ion-slide>
+      <ion-slide>
+        <div class="row">
+          <div class="col col-100">
+            <img src="img/home_page2.png" style="width:100%">
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
+      </ion-slide>
+      <ion-slide>
+        <div class="row">
+          <div class="col col-100">
+            <img src="img/home_page3.png" style="width:100%">
+          </div>
         </div>
-      </div>
-    </div>
+      </ion-slide>
+      </ion-silde-box>
   </ion-content>
 </ion-view>
