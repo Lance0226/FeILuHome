@@ -6,30 +6,17 @@ angular.module('starter.services', [])
   // Some fake testing data
   var chats = [{
     id: 0,
-    name: 'Ben Sparrow',
+    name: '方案1',
     lastText: 'You on your way?',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'https://pbs.twimg.com/profile_images/598205061232103424/3j5HUXMY.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
-  }];
+    face: 'http://www.xuanran001.com/public/repository/c281/9a86/c3cd/4360/ab2a/dbf6/cd56/bce6/data/images/145b4d26-0087-4535-b7eb-cf764e0b5049/image/0000.jpg'
+  },
+  {
+    id: 0,
+    name: '方案2',
+    lastText: 'You on your way?',
+    face: 'http://www.xuanran001.com/public/repository/c281/9a86/c3cd/4360/ab2a/dbf6/cd56/bce6/data/images/145b4d26-0087-4535-b7eb-cf764e0b5049/image/0000.jpg'
+  }
+  ];
 
   return {
     all: function() {
