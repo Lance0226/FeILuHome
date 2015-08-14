@@ -10,7 +10,7 @@
 #import "EScrollerView.h"
 #import "AppDelegate.h"
 
-@interface FirstViewController : UIViewController<EScrollerViewDelegate>
+@interface HomeViewController : UIViewController<EScrollerViewDelegate>
 @property (nonatomic,retain)UINavigationBar *navBar;
 
 @end

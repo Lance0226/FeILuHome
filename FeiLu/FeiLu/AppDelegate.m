@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,7 +16,13 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    UIStoryboard *stroyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:[stroyboard instantiateInitialViewController]];
+    self.window.rootViewController=nil;
+    self.window.rootViewController=navigationController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -42,12 +49,5 @@
 }
 
 
-+(UINavigationBar*)sharedNavigationBar
-{
-    UINavigationBar *sharedNavigationBarInstance=nil;
-        sharedNavigationBarInstance=[[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height/10)];
-    [sharedNavigationBarInstance setBarTintColor:[UIColor colorWithRed:0.0f/255.0f green:149.0f/255.0f blue:208.0f/255.0f alpha:1]];
-    return sharedNavigationBarInstance;
-}
 
 @end

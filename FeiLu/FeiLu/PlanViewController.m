@@ -6,27 +6,21 @@
 //  Copyright (c) 2015 lance. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "PlanViewController.h"
+#import "DetailViewController.h"
 
-@interface SecondViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface PlanViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation SecondViewController
+@implementation PlanViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initNavigationBar];
     [self initProjectTable];
 }
 
--(void)initNavigationBar
-{
-    self.navBar=[AppDelegate sharedNavigationBar];
-    [self.view addSubview:self.navBar];
-
-}
 
 
 -(void)initProjectTable
@@ -36,7 +30,7 @@
 
     
     
-    self.projectTableView=[[UITableView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/10,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*9/10) style:UITableViewStylePlain];
+    self.projectTableView=[[UITableView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/12,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*9/10) style:UITableViewStylePlain];
     self.projectTableView.delegate=self;
     self.projectTableView.dataSource=self;
     
@@ -103,6 +97,8 @@
     UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*3/4,[UIScreen mainScreen].bounds.size.height/15,[UIScreen mainScreen].bounds.size.width/6,[UIScreen mainScreen].bounds.size.height/20)];
     [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f/255.0f green:149.0f/255.0f blue:208.0f/255.0f alpha:1]];
     [detailBtn setTitle:@"详情" forState:UIControlStateNormal];
+    [detailBtn addTarget:self action:@selector(pressedDetailBtn:) forControlEvents:UIControlEventTouchDown];
+    [detailBtn setTag:rowInex];
     
     return detailBtn;
 }
@@ -118,6 +114,23 @@
 }
 
 
+//-------------------------------------------------------------------------------------
+-(void)pressedDetailBtn:(UIButton *)btn
+{
+    NSUInteger max_index=self.projectNameList.count;
+    for (NSUInteger i=0; i<max_index; i++)
+    {
+        if (btn.tag==i)
+        {
+            NSLog(@"%lu",(unsigned long)i);
+            DetailViewController *detailVC=[[DetailViewController alloc]init];
+            [self.navigationController pushViewController:detailVC animated:YES];
+            detailVC.title=@"detail view";
+            
+            
+        }
+    }
+}
 //-------------------------------------------------------------------------------------
 
 - (void)didReceiveMemoryWarning {

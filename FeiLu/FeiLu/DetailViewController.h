@@ -1,5 +1,5 @@
 //
-//  NavigationBar.h
+//  DetailViewController.h
 //  FeiLu
 //
 //  Created by lance on 8/14/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NavigationBar : UINavigationBar
+@interface DetailViewController : UIViewController
 
 @end

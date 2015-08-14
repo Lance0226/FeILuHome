@@ -6,19 +6,18 @@
 //  Copyright (c) 2015 lance. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "HomeViewController.h"
 
-@interface FirstViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initAdvertiseBar];
-    [self initNavigationBar];
     
    }
 
@@ -27,21 +26,14 @@
 -(void)initAdvertiseBar
 {
     
-    EScrollerView *scroller=[[EScrollerView alloc] initWithFrameRect:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/10,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height/5)
+    EScrollerView *scroller=[[EScrollerView alloc] initWithFrameRect:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/11,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height/5)
                                                           ImageArray:[NSArray arrayWithObjects:@"home_page1.png",@"home_page2.png",@"home_page3.png",@"home_page4", nil]
                                                           TitleArray:[NSArray arrayWithObjects:@"11",@"22",@"33",@"44", nil]];
     scroller.delegate=self;
     [self.view addSubview:scroller];
-    [scroller release];
     
 }
 
--(void)initNavigationBar
-{
-    self.navBar=[AppDelegate sharedNavigationBar];
-    [self.view addSubview:self.navBar];
-    
-}
 
 -(void)EScrollerViewDidClicked:(NSUInteger)index
 {

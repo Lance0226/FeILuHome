@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7EE2BD9B1B7DA9AB006EB43B /* ESrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */; };
-		7EE2BD9E1B7DCAE9006EB43B /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BD9D1B7DCAE9006EB43B /* NavigationBar.m */; };
+		7EE2BDA11B7E0E52006EB43B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */; };
 		7EF55F061B7CA022005D0DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F051B7CA022005D0DA1 /* main.m */; };
 		7EF55F091B7CA022005D0DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F081B7CA022005D0DA1 /* AppDelegate.m */; };
-		7EF55F0C1B7CA022005D0DA1 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F0B1B7CA022005D0DA1 /* FirstViewController.m */; };
-		7EF55F0F1B7CA022005D0DA1 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F0E1B7CA022005D0DA1 /* SecondViewController.m */; };
+		7EF55F0C1B7CA022005D0DA1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F0B1B7CA022005D0DA1 /* HomeViewController.m */; };
+		7EF55F0F1B7CA022005D0DA1 /* PlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F0E1B7CA022005D0DA1 /* PlanViewController.m */; };
 		7EF55F121B7CA022005D0DA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EF55F101B7CA022005D0DA1 /* Main.storyboard */; };
 		7EF55F141B7CA022005D0DA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF55F131B7CA022005D0DA1 /* Images.xcassets */; };
 		7EF55F171B7CA022005D0DA1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF55F151B7CA022005D0DA1 /* LaunchScreen.xib */; };
@@ -32,17 +32,17 @@
 /* Begin PBXFileReference section */
 		7EE2BD991B7DA9AB006EB43B /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
 		7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESrollerView.m; sourceTree = "<group>"; };
-		7EE2BD9C1B7DCAE9006EB43B /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
-		7EE2BD9D1B7DCAE9006EB43B /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
+		7EE2BD9F1B7E0E52006EB43B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7EF55F001B7CA022005D0DA1 /* FeiLu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeiLu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF55F041B7CA022005D0DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF55F051B7CA022005D0DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EF55F071B7CA022005D0DA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7EF55F081B7CA022005D0DA1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7EF55F0A1B7CA022005D0DA1 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		7EF55F0B1B7CA022005D0DA1 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		7EF55F0D1B7CA022005D0DA1 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		7EF55F0E1B7CA022005D0DA1 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		7EF55F0A1B7CA022005D0DA1 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		7EF55F0B1B7CA022005D0DA1 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7EF55F0D1B7CA022005D0DA1 /* PlanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
+		7EF55F0E1B7CA022005D0DA1 /* PlanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
 		7EF55F111B7CA022005D0DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EF55F131B7CA022005D0DA1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7EF55F161B7CA022005D0DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -92,18 +92,18 @@
 			children = (
 				7EF55F071B7CA022005D0DA1 /* AppDelegate.h */,
 				7EF55F081B7CA022005D0DA1 /* AppDelegate.m */,
-				7EF55F0A1B7CA022005D0DA1 /* FirstViewController.h */,
-				7EF55F0B1B7CA022005D0DA1 /* FirstViewController.m */,
-				7EF55F0D1B7CA022005D0DA1 /* SecondViewController.h */,
-				7EF55F0E1B7CA022005D0DA1 /* SecondViewController.m */,
+				7EF55F0A1B7CA022005D0DA1 /* HomeViewController.h */,
+				7EF55F0B1B7CA022005D0DA1 /* HomeViewController.m */,
+				7EF55F0D1B7CA022005D0DA1 /* PlanViewController.h */,
+				7EF55F0E1B7CA022005D0DA1 /* PlanViewController.m */,
 				7EF55F101B7CA022005D0DA1 /* Main.storyboard */,
 				7EF55F131B7CA022005D0DA1 /* Images.xcassets */,
 				7EF55F151B7CA022005D0DA1 /* LaunchScreen.xib */,
 				7EF55F031B7CA022005D0DA1 /* Supporting Files */,
 				7EE2BD991B7DA9AB006EB43B /* EScrollerView.h */,
 				7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */,
-				7EE2BD9C1B7DCAE9006EB43B /* NavigationBar.h */,
-				7EE2BD9D1B7DCAE9006EB43B /* NavigationBar.m */,
+				7EE2BD9F1B7E0E52006EB43B /* DetailViewController.h */,
+				7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */,
 			);
 			path = FeiLu;
 			sourceTree = "<group>";
@@ -234,12 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EF55F0F1B7CA022005D0DA1 /* SecondViewController.m in Sources */,
-				7EE2BD9E1B7DCAE9006EB43B /* NavigationBar.m in Sources */,
+				7EF55F0F1B7CA022005D0DA1 /* PlanViewController.m in Sources */,
 				7EF55F091B7CA022005D0DA1 /* AppDelegate.m in Sources */,
-				7EF55F0C1B7CA022005D0DA1 /* FirstViewController.m in Sources */,
+				7EF55F0C1B7CA022005D0DA1 /* HomeViewController.m in Sources */,
 				7EE2BD9B1B7DA9AB006EB43B /* ESrollerView.m in Sources */,
 				7EF55F061B7CA022005D0DA1 /* main.m in Sources */,
+				7EE2BDA11B7E0E52006EB43B /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

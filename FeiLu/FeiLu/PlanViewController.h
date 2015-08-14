@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface SecondViewController : UIViewController
+@interface PlanViewController : UIViewController
 
 @property (nonatomic,retain)UINavigationBar *navBar;            //导航栏
 
