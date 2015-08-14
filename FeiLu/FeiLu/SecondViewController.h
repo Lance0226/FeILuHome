@@ -10,7 +10,14 @@
 #import "AppDelegate.h"
 
 @interface SecondViewController : UIViewController
-@property (nonatomic,retain)UINavigationBar *navBar;
+
+@property (nonatomic,retain)UINavigationBar *navBar;            //导航栏
+
+@property (nonatomic,retain)UITableView     *projectTableView;  //项目列表
+
+@property (nonatomic,retain)NSArray         *projectNameList;   //项目名字
+
+@property (nonatomic,retain)NSArray         *projectPreviewImage;
 
 @end
 
