@@ -14,11 +14,13 @@
 
 @implementation FirstViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self initAdvertiseBar];
-    [self initNavigationBar];    
-}
+    [self initNavigationBar];
+    
+   }
 
 
 //加入广告栏

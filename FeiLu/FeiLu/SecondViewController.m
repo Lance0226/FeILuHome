@@ -65,9 +65,11 @@
         
         CALayer *previewImageLayer=[self setPreviewImage:row];
         CALayer *nameLayer=[self setProjectName:row];
+        UIButton *detailBtn=[self setDetailBtn:row];
         
         [cell.layer addSublayer:previewImageLayer];
         [cell.layer addSublayer:nameLayer];
+        [cell.contentView addSubview:detailBtn];
     }
     
     return cell;
@@ -93,6 +95,16 @@
     [nameLayer setAlignmentMode:kCAAlignmentCenter];
     [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
     return nameLayer;
+}
+
+-(UIButton *)setDetailBtn:(NSUInteger)rowInex
+{
+  
+    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*3/4,[UIScreen mainScreen].bounds.size.height/15,[UIScreen mainScreen].bounds.size.width/6,[UIScreen mainScreen].bounds.size.height/20)];
+    [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f/255.0f green:149.0f/255.0f blue:208.0f/255.0f alpha:1]];
+    [detailBtn setTitle:@"详情" forState:UIControlStateNormal];
+    
+    return detailBtn;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
