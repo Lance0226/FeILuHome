@@ -10,33 +10,17 @@
 @implementation EScrollerView
 @synthesize delegate;
 
-- (void)dealloc {
-    [scrollView release];
-    [noteTitle release];
-    delegate=nil;
-    if (pageControl) {
-        [pageControl release];
-    }
-    if (imageArray) {
-        [imageArray release];
-        imageArray=nil;
-    }
-    if (titleArray) {
-        [titleArray release];
-        titleArray=nil;
-    }
-    [super dealloc];
-}
+
 -(id)initWithFrameRect:(CGRect)rect ImageArray:(NSArray *)imgArr TitleArray:(NSArray *)titArr
 {
     
     if ((self=[super initWithFrame:rect])) {
         self.userInteractionEnabled=YES;
-        titleArray=[titArr retain];
+        titleArray=titArr;
         NSMutableArray *tempArray=[NSMutableArray arrayWithArray:imgArr];
         [tempArray insertObject:[imgArr objectAtIndex:([imgArr count]-1)] atIndex:0];
         [tempArray addObject:[imgArr objectAtIndex:0]];
-        imageArray=[[NSArray arrayWithArray:tempArray] retain];
+        imageArray=[NSArray arrayWithArray:tempArray];
         viewSize=rect;
         NSUInteger pageCount=[imageArray count];
         scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, viewSize.size.width, viewSize.size.height)];
@@ -48,7 +32,7 @@
         scrollView.delegate = self;
         for (int i=0; i<pageCount; i++) {
             NSString *imgURL=[imageArray objectAtIndex:i];
-            UIImageView *imgView=[[[UIImageView alloc] init] autorelease];
+            UIImageView *imgView=[[UIImageView alloc] init];
             if ([imgURL hasPrefix:@"http://"]) {
                 //网络图片 请使用ego异步图片库
                 //[imgView setImageWithURL:[NSURL URLWithString:imgURL]];
@@ -62,7 +46,7 @@
             
             [imgView setFrame:CGRectMake(viewSize.size.width*i, 0,viewSize.size.width, viewSize.size.height)];
             imgView.tag=i;
-            UITapGestureRecognizer *Tap =[[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagePressed:)] autorelease];
+            UITapGestureRecognizer *Tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagePressed:)] ;
             [Tap setNumberOfTapsRequired:1];
             [Tap setNumberOfTouchesRequired:1];
             imgView.userInteractionEnabled=YES;
@@ -92,7 +76,6 @@
         [noteView addSubview:noteTitle];
         
         [self addSubview:noteView];
-        [noteView release];
     }
     return self;
 }

@@ -1,30 +1,22 @@
 //
-//  DetailViewController.m
-//  FeiLu
+//  CLTreeViewViewController.m
+//  CLTreeView
 //
-//  Created by lance on 8/14/15.
-//  Copyright (c) 2015 lance. All rights reserved.
-//
-
-//
-//  DoubleViewController.m
-//  CLTreeViewDemo
-//
-//  Created by 钟由 on 14-9-9.
+//  Created by 钟由 on 14-9-7.
 //  Copyright (c) 2014年 flywarrior24@163.com. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "CLTreeViewController.h"
 #import "CLTree.h"
 
-@interface DetailViewController ()
+@interface CLTreeViewController ()
 
 @property(strong,nonatomic) NSMutableArray* dataArray; //保存全部数据的数组
 @property(strong,nonatomic) NSArray *displayArray;   //保存要显示在界面上的数据的数组
 
 @end
 
-@implementation DetailViewController
+@implementation CLTreeViewController
 
 - (void)viewDidLoad
 {
@@ -32,10 +24,10 @@
     _myTableView = [[UITableView alloc]init];
     _myTableView.dataSource = self;
     _myTableView.delegate = self;
-    CGRect tableViewFrame = CGRectMake(0, 25, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect tableViewFrame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
     _myTableView.frame = tableViewFrame;
     [self.view addSubview:_myTableView];
-    [self addTestData];//添加演示数据
+    [self addTestData];
     [self reloadDataForDisplayArray];//初始化将要显示的数据
 }
 
@@ -47,7 +39,7 @@
     node0.sonNodes = nil;
     node0.isExpanded = FALSE;
     CLTreeView_LEVEL0_Model *tmp0 =[[CLTreeView_LEVEL0_Model alloc]init];
-    tmp0.name = @"家装基础施工预算";
+    tmp0.name = @"收藏";
     tmp0.headImgPath = @"contacts_collect.png";
     tmp0.headImgUrl = nil;
     node0.nodeData = tmp0;
@@ -58,7 +50,7 @@
     node1.sonNodes = nil;
     node1.isExpanded = FALSE;
     CLTreeView_LEVEL0_Model *tmp1 =[[CLTreeView_LEVEL0_Model alloc]init];
-    tmp1.name = @"家装基础建材预算";
+    tmp1.name = @"软件技术";
     tmp1.headImgPath = @"contacts_major.png";
     tmp1.headImgUrl = nil;
     node1.nodeData = tmp1;
@@ -69,7 +61,7 @@
     node2.sonNodes = nil;
     node2.isExpanded = FALSE;
     CLTreeView_LEVEL0_Model *tmp2 =[[CLTreeView_LEVEL0_Model alloc]init];
-    tmp2.name = @"家装基础家居预算";
+    tmp2.name = @"信息工程";
     tmp2.headImgPath = @"contacts_major.png";
     tmp2.headImgUrl = nil;
     node2.nodeData = tmp2;
@@ -80,8 +72,8 @@
     node3.sonNodes = nil;
     node3.isExpanded = FALSE;
     CLTreeView_LEVEL1_Model *tmp3 =[[CLTreeView_LEVEL1_Model alloc]init];
-    tmp3.name = @"客餐厅工程";
-    tmp3.sonCnt = @"6973.4";
+    tmp3.name = @"软件技术1班";
+    tmp3.sonCnt = @"1";
     node3.nodeData = tmp3;
     
     CLTreeViewNode *node4 = [[CLTreeViewNode alloc]init];
@@ -90,10 +82,9 @@
     node4.sonNodes = nil;
     node4.isExpanded = FALSE;
     CLTreeView_LEVEL1_Model *tmp4 =[[CLTreeView_LEVEL1_Model alloc]init];
-    tmp4.name = @"主卧工程";
-    tmp4.sonCnt = @"2038";
+    tmp4.name = @"软件技术2班";
+    tmp4.sonCnt = @"1";
     node4.nodeData = tmp4;
-    
     
     CLTreeViewNode *node5 = [[CLTreeViewNode alloc]init];
     node5.nodeLevel = 2;
@@ -119,56 +110,8 @@
     tmp6.headImgUrl = nil;
     node6.nodeData = tmp6;
     
-    CLTreeViewNode *node7 = [[CLTreeViewNode alloc]init];
-    node7.nodeLevel = 2;
-    node7.type = 2;
-    node7.sonNodes = nil;
-    node7.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp7 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp7.name = @"李四";
-    tmp7.signture = @"说的好有道理，我竟无言以对。";
-    tmp7.headImgPath = @"head3.jpg";
-    tmp7.headImgUrl = nil;
-    node7.nodeData = tmp7;
-    
-    CLTreeViewNode *node8 = [[CLTreeViewNode alloc]init];
-    node8.nodeLevel = 2;
-    node8.type = 2;
-    node8.sonNodes = nil;
-    node8.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp8 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp8.name = @"田七";
-    tmp8.signture = @"肚子好饿啊。。。";
-    tmp8.headImgPath = @"head4.jpg";
-    tmp8.headImgUrl = nil;
-    node8.nodeData = tmp8;
-    
-    CLTreeViewNode *node9 = [[CLTreeViewNode alloc]init];
-    node9.nodeLevel = 2;
-    node9.type = 2;
-    node9.sonNodes = nil;
-    node9.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp9 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp9.name = @"王大锤";
-    tmp9.signture = @"走向人生巅峰！";
-    tmp9.headImgPath = @"head5.jpg";
-    tmp9.headImgUrl = nil;
-    node9.nodeData = tmp9;
-    
-    CLTreeViewNode *node10 = [[CLTreeViewNode alloc]init];
-    node10.nodeLevel = 2;
-    node10.type = 2;
-    node10.sonNodes = nil;
-    node10.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp10 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp10.name = @"孔连顺";
-    tmp10.signture = @"锤锤。。。";
-    tmp10.headImgPath = @"head6.jpg";
-    tmp10.headImgUrl = nil;
-    node10.nodeData = tmp10;
-    
-    node0.sonNodes = [NSMutableArray arrayWithObjects:node3,node4,nil];
-    node3.sonNodes = [NSMutableArray arrayWithObjects:node5,node7,node10,nil];
+    node1.sonNodes = [NSMutableArray arrayWithObjects:node3,node4,nil];
+    node3.sonNodes = [NSMutableArray arrayWithObjects:node5,nil];
     node4.sonNodes = [NSMutableArray arrayWithObjects:node6,nil];
     _dataArray = [NSMutableArray arrayWithObjects:node0,node1,node2, nil];
 }
@@ -227,7 +170,7 @@
 
 /*---------------------------------------
  为不同类型cell填充数据
- --------------------------------------- */
+--------------------------------------- */
 -(void) loadDataForTreeViewCell:(UITableViewCell*)cell with:(CLTreeViewNode*)node{
     if(node.type == 0){
         CLTreeView_LEVEL0_Model *nodeData = node.nodeData;
@@ -264,7 +207,7 @@
 }
 
 /*---------------------------------------
- cell高度默认为50
+cell高度默认为50
  --------------------------------------- */
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
@@ -272,7 +215,7 @@
 }
 
 /*---------------------------------------
- 处理cell选中事件，需要自定义的部分
+处理cell选中事件，需要自定义的部分
  --------------------------------------- */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -302,7 +245,7 @@
 }
 
 /*---------------------------------------
- 初始化将要显示的cell的数据
+初始化将要显示的cell的数据
  --------------------------------------- */
 -(void) reloadDataForDisplayArray{
     NSMutableArray *tmp = [[NSMutableArray alloc]init];
@@ -324,7 +267,7 @@
 }
 
 /*---------------------------------------
- 修改cell的状态(关闭或打开)
+修改cell的状态(关闭或打开)
  --------------------------------------- */
 -(void) reloadDataForDisplayArrayChangeAt:(NSInteger)row{
     NSMutableArray *tmp = [[NSMutableArray alloc]init];
@@ -356,8 +299,6 @@
 }
 @end
 
-
 // 版权属于原作者
 // http://code4app.com (cn) http://code4app.net (en)
 // 发布代码于最专业的源码分享网站: Code4App.com
-

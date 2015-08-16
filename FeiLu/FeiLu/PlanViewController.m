@@ -125,7 +125,7 @@
             NSLog(@"%lu",(unsigned long)i);
             DetailViewController *detailVC=[[DetailViewController alloc]init];
             [self.navigationController pushViewController:detailVC animated:YES];
-            detailVC.title=@"detail view";
+            detailVC.title=@"家装项目信息";
             
             
         }
