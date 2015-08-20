@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
     [self initAdvertiseBar];
+    [self initJsonParser];
     
    }
 
@@ -32,6 +33,26 @@
     scroller.delegate=self;
     [self.view addSubview:scroller];
     
+}
+
+-(void)initJsonParser
+{
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/spolo.html"]];
+    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
+    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
+    
+    NSEnumerator *keyEnum=[dict keyEnumerator];
+    NSEnumerator *objEnum=[dict objectEnumerator];
+    
+    for (NSObject *object in keyEnum)
+    {
+        NSLog(@"%@",object);
+    }
+    
+    for (NSObject *object in objEnum)
+    {
+        NSLog(@"%@",object);
+    }
 }
 
 
