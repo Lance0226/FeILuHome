@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
     [self initProjectTable];
+    [self GetPlanNameListFromJson];
 }
 
 
@@ -131,6 +132,74 @@
         }
     }
 }
+//-------------------------------------------------------------------------------------
+-(void)GetPlanNameListFromJson    //从json数据解析
+{
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_name.json"]];
+    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
+    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
+
+    NSEnumerator *keyEnum=[dict keyEnumerator];
+    NSMutableArray    *keyArr=[[NSMutableArray alloc]init];
+    //NSEnumerator *objEnum=[dict objectEnumerator];
+    
+    for (NSObject *object in keyEnum)
+    {
+        NSString *strId=(NSString*)object;
+        NSNumber *id=[NSNumber numberWithInteger:[strId integerValue]];
+        [keyArr addObject:id];
+    }
+    [keyArr sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {  //升序重排
+        return [obj1 integerValue]>[obj2 integerValue];
+    }];
+    
+    for (NSObject *object in keyArr) {
+        NSLog(@"%@",object);
+    }
+
+    
+    /*
+    for (NSObject *object in objEnum)
+    {
+        NSLog(@"%@",object);
+        
+    }
+     
+    */
+    
+    
+}
+
+
+
+-(NSDictionary *)GetPlanPreviewListFromJson    //从json数据解析
+{
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_preview_url.json"]];
+    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
+    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
+    /*
+     NSEnumerator *keyEnum=[dict keyEnumerator];
+     NSEnumerator *objEnum=[dict objectEnumerator];
+     
+     for (NSObject *object in keyEnum)
+     {
+     NSLog(@"%@",object);
+     }
+     
+     for (NSObject *object in objEnum)
+     {
+     NSLog(@"%@",object);
+     
+     }
+     */
+    return dict;
+    
+    
+}
+
+
+
+
 //-------------------------------------------------------------------------------------
 
 - (void)didReceiveMemoryWarning {

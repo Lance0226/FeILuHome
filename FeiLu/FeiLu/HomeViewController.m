@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
     [self initAdvertiseBar];
-    [self initJsonParser];
     
    }
 
@@ -35,26 +34,7 @@
     
 }
 
--(void)initJsonParser
-{
-    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/demo.json"]];
-    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
-    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
-    
-    NSEnumerator *keyEnum=[dict keyEnumerator];
-    NSEnumerator *objEnum=[dict objectEnumerator];
-    
-    for (NSObject *object in keyEnum)
-    {
-        NSLog(@"%@",object);
-    }
-    
-    for (NSObject *object in objEnum)
-    {
-        NSLog(@"%@",object);
-        
-    }
-}
+
 
 
 -(void)EScrollerViewDidClicked:(NSUInteger)index
