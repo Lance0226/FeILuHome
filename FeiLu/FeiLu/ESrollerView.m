@@ -23,9 +23,9 @@
         imageArray=[NSArray arrayWithArray:tempArray];
         viewSize=rect;
         NSUInteger pageCount=[imageArray count];
-        scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, viewSize.size.width, viewSize.size.height)];
+        scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0,0, viewSize.size.width, viewSize.size.height)];
         scrollView.pagingEnabled = YES;
-        scrollView.contentSize = CGSizeMake(viewSize.size.width * pageCount, viewSize.size.height);
+        scrollView.contentSize = CGSizeMake(viewSize.size.width * pageCount,viewSize.size.height);
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.scrollsToTop = NO;

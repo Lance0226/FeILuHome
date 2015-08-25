@@ -37,7 +37,7 @@
 
 -(void)initJsonParser
 {
-    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/spolo.html"]];
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/demo.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
     
@@ -52,6 +52,7 @@
     for (NSObject *object in objEnum)
     {
         NSLog(@"%@",object);
+        
     }
 }
 
