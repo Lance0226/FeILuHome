@@ -7,6 +7,7 @@
 //
 
 #import "PlanViewController.h"
+#import "PanoViewController.h"
 #import "DetailViewController.h"
 
 @interface PlanViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -19,7 +20,7 @@
 {
     [super viewDidLoad];
     [self initProjectTable];
-    [self GetPlanPreviewListFromJson];
+    [self initPanoURL];
     
 }
 
@@ -37,10 +38,11 @@
     self.projectTableView.dataSource=self;
     
     [self.view addSubview:self.projectTableView];
-    
-    
-    
-    
+}
+
+-(void)initPanoURL  //获取全景图url数据，便于后续处理
+{
+    self.projectPanoURL=[self GetPlanPanoListFromJson];
 }
 
 //-------------------------------------------------------------------------------------
@@ -125,10 +127,14 @@
     {
         if (btn.tag==i)
         {
-            NSLog(@"%lu",(unsigned long)i);
-            DetailViewController *detailVC=[[DetailViewController alloc]init];
-            [self.navigationController pushViewController:detailVC animated:YES];
-            detailVC.title=@"家装项目信息";
+            //DetailViewController *detailVC=[[DetailViewController alloc]init];
+            //[self.navigationController pushViewController:detailVC animated:YES];
+            PanoViewController *panoVC=[[PanoViewController alloc]init];
+            [self.navigationController pushViewController:panoVC animated:YES];
+            //detailVC.title=@"家装项目信息";
+            
+            panoVC.title=@"家装项目信息";
+            panoVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
             
             
         }
@@ -169,7 +175,7 @@
 
 
 
--(NSMutableArray*)GetPlanPreviewListFromJson    //从json数据解析
+-(NSMutableArray*)GetPlanPreviewListFromJson    //从json数据解析预览图
 {
     NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_preview_url.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
@@ -213,6 +219,38 @@
     
     
     return imageArr;
+    
+}
+
+-(NSMutableArray*)GetPlanPanoListFromJson    //从json数据解析全景图
+{
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_pano_url.json"]];
+    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
+    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
+    
+    NSEnumerator *keyEnum=[dict keyEnumerator]; //键值枚举
+    
+    NSMutableArray    *keyArr=[[NSMutableArray alloc]init]; //键值队列
+    NSMutableArray    *panoURLArr=[[NSMutableArray alloc]init];
+    
+    
+    //NSEnumerator *objEnum=[dict objectEnumerator];
+    
+    for (NSObject *object in keyEnum)
+    {
+        [keyArr addObject:object];
+    }
+    [keyArr sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {  //升序重排
+        return [obj1 integerValue]>[obj2 integerValue];
+    }];
+    
+    for (NSObject *object in keyArr)
+    {
+        NSObject *name=[dict objectForKey:object];
+        [panoURLArr addObject:name];
+    }
+    
+    return panoURLArr;
     
 }
 

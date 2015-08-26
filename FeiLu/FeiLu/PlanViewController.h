@@ -11,13 +11,15 @@
 
 @interface PlanViewController : UIViewController
 
-@property (nonatomic,retain)UINavigationBar *navBar;            //导航栏
+@property (nonatomic,retain)UINavigationBar        *navBar;            //导航栏
 
-@property (nonatomic,retain)UITableView     *projectTableView;  //项目列表
+@property (nonatomic,retain)UITableView            *projectTableView;  //项目列表
 
 @property (nonatomic,retain)NSMutableArray         *projectNameList;   //项目名字
 
 @property (nonatomic,retain)NSMutableArray         *projectPreviewImage;
+
+@property (nonatomic,retain)NSMutableArray         *projectPanoURL;
 
 @end
 
