@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>D3D7A425-F749-4E72-8F32-4015C91F3AA3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>FeiLu</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2319340B34EE8F9068269766D0C085A9DF6CCE16</key>
 		<string>https://github.com/Lance0226/FeiLuHome.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FeiLu/FeiLu.xcodeproj/project.xcworkspace</string>
+	<string>FeiLu/FeiLu.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2319340B34EE8F9068269766D0C085A9DF6CCE16</key>

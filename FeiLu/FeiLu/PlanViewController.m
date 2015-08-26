@@ -19,19 +19,20 @@
 {
     [super viewDidLoad];
     [self initProjectTable];
-    [self GetPlanNameListFromJson];
+    [self GetPlanPreviewListFromJson];
+    
 }
 
 
 
 -(void)initProjectTable
 {
-    self.projectNameList=[[NSArray alloc]initWithObjects:@"方案1",@"方案2",@"方案3",nil];
-    self.projectPreviewImage=[[NSArray alloc]initWithObjects:[UIImage imageNamed:@"plan1"],[UIImage imageNamed:@"plan2"],[UIImage imageNamed:@"plan3"],nil];
-
+    self.projectNameList=[self GetPlanNameListFromJson];
+    self.projectPreviewImage=[self GetPlanPreviewListFromJson];
     
     
-    self.projectTableView=[[UITableView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/12,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*9/10) style:UITableViewStylePlain];
+    self.projectTableView=[[UITableView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/12,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*9/10)];
+    self.projectTableView.scrollEnabled=YES;
     self.projectTableView.delegate=self;
     self.projectTableView.dataSource=self;
     
@@ -50,14 +51,13 @@
     
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:projectTableIdentifier];
     NSUInteger row=[indexPath row];
-    
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
+                initWithStyle:UITableViewCellStyleValue2
                 reuseIdentifier:projectTableIdentifier];
         
-        
+    
         CALayer *previewImageLayer=[self setPreviewImage:row];
         CALayer *nameLayer=[self setProjectName:row];
         UIButton *detailBtn=[self setDetailBtn:row];
@@ -66,6 +66,8 @@
         [cell.layer addSublayer:nameLayer];
         [cell.contentView addSubview:detailBtn];
     }
+    
+
     
     return cell;
 
@@ -133,68 +135,98 @@
     }
 }
 //-------------------------------------------------------------------------------------
--(void)GetPlanNameListFromJson    //从json数据解析
+-(NSMutableArray*)GetPlanNameListFromJson    //从json数据解析
 {
     NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_name.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
 
-    NSEnumerator *keyEnum=[dict keyEnumerator];
-    NSMutableArray    *keyArr=[[NSMutableArray alloc]init];
+    NSEnumerator *keyEnum=[dict keyEnumerator]; //键值枚举
+    
+    NSMutableArray    *keyArr=[[NSMutableArray alloc]init]; //键值队列
+    NSMutableArray    *nameArr=[[NSMutableArray alloc]init];
+    
+    
     //NSEnumerator *objEnum=[dict objectEnumerator];
     
     for (NSObject *object in keyEnum)
     {
-        NSString *strId=(NSString*)object;
-        NSNumber *id=[NSNumber numberWithInteger:[strId integerValue]];
-        [keyArr addObject:id];
+        [keyArr addObject:object];
     }
     [keyArr sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {  //升序重排
         return [obj1 integerValue]>[obj2 integerValue];
     }];
     
-    for (NSObject *object in keyArr) {
-        NSLog(@"%@",object);
+    for (NSObject *object in keyArr)
+    {
+        NSObject *name=[dict objectForKey:object];
+        [nameArr addObject:name];
     }
 
-    
-    /*
-    for (NSObject *object in objEnum)
-    {
-        NSLog(@"%@",object);
-        
-    }
-     
-    */
-    
+    return nameArr;
     
 }
 
 
 
--(NSDictionary *)GetPlanPreviewListFromJson    //从json数据解析
+-(NSMutableArray*)GetPlanPreviewListFromJson    //从json数据解析
 {
     NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_preview_url.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
-    /*
-     NSEnumerator *keyEnum=[dict keyEnumerator];
-     NSEnumerator *objEnum=[dict objectEnumerator];
-     
-     for (NSObject *object in keyEnum)
-     {
-     NSLog(@"%@",object);
-     }
-     
-     for (NSObject *object in objEnum)
-     {
-     NSLog(@"%@",object);
-     
-     }
-     */
-    return dict;
+    
+    NSEnumerator *keyEnum=[dict keyEnumerator]; //键值枚举
+    
+    NSMutableArray    *keyArr=[[NSMutableArray alloc]init]; //键值队列
+    NSMutableArray    *imageArr=[[NSMutableArray alloc]init];
     
     
+    //NSEnumerator *objEnum=[dict objectEnumerator];
+    
+    for (NSObject *object in keyEnum)
+    {
+        [keyArr addObject:object];
+    }
+    
+    
+    [keyArr sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {  //升序重排
+        return [obj1 integerValue]>[obj2 integerValue];
+    }];
+    
+    for (NSObject *object in keyArr)
+    {
+        NSObject *url=[dict objectForKey:object];
+        
+        NSURL *imageURL=[NSURL URLWithString:(NSString *)url];
+        NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
+        UIImage *image=[UIImage imageWithData:imageData];
+        
+        if (image!=nil)
+        {
+           [imageArr addObject:image];
+        }
+        else
+        {
+            [imageArr addObject:[self createImageWithColor:[UIColor whiteColor]]];
+        }
+    }
+    
+    
+    return imageArr;
+    
+}
+
+-(UIImage *)createImageWithColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return theImage;
 }
 
 

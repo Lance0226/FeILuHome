@@ -15,9 +15,9 @@
 
 @property (nonatomic,retain)UITableView     *projectTableView;  //项目列表
 
-@property (nonatomic,retain)NSArray         *projectNameList;   //项目名字
+@property (nonatomic,retain)NSMutableArray         *projectNameList;   //项目名字
 
-@property (nonatomic,retain)NSArray         *projectPreviewImage;
+@property (nonatomic,retain)NSMutableArray         *projectPreviewImage;
 
 @end
 
