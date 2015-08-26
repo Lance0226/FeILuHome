@@ -64,6 +64,25 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Pano View Controller-->
+        <scene sceneID="bfn-oY-4Y6">
+            <objects>
+                <viewController id="670-C4-d9c" customClass="PanoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4iG-cH-AIy"/>
+                        <viewControllerLayoutGuide type="bottom" id="aDG-cI-ar6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wAD-CE-gKR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZU-an-Qmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="676"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>

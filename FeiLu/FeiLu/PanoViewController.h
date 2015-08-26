@@ -10,6 +10,7 @@
 
 @interface PanoViewController : UIViewController
 
-@property (nonatomic,retain) NSURL *panoURL;
+@property (nonatomic,retain) NSURL     *panoURL;
+@property (nonatomic,retain) UIWebView *panoView;
 
 @end
