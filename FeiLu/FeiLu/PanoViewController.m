@@ -17,10 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self initPanoView];
+    //[self initSectionBar];
     
 }
-
+/*
 -(void)initBackgroundView
 {
     UIView *bgView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];
@@ -28,14 +30,25 @@
     [self.view addSubview:bgView];
 
 }
-
+*/
 -(void)initPanoView
 {
-    UIWebView *panoView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];
+    UIWebView *panoView=[[UIWebView alloc]initWithFrame:CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];
     NSURLRequest *request=[NSURLRequest requestWithURL:self.panoURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
     NSLog(@"%@",self.panoURL);
     [panoView loadRequest:request];
     [self.view addSubview:panoView];
+}
+
+-(void)initSectionBar
+{
+    NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"1",@"2",nil];
+    UISegmentedControl *sectionControl=[[UISegmentedControl alloc] initWithItems:sectionArr];
+    [sectionControl setFrame:CGRectMake(0, self.navigationController.navigationBar.bounds.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height/15)];
+    [sectionControl setSelectedSegmentIndex:2];
+    
+    
+    [self.view addSubview:sectionControl];
 }
 
 - (void)didReceiveMemoryWarning
