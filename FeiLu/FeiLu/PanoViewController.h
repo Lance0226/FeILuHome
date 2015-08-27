@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PanoViewController : UIViewController
+@interface PanoViewController : UIViewController<UITableViewDataSource,UITableViewDataSource,UIWebViewDelegate>
 
 @property (nonatomic,retain) NSURL     *panoURL;
 @property (nonatomic,retain) UIWebView *panoView;

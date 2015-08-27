@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EDB90FB1B8ED40E00474FC5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */; };
 		7EE2BD9B1B7DA9AB006EB43B /* ESrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */; };
 		7EE2BDA11B7E0E52006EB43B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */; };
 		7EF55F061B7CA022005D0DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F051B7CA022005D0DA1 /* main.m */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7EE2BD991B7DA9AB006EB43B /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
 		7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESrollerView.m; sourceTree = "<group>"; };
 		7EE2BD9F1B7E0E52006EB43B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EDB90FB1B8ED40E00474FC5 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +131,7 @@
 		7EF55EF71B7CA022005D0DA1 = {
 			isa = PBXGroup;
 			children = (
+				7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */,
 				7EF55F021B7CA022005D0DA1 /* FeiLu */,
 				7EF55F1F1B7CA022005D0DA1 /* FeiLuTests */,
 				7EF55F011B7CA022005D0DA1 /* Products */,

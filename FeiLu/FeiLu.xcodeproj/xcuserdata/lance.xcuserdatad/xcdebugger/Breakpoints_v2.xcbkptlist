@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FeiLu/PanoViewController.m"
-            timestampString = "462282089.688223"
+            timestampString = "462358607.007467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
             landmarkName = "-switchSection:"
             landmarkType = "5">
          </BreakpointContent>
