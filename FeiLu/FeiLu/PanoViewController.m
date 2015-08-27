@@ -15,6 +15,8 @@
 @property(strong,nonatomic) NSMutableArray* dataArray; //保存全部数据的数组
 @property(strong,nonatomic) NSArray *displayArray;   //保存要显示在界面上的数据的数组
 
+@property (strong,nonatomic) UIActivityIndicatorView *activityIndicator; //指示器
+
 @end
 
 @implementation PanoViewController
@@ -388,8 +390,39 @@
 
 }
 
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+
+
+-(void)webViewDidStartLoad:(UIWebView *)webView //设置加载进度委托事件
 {
+    UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/15, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*14/15)];
+    [view setTag:108];
+    [view setBackgroundColor:[UIColor blackColor]];
+    [view setAlpha:0.5];
+    [self.view addSubview:view];
+    
+     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [self.activityIndicator setCenter:view.center];
+    [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [view addSubview:self.activityIndicator];
+    
+    [self.activityIndicator startAnimating];
+    
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView  //加载完成去掉指示器
+{
+    [self.activityIndicator stopAnimating];
+    UIView *view = (UIView*)[self.view viewWithTag:108];
+    [view removeFromSuperview];
+    NSLog(@"webViewDidFinishLoad");
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error  //加载错误时去掉指示器
+{
+    [self.activityIndicator stopAnimating];
+    UIView *view = (UIView*)[self.view viewWithTag:108];
+    [view removeFromSuperview];
+    NSLog(@"webViewDidFinishLoad");
     NSLog(@"Fail load :%@",error);
 }
 
