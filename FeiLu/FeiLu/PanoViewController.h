@@ -12,5 +12,6 @@
 
 @property (nonatomic,retain) NSURL     *panoURL;
 @property (nonatomic,retain) UIWebView *panoView;
+@property (nonatomic,retain) NSNumber  *xmlIndex;
 
 @end

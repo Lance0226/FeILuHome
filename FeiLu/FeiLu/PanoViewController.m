@@ -68,7 +68,9 @@
 //添加演示数据
 -(void) addTestData{
     NSError *error;
-    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/xml1.xml"]];
+    //将xml序号传入字符串
+    NSString *strXMLURL=[NSString stringWithFormat:@"http://localhost:8080/xml%ld.xml",(long)[self.xmlIndex intValue]];
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:strXMLURL]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSString *str=[[NSString alloc]initWithData:reposne encoding:NSUTF8StringEncoding];
     //NSLog(@"%@",str);

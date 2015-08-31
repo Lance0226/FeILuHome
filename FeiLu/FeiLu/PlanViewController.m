@@ -127,6 +127,7 @@
     {
         if (btn.tag==i)
         {
+            NSLog(@"%lu",(unsigned long)i);
             //DetailViewController *detailVC=[[DetailViewController alloc]init];
             //[self.navigationController pushViewController:detailVC animated:YES];
             PanoViewController *panoVC=[[PanoViewController alloc]init];
@@ -135,6 +136,7 @@
             
             panoVC.title=@"家装项目信息";
             panoVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
+            panoVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             
             
         }
