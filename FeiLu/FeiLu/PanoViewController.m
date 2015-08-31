@@ -8,14 +8,17 @@
 
 #import "PanoViewController.h"
 #import "CLTree.h"
+#import "GDataXMLNode.h"
 
 @interface PanoViewController ()
 
 @property (strong,nonatomic) UITableView* myTableView;
 @property(strong,nonatomic) NSMutableArray* dataArray; //保存全部数据的数组
 @property(strong,nonatomic) NSArray *displayArray;   //保存要显示在界面上的数据的数组
-
 @property (strong,nonatomic) UIActivityIndicatorView *activityIndicator; //指示器
+
+
+
 
 @end
 
@@ -52,6 +55,9 @@
     _myTableView.dataSource = self;
     _myTableView.delegate = self;
     CGRect tableViewFrame = CGRectMake(0, self.view.frame.size.height*0.16, self.view.frame.size.width, self.view.frame.size.height);
+    
+    self.dataArray=[[NSMutableArray alloc]init];
+    
     _myTableView.frame = tableViewFrame;
     [self.view addSubview:_myTableView];
     [self.view sendSubviewToBack:_myTableView];
@@ -61,136 +67,94 @@
 
 //添加演示数据
 -(void) addTestData{
-    CLTreeViewNode *node0 = [[CLTreeViewNode alloc]init];
-    node0.nodeLevel = 0;
-    node0.type = 0;
-    node0.sonNodes = nil;
-    node0.isExpanded = FALSE;
-    CLTreeView_LEVEL0_Model *tmp0 =[[CLTreeView_LEVEL0_Model alloc]init];
-    tmp0.name = @"家装基础施工预算";
-    tmp0.headImgPath = @"contacts_collect.png";
-    tmp0.headImgUrl = nil;
-    node0.nodeData = tmp0;
+    NSError *error;
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/xml1.xml"]];
+    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
+    NSString *str=[[NSString alloc]initWithData:reposne encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@",str);
+    GDataXMLDocument *xmlDoc=[[GDataXMLDocument alloc]initWithXMLString:str encoding:NSUTF8StringEncoding error:&error];
+    GDataXMLElement *rootEle=[xmlDoc rootElement];
+    NSArray *arrNode1=[rootEle children];
+    GDataXMLElement *node11=[arrNode1 objectAtIndex:0];
+    NSArray *arrNode2=[node11 children];
+    for (GDataXMLElement *node2 in arrNode2)
+    {
+        NSString *clNode2Name=[[node2 attributeForName:@"name"]stringValue];
+        CLTreeViewNode *clNode2=[self getCLNodeWithName:clNode2Name NodelLevel:0 NodelContent:nil];
+        
+        
+        NSMutableArray *arrCLNode3=[[NSMutableArray alloc]init];
+        NSArray *arrNode3=[node2 children];
+        for (GDataXMLElement *node3 in arrNode3)
+        {
+            NSString *clNode3Name=[[node3 attributeForName:@"name"]stringValue];
+            NSString *clNode3Content=[[node3 attributeForName:@"budget"]stringValue];
+            CLTreeViewNode *clNode3=[self getCLNodeWithName:clNode3Name NodelLevel:1 NodelContent:clNode3Content];
+            [arrCLNode3 addObject:clNode3];
+            
+            NSMutableArray *arrCLNode4=[[NSMutableArray alloc]init];
+            NSArray *arrNode4=[node3 children];
+            for (GDataXMLElement *node4 in arrNode4)
+            {
+                 //NSLog(@"%@",[[node4 attributeForName:@"item_name"]stringValue]);
+                 NSString *clNode4Name=[[node4 attributeForName:@"item_name"]stringValue];
+                 NSString *clNode4Content=[[node4 attributeForName:@"item_total"]stringValue];
+                 CLTreeViewNode *clNode4=[self getCLNodeWithName:clNode4Name NodelLevel:2 NodelContent:clNode4Content];
+                [arrCLNode4 addObject:clNode4];
+                
+            }
+            clNode3.sonNodes=arrCLNode4;
+        }
+        clNode2.sonNodes=arrCLNode3;
+        [self.dataArray addObject:clNode2];
+    }
+
     
-    CLTreeViewNode *node1 = [[CLTreeViewNode alloc]init];
-    node1.nodeLevel = 0;
-    node1.type = 0;
-    node1.sonNodes = nil;
-    node1.isExpanded = FALSE;
-    CLTreeView_LEVEL0_Model *tmp1 =[[CLTreeView_LEVEL0_Model alloc]init];
-    tmp1.name = @"家装基础建材预算";
-    tmp1.headImgPath = @"contacts_major.png";
-    tmp1.headImgUrl = nil;
-    node1.nodeData = tmp1;
+}
+
+-(CLTreeViewNode *)getCLNodeWithName:(NSString *)name NodelLevel:(NSUInteger)nodeLevel NodelContent:(NSString*)nodeContent
+{
+    CLTreeViewNode *clNode=[[CLTreeViewNode alloc]init];
+    if (nodeLevel==0)
+    {
+        clNode.nodeLevel=0;
+        clNode.type=0;
+        clNode.sonNodes=nil;
+        CLTreeView_LEVEL0_Model *clNodeModel=[[CLTreeView_LEVEL0_Model alloc]init];
+        clNodeModel.name=name;
+        clNodeModel.headImgPath=@"contacts_collect.png";
+        clNodeModel.headImgUrl=nil;
+        clNode.nodeData=clNodeModel;
+    }
+    else if(nodeLevel==1)
+    {
+        clNode.nodeLevel = 1;
+        clNode.type = 1;
+        clNode.sonNodes = nil;
+        clNode.isExpanded = FALSE;
+        CLTreeView_LEVEL1_Model *clNodeModel =[[CLTreeView_LEVEL1_Model alloc]init];
+        clNodeModel.name = name;
+        clNodeModel.sonCnt =nodeContent;
+        clNode.nodeData = clNodeModel;
+    }
+    else
+    {
+        clNode.nodeLevel = 2;
+        clNode.type = 2;
+        clNode.sonNodes = nil;
+        clNode.isExpanded = FALSE;
+        CLTreeView_LEVEL2_Model *clNodeModel =[[CLTreeView_LEVEL2_Model alloc]init];
+        clNodeModel.name = name;
+        clNodeModel.signture =nodeContent;
+        clNodeModel.headImgPath = @"head6.jpg";
+        clNodeModel.headImgUrl = nil;
+        clNode.nodeData = clNodeModel;
+
+    }
     
-    CLTreeViewNode *node2 = [[CLTreeViewNode alloc]init];
-    node2.nodeLevel = 0;
-    node2.type = 0;
-    node2.sonNodes = nil;
-    node2.isExpanded = FALSE;
-    CLTreeView_LEVEL0_Model *tmp2 =[[CLTreeView_LEVEL0_Model alloc]init];
-    tmp2.name = @"家装基础家居预算";
-    tmp2.headImgPath = @"contacts_major.png";
-    tmp2.headImgUrl = nil;
-    node2.nodeData = tmp2;
     
-    CLTreeViewNode *node3 = [[CLTreeViewNode alloc]init];
-    node3.nodeLevel = 1;
-    node3.type = 1;
-    node3.sonNodes = nil;
-    node3.isExpanded = FALSE;
-    CLTreeView_LEVEL1_Model *tmp3 =[[CLTreeView_LEVEL1_Model alloc]init];
-    tmp3.name = @"客餐厅工程";
-    tmp3.sonCnt = @"6973.4";
-    node3.nodeData = tmp3;
-    
-    CLTreeViewNode *node4 = [[CLTreeViewNode alloc]init];
-    node4.nodeLevel = 1;
-    node4.type = 1;
-    node4.sonNodes = nil;
-    node4.isExpanded = FALSE;
-    CLTreeView_LEVEL1_Model *tmp4 =[[CLTreeView_LEVEL1_Model alloc]init];
-    tmp4.name = @"主卧工程";
-    tmp4.sonCnt = @"2038";
-    node4.nodeData = tmp4;
-    
-    
-    CLTreeViewNode *node5 = [[CLTreeViewNode alloc]init];
-    node5.nodeLevel = 2;
-    node5.type = 2;
-    node5.sonNodes = nil;
-    node5.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp5 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp5.name = @"flywarrior";
-    tmp5.signture = @"老是失眠怎么办啊";
-    tmp5.headImgPath = @"head1.jpg";
-    tmp5.headImgUrl = nil;
-    node5.nodeData = tmp5;
-    
-    CLTreeViewNode *node6 = [[CLTreeViewNode alloc]init];
-    node6.nodeLevel = 2;
-    node6.type = 2;
-    node6.sonNodes = nil;
-    node6.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp6 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp6.name = @"flywarrior2";
-    tmp6.signture = @"用头用力撞下键盘就好了。";
-    tmp6.headImgPath = @"head2.jpg";
-    tmp6.headImgUrl = nil;
-    node6.nodeData = tmp6;
-    
-    CLTreeViewNode *node7 = [[CLTreeViewNode alloc]init];
-    node7.nodeLevel = 2;
-    node7.type = 2;
-    node7.sonNodes = nil;
-    node7.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp7 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp7.name = @"李四";
-    tmp7.signture = @"说的好有道理，我竟无言以对。";
-    tmp7.headImgPath = @"head3.jpg";
-    tmp7.headImgUrl = nil;
-    node7.nodeData = tmp7;
-    
-    CLTreeViewNode *node8 = [[CLTreeViewNode alloc]init];
-    node8.nodeLevel = 2;
-    node8.type = 2;
-    node8.sonNodes = nil;
-    node8.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp8 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp8.name = @"田七";
-    tmp8.signture = @"肚子好饿啊。。。";
-    tmp8.headImgPath = @"head4.jpg";
-    tmp8.headImgUrl = nil;
-    node8.nodeData = tmp8;
-    
-    CLTreeViewNode *node9 = [[CLTreeViewNode alloc]init];
-    node9.nodeLevel = 2;
-    node9.type = 2;
-    node9.sonNodes = nil;
-    node9.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp9 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp9.name = @"王大锤";
-    tmp9.signture = @"走向人生巅峰！";
-    tmp9.headImgPath = @"head5.jpg";
-    tmp9.headImgUrl = nil;
-    node9.nodeData = tmp9;
-    
-    CLTreeViewNode *node10 = [[CLTreeViewNode alloc]init];
-    node10.nodeLevel = 2;
-    node10.type = 2;
-    node10.sonNodes = nil;
-    node10.isExpanded = FALSE;
-    CLTreeView_LEVEL2_Model *tmp10 =[[CLTreeView_LEVEL2_Model alloc]init];
-    tmp10.name = @"孔连顺";
-    tmp10.signture = @"锤锤。。。";
-    tmp10.headImgPath = @"head6.jpg";
-    tmp10.headImgUrl = nil;
-    node10.nodeData = tmp10;
-    
-    node0.sonNodes = [NSMutableArray arrayWithObjects:node3,node4,nil];
-    node3.sonNodes = [NSMutableArray arrayWithObjects:node5,node7,node10,nil];
-    node4.sonNodes = [NSMutableArray arrayWithObjects:node6,nil];
-    _dataArray = [NSMutableArray arrayWithObjects:node0,node1,node2, nil];
+    return clNode;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -455,5 +419,8 @@
     }
     
 }
+
+
+
 
 @end

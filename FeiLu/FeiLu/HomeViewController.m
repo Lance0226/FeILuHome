@@ -9,7 +9,11 @@
 #import "HomeViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
+
+
 @interface HomeViewController ()
+
+
 
 @end
 
@@ -21,6 +25,7 @@
     [self initAdvertiseBar];
     [self initVedio];
     [self initAdLogo];
+    
 
     
    }
@@ -81,5 +86,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+
 
 @end

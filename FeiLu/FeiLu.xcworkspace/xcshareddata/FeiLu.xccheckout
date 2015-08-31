@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CD4804E6-47A4-4F41-BCA1-9EF8FB7A35F5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FeiLu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2319340B34EE8F9068269766D0C085A9DF6CCE16</key>
+		<string>https://github.com/Lance0226/FeiLuHome.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FeiLu/FeiLu.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2319340B34EE8F9068269766D0C085A9DF6CCE16</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Lance0226/FeiLuHome.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2319340B34EE8F9068269766D0C085A9DF6CCE16</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2319340B34EE8F9068269766D0C085A9DF6CCE16</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FeiLuHome</string>
+		</dict>
+	</array>
+</dict>
+</plist>
