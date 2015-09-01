@@ -10,4 +10,5 @@
 
 @interface BudgetSubViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
 @property (nonatomic,retain) NSNumber  *xmlIndex;
+@property (nonatomic,retain) NSNumber  *xmlSubIndex;
 @end

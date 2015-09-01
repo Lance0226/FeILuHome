@@ -18,6 +18,6 @@
 
 @property (strong,nonatomic) UITableView* budgetTblView;                  //预算表tableview
 
-@property (strong,nonatomic) UIActivityIndicatorView *activityIndicator; //指示器
+@property (strong,nonatomic) UIActivityIndicatorView *indicator; //指示器
 
 @end

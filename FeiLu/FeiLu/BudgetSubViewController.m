@@ -37,7 +37,7 @@
     _myTableView.dataSource = self;
     _myTableView.delegate = self;
     CGRect tableViewFrame = CGRectMake(0,
-                                       self.view.frame.size.height*0.08,
+                                       0,
                                        self.view.frame.size.width,
                                        self.view.frame.size.height);
     
@@ -64,10 +64,7 @@
     NSArray *arrNode1=[rootEle children];
     GDataXMLElement *node11=[arrNode1 objectAtIndex:0];
     NSArray *arrNode2=[node11 children];
-    for (GDataXMLElement *node2 in arrNode2)
-    {
-        NSString *clNode2Name=[[node2 attributeForName:@"name"]stringValue];
-        CLTreeViewNode *clNode2=[self getCLNodeWithName:clNode2Name NodelLevel:0 NodelContent:nil];
+    GDataXMLElement *node2=[arrNode2 objectAtIndex:[self.xmlSubIndex integerValue]];
         
         
         NSMutableArray *arrCLNode3=[[NSMutableArray alloc]init];
@@ -76,7 +73,7 @@
         {
             NSString *clNode3Name=[[node3 attributeForName:@"name"]stringValue];
             NSString *clNode3Content=[[node3 attributeForName:@"budget"]stringValue];
-            CLTreeViewNode *clNode3=[self getCLNodeWithName:clNode3Name NodelLevel:1 NodelContent:clNode3Content];
+            CLTreeViewNode *clNode3=[self getCLNodeWithName:clNode3Name NodelLevel:0 NodelContent:clNode3Content];
             [arrCLNode3 addObject:clNode3];
             
             NSMutableArray *arrCLNode4=[[NSMutableArray alloc]init];
@@ -86,15 +83,14 @@
                 //NSLog(@"%@",[[node4 attributeForName:@"item_name"]stringValue]);
                 NSString *clNode4Name=[[node4 attributeForName:@"item_name"]stringValue];
                 NSString *clNode4Content=[[node4 attributeForName:@"item_total"]stringValue];
-                CLTreeViewNode *clNode4=[self getCLNodeWithName:clNode4Name NodelLevel:2 NodelContent:clNode4Content];
+                CLTreeViewNode *clNode4=[self getCLNodeWithName:clNode4Name NodelLevel:1 NodelContent:clNode4Content];
                 [arrCLNode4 addObject:clNode4];
                 
             }
             clNode3.sonNodes=arrCLNode4;
+            [self.dataArray addObject:clNode3];
         }
-        clNode2.sonNodes=arrCLNode3;
-        [self.dataArray addObject:clNode2];
-    }
+    
     
     
 }

@@ -19,18 +19,33 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [self initProjectTable];
-    [self initPanoURL];
+    //将加载数据，加载ui线程分开
     
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [super viewDidLoad];
+        [self initData];
+        [self initPanoURL];
+        [self initProjectTable];
+    });
+    
+    
+    
+    
+}
+
+-(void)initData
+{
+    self.projectNameList=[self GetPlanNameListFromJson];
+    self.projectPreviewImage=[self GetPlanPreviewListFromJson];
+    
+
 }
 
 
 
 -(void)initProjectTable
 {
-    self.projectNameList=[self GetPlanNameListFromJson];
-    self.projectPreviewImage=[self GetPlanPreviewListFromJson];
     
     
     self.projectTableView=[[UITableView alloc]init];
@@ -149,17 +164,16 @@
         {
             //NSLog(@"%lu",(unsigned long)i);
             
-            BudgetViewController *panoVC=[[BudgetViewController alloc]init];
-            [self.navigationController pushViewController:panoVC animated:YES];
-            //detailVC.title=@"家装项目信息";
+            BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
             
-            panoVC.title=@"家装项目信息";
-            panoVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
-            panoVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
+            budgetVC.title=@"家装项目信息";
+            budgetVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
+            budgetVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             
+            [self.navigationController pushViewController:budgetVC animated:YES];
             
-            //BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
-            //[self.navigationController pushViewController:budgetVC animated:YES];
+           
+
             
         }
     }
@@ -230,18 +244,8 @@
         NSURL *imageURL=[NSURL URLWithString:(NSString *)url];
         NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
         UIImage *image=[UIImage imageWithData:imageData];
-        
-        if (image!=nil)
-        {
-           [imageArr addObject:image];
-        }
-        else
-        {
-            [imageArr addObject:[self createImageWithColor:[UIColor whiteColor]]];
-        }
+        [imageArr addObject:image];
     }
-    
-    
     return imageArr;
     
 }
