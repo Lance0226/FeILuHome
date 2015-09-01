@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7EDB90FB1B8ED40E00474FC5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */; };
 		7EE2BD9B1B7DA9AB006EB43B /* ESrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */; };
-		7EE2BDA11B7E0E52006EB43B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */; };
+		7EE6D9E71B955236008BFB1A /* BudgetSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6D9E61B955236008BFB1A /* BudgetSubViewController.m */; };
 		7EF55F061B7CA022005D0DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F051B7CA022005D0DA1 /* main.m */; };
 		7EF55F091B7CA022005D0DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F081B7CA022005D0DA1 /* AppDelegate.m */; };
 		7EF55F0C1B7CA022005D0DA1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F0B1B7CA022005D0DA1 /* HomeViewController.m */; };
@@ -18,7 +18,7 @@
 		7EF55F141B7CA022005D0DA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EF55F131B7CA022005D0DA1 /* Images.xcassets */; };
 		7EF55F171B7CA022005D0DA1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF55F151B7CA022005D0DA1 /* LaunchScreen.xib */; };
 		7EF55F231B7CA022005D0DA1 /* FeiLuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F221B7CA022005D0DA1 /* FeiLuTests.m */; };
-		7EF854301B8DBD620063282E /* PanoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8542F1B8DBD620063282E /* PanoViewController.m */; };
+		7EF854301B8DBD620063282E /* BudgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8542F1B8DBD620063282E /* BudgetViewController.m */; };
 		C79193A0056F12CC51F15980 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE88B4163094B2B428E736B /* libPods.a */; };
 		F7C805A21B806EC300781ED1 /* CLTreeView_LEVEL0_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C805841B806EC300781ED1 /* CLTreeView_LEVEL0_Cell.m */; };
 		F7C805A31B806EC300781ED1 /* CLTreeView_LEVEL0_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C805861B806EC300781ED1 /* CLTreeView_LEVEL0_Model.m */; };
@@ -26,7 +26,6 @@
 		F7C805A51B806EC300781ED1 /* CLTreeView_LEVEL1_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C8058A1B806EC300781ED1 /* CLTreeView_LEVEL1_Model.m */; };
 		F7C805A61B806EC300781ED1 /* CLTreeView_LEVEL2_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C8058C1B806EC300781ED1 /* CLTreeView_LEVEL2_Cell.m */; };
 		F7C805A71B806EC300781ED1 /* CLTreeView_LEVEL2_Model.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C8058E1B806EC300781ED1 /* CLTreeView_LEVEL2_Model.m */; };
-		F7C805A81B806EC300781ED1 /* CLTreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C805901B806EC300781ED1 /* CLTreeViewController.m */; };
 		F7C805A91B806EC300781ED1 /* CLTreeViewNode.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C805921B806EC300781ED1 /* CLTreeViewNode.m */; };
 		F7C805AA1B806EC300781ED1 /* contacts_collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C805941B806EC300781ED1 /* contacts_collect@2x.png */; };
 		F7C805AB1B806EC300781ED1 /* contacts_major@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C805951B806EC300781ED1 /* contacts_major@2x.png */; };
@@ -59,8 +58,8 @@
 		7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7EE2BD991B7DA9AB006EB43B /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
 		7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESrollerView.m; sourceTree = "<group>"; };
-		7EE2BD9F1B7E0E52006EB43B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7EE6D9E51B955236008BFB1A /* BudgetSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetSubViewController.h; sourceTree = "<group>"; };
+		7EE6D9E61B955236008BFB1A /* BudgetSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetSubViewController.m; sourceTree = "<group>"; };
 		7EF55F001B7CA022005D0DA1 /* FeiLu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeiLu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF55F041B7CA022005D0DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF55F051B7CA022005D0DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,8 +75,8 @@
 		7EF55F1C1B7CA022005D0DA1 /* FeiLuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeiLuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF55F211B7CA022005D0DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF55F221B7CA022005D0DA1 /* FeiLuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeiLuTests.m; sourceTree = "<group>"; };
-		7EF8542E1B8DBD620063282E /* PanoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoViewController.h; sourceTree = "<group>"; };
-		7EF8542F1B8DBD620063282E /* PanoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoViewController.m; sourceTree = "<group>"; };
+		7EF8542E1B8DBD620063282E /* BudgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewController.h; sourceTree = "<group>"; };
+		7EF8542F1B8DBD620063282E /* BudgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewController.m; sourceTree = "<group>"; };
 		CA68D375D952762657E09378 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DDE88B4163094B2B428E736B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C805821B806EC300781ED1 /* CLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTree.h; sourceTree = "<group>"; };
@@ -93,8 +92,6 @@
 		F7C8058C1B806EC300781ED1 /* CLTreeView_LEVEL2_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTreeView_LEVEL2_Cell.m; sourceTree = "<group>"; };
 		F7C8058D1B806EC300781ED1 /* CLTreeView_LEVEL2_Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTreeView_LEVEL2_Model.h; sourceTree = "<group>"; };
 		F7C8058E1B806EC300781ED1 /* CLTreeView_LEVEL2_Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTreeView_LEVEL2_Model.m; sourceTree = "<group>"; };
-		F7C8058F1B806EC300781ED1 /* CLTreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTreeViewController.h; sourceTree = "<group>"; };
-		F7C805901B806EC300781ED1 /* CLTreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTreeViewController.m; sourceTree = "<group>"; };
 		F7C805911B806EC300781ED1 /* CLTreeViewNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTreeViewNode.h; sourceTree = "<group>"; };
 		F7C805921B806EC300781ED1 /* CLTreeViewNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTreeViewNode.m; sourceTree = "<group>"; };
 		F7C805941B806EC300781ED1 /* contacts_collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contacts_collect@2x.png"; sourceTree = "<group>"; };
@@ -173,10 +170,10 @@
 				7EF55F0B1B7CA022005D0DA1 /* HomeViewController.m */,
 				7EF55F0D1B7CA022005D0DA1 /* PlanViewController.h */,
 				7EF55F0E1B7CA022005D0DA1 /* PlanViewController.m */,
-				7EE2BD9F1B7E0E52006EB43B /* DetailViewController.h */,
-				7EE2BDA01B7E0E52006EB43B /* DetailViewController.m */,
-				7EF8542E1B8DBD620063282E /* PanoViewController.h */,
-				7EF8542F1B8DBD620063282E /* PanoViewController.m */,
+				7EF8542E1B8DBD620063282E /* BudgetViewController.h */,
+				7EF8542F1B8DBD620063282E /* BudgetViewController.m */,
+				7EE6D9E51B955236008BFB1A /* BudgetSubViewController.h */,
+				7EE6D9E61B955236008BFB1A /* BudgetSubViewController.m */,
 				7EF55F101B7CA022005D0DA1 /* Main.storyboard */,
 				7EF55F131B7CA022005D0DA1 /* Images.xcassets */,
 				7EF55F151B7CA022005D0DA1 /* LaunchScreen.xib */,
@@ -237,8 +234,6 @@
 				F7C8058C1B806EC300781ED1 /* CLTreeView_LEVEL2_Cell.m */,
 				F7C8058D1B806EC300781ED1 /* CLTreeView_LEVEL2_Model.h */,
 				F7C8058E1B806EC300781ED1 /* CLTreeView_LEVEL2_Model.m */,
-				F7C8058F1B806EC300781ED1 /* CLTreeViewController.h */,
-				F7C805901B806EC300781ED1 /* CLTreeViewController.m */,
 				F7C805911B806EC300781ED1 /* CLTreeViewNode.h */,
 				F7C805921B806EC300781ED1 /* CLTreeViewNode.m */,
 				F7C805931B806EC300781ED1 /* image */,
@@ -416,7 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EF854301B8DBD620063282E /* PanoViewController.m in Sources */,
+				7EE6D9E71B955236008BFB1A /* BudgetSubViewController.m in Sources */,
+				7EF854301B8DBD620063282E /* BudgetViewController.m in Sources */,
 				F7C805A41B806EC300781ED1 /* CLTreeView_LEVEL1_Cell.m in Sources */,
 				F7C805A91B806EC300781ED1 /* CLTreeViewNode.m in Sources */,
 				7EF55F0F1B7CA022005D0DA1 /* PlanViewController.m in Sources */,
@@ -428,9 +424,7 @@
 				F7C805A31B806EC300781ED1 /* CLTreeView_LEVEL0_Model.m in Sources */,
 				F7C805A21B806EC300781ED1 /* CLTreeView_LEVEL0_Cell.m in Sources */,
 				F7C805A51B806EC300781ED1 /* CLTreeView_LEVEL1_Model.m in Sources */,
-				7EE2BDA11B7E0E52006EB43B /* DetailViewController.m in Sources */,
 				F7C805A61B806EC300781ED1 /* CLTreeView_LEVEL2_Cell.m in Sources */,
-				F7C805A81B806EC300781ED1 /* CLTreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

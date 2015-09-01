@@ -9,12 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FeiLu/PanoViewController.m"
-            timestampString = "462708757.310629"
+            filePath = "FeiLu/BudgetViewController.m"
+            timestampString = "462785269.8854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-switchSection:"
             landmarkType = "5">
          </BreakpointContent>

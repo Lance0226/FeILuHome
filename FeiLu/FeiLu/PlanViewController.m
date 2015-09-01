@@ -7,10 +7,11 @@
 //
 
 #import "PlanViewController.h"
-#import "PanoViewController.h"
-#import "DetailViewController.h"
+#import "BudgetViewController.h"
+#import "BudgetSubViewController.h"
 
-@interface PlanViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface PlanViewController ()
 
 @end
 
@@ -32,7 +33,11 @@
     self.projectPreviewImage=[self GetPlanPreviewListFromJson];
     
     
-    self.projectTableView=[[UITableView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height/12,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*9/10)];
+    self.projectTableView=[[UITableView alloc]init];
+    self.projectTableView.frame=CGRectMake(0,
+                                           [UIScreen mainScreen].bounds.size.height*0.083f,
+                                           [UIScreen mainScreen].bounds.size.width,
+                                           [UIScreen mainScreen].bounds.size.height*0.9f);
     self.projectTableView.scrollEnabled=YES;
     self.projectTableView.delegate=self;
     self.projectTableView.dataSource=self;
@@ -78,7 +83,10 @@
 -(CALayer *)setPreviewImage:(NSUInteger)rowIndex
 {
     CALayer *previewImageLayer=[CALayer layer];
-    [previewImageLayer setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height/30,[UIScreen mainScreen].bounds.size.width/4,[UIScreen mainScreen].bounds.size.height/10)];
+    [previewImageLayer setFrame:CGRectMake(0,
+                                           [UIScreen mainScreen].bounds.size.height/30,
+                                           [UIScreen mainScreen].bounds.size.width/4,
+                                           [UIScreen mainScreen].bounds.size.height/10)];
     UIImage *previewImage=(UIImage *)[self.projectPreviewImage objectAtIndex:rowIndex];
     [previewImageLayer setContents:(id)(previewImage.CGImage)];
     return previewImageLayer;
@@ -127,10 +135,9 @@
     {
         if (btn.tag==i)
         {
-            NSLog(@"%lu",(unsigned long)i);
-            //DetailViewController *detailVC=[[DetailViewController alloc]init];
-            //[self.navigationController pushViewController:detailVC animated:YES];
-            PanoViewController *panoVC=[[PanoViewController alloc]init];
+            //NSLog(@"%lu",(unsigned long)i);
+            
+            BudgetViewController *panoVC=[[BudgetViewController alloc]init];
             [self.navigationController pushViewController:panoVC animated:YES];
             //detailVC.title=@"家装项目信息";
             
@@ -138,6 +145,9 @@
             panoVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
             panoVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             
+            
+            //BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
+            //[self.navigationController pushViewController:budgetVC animated:YES];
             
         }
     }

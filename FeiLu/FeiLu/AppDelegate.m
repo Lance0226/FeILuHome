@@ -19,7 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UIStoryboard *stroyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:[stroyboard instantiateInitialViewController]];
+    UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:
+                                                  [stroyboard instantiateInitialViewController]];
     self.window.rootViewController=nil;
     self.window.rootViewController=navigationController;
     [self.window makeKeyAndVisible];

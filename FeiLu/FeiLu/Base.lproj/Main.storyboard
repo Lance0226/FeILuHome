@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Pano View Controller-->
+        <!--Budget View Controller-->
         <scene sceneID="bfn-oY-4Y6">
             <objects>
-                <viewController id="670-C4-d9c" customClass="PanoViewController" sceneMemberID="viewController">
+                <viewController id="670-C4-d9c" customClass="BudgetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4iG-cH-AIy"/>
                         <viewControllerLayoutGuide type="bottom" id="aDG-cI-ar6"/>
