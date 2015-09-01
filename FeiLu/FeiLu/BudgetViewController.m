@@ -63,7 +63,10 @@
 //---------------------------------------------------------------------------------------------------------------------
 -(void)initiliazePanoView
 {
-   self.panoView=[[UIWebView alloc]initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height*0.065, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*14/15)];
+   self.panoView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
+                                                            [UIScreen mainScreen].bounds.size.height*0.065f,
+                                                            [UIScreen mainScreen].bounds.size.width,
+                                                            [UIScreen mainScreen].bounds.size.height*0.933f)];
     [self.panoView setBackgroundColor:[UIColor whiteColor]];
     [self.panoView setDelegate:self];
     self.panoView.scrollView.scrollEnabled=NO;
@@ -82,7 +85,10 @@
     [view setAlpha:0.5];
     [self.view addSubview:view];
     
-     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f,
+                                                                                        0.0f,
+                                                                                        [UIScreen mainScreen].bounds.size.width,
+                                                                                        32.0f)];
     [self.activityIndicator setCenter:view.center];
     [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
     [view addSubview:self.activityIndicator];
@@ -130,7 +136,10 @@
 {
     NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"设计效果",@"设计方案",nil];
     UISegmentedControl *sectionControl=[[UISegmentedControl alloc] initWithItems:sectionArr];
-    [sectionControl setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height/10.5, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height/15)];
+    [sectionControl setFrame:CGRectMake(0,
+                                        [UIScreen mainScreen].bounds.size.height*0.095,
+                                        [UIScreen mainScreen].bounds.size.width,
+                                        [UIScreen mainScreen].bounds.size.height*0.67)];
     [sectionControl setSelectedSegmentIndex:0];
     
     [sectionControl addTarget:self action:@selector(switchSection:) forControlEvents:UIControlEventValueChanged];

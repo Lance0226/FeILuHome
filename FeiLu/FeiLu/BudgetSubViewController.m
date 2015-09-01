@@ -36,7 +36,10 @@
     _myTableView = [[UITableView alloc]init];
     _myTableView.dataSource = self;
     _myTableView.delegate = self;
-    CGRect tableViewFrame = CGRectMake(0, self.view.frame.size.height*0.08, self.view.frame.size.width, self.view.frame.size.height);
+    CGRect tableViewFrame = CGRectMake(0,
+                                       self.view.frame.size.height*0.08,
+                                       self.view.frame.size.width,
+                                       self.view.frame.size.height);
     
     self.dataArray=[[NSMutableArray alloc]init];
     
