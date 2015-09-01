@@ -84,9 +84,10 @@
 {
     CALayer *previewImageLayer=[CALayer layer];
     [previewImageLayer setFrame:CGRectMake(0,
-                                           [UIScreen mainScreen].bounds.size.height/30,
-                                           [UIScreen mainScreen].bounds.size.width/4,
-                                           [UIScreen mainScreen].bounds.size.height/10)];
+                                           [UIScreen mainScreen].bounds.size.height*0.033f,
+                                           [UIScreen mainScreen].bounds.size.width*0.25f,
+                                           [UIScreen mainScreen].bounds.size.height*0.1f)];
+    
     UIImage *previewImage=(UIImage *)[self.projectPreviewImage objectAtIndex:rowIndex];
     [previewImageLayer setContents:(id)(previewImage.CGImage)];
     return previewImageLayer;
@@ -97,7 +98,11 @@
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
     [nameLayer setFont:@"HelveticaNeue"];
     [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/4,[UIScreen mainScreen].bounds.size.height/15,[UIScreen mainScreen].bounds.size.width/4,[UIScreen mainScreen].bounds.size.height/20)];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.25f,
+                                   [UIScreen mainScreen].bounds.size.height*0.067f,
+                                   [UIScreen mainScreen].bounds.size.width*0.25f,
+                                   [UIScreen mainScreen].bounds.size.height*0.5f)];
+    
     [nameLayer setString:[self.projectNameList objectAtIndex:rowIndex]];
     [nameLayer setAlignmentMode:kCAAlignmentCenter];
     [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
@@ -107,8 +112,15 @@
 -(UIButton *)setDetailBtn:(NSUInteger)rowInex
 {
   
-    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*3/4,[UIScreen mainScreen].bounds.size.height/15,[UIScreen mainScreen].bounds.size.width/6,[UIScreen mainScreen].bounds.size.height/20)];
-    [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f/255.0f green:149.0f/255.0f blue:208.0f/255.0f alpha:1]];
+    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.75f,
+                                                                   [UIScreen mainScreen].bounds.size.height*0.067f,
+                                                                   [UIScreen mainScreen].bounds.size.width*0.167f,
+                                                                   [UIScreen mainScreen].bounds.size.height*0.05f)];
+    [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f
+                                                    green:0.584f
+                                                    blue:0.815f
+                                                    alpha:1]];
+    
     [detailBtn setTitle:@"详情" forState:UIControlStateNormal];
     [detailBtn addTarget:self action:@selector(pressedDetailBtn:) forControlEvents:UIControlEventTouchDown];
     [detailBtn setTag:rowInex];
@@ -123,7 +135,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [UIScreen mainScreen].bounds.size.height/6;
+    return [UIScreen mainScreen].bounds.size.height*0.167;
 }
 
 
