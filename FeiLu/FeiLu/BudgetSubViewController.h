@@ -11,4 +11,12 @@
 @interface BudgetSubViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
 @property (nonatomic,retain) NSNumber  *xmlIndex;
 @property (nonatomic,retain) NSNumber  *xmlSubIndex;
+
+typedef struct{
+    int type;        //0为1级节点，1为2级节点
+    int index;
+    
+    
+}BudgetTypeList;
+
 @end

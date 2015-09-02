@@ -7,14 +7,15 @@
 //
 
 #import "BudgetSubViewController.h"
-#import "CLTree.h"
 #import "GDataXMLNode.h"
 
 @interface BudgetSubViewController ()
 
-@property (strong,nonatomic) UITableView* myTableView;
-@property(strong,nonatomic) NSMutableArray* dataArray; //保存全部数据的数组
-@property(strong,nonatomic) NSArray *displayArray;   //保存要显示在界面上的数据的数组
+@property (retain,nonatomic) UITableView     *subBudgetTableView;
+@property (retain,nonatomic) NSMutableArray  *arrNode;            //一级二级分级队列
+@property (retain,nonatomic) NSMutableArray  *arrNode1Name; 
+@property (retain,nonatomic) NSMutableArray  *arrNode1Budget;
+
 
 @end
 
@@ -33,21 +34,22 @@
 
 -(void)initBudgetView
 {
-    _myTableView = [[UITableView alloc]init];
-    _myTableView.dataSource = self;
-    _myTableView.delegate = self;
+    self.subBudgetTableView = [[UITableView alloc]init];
+    self.subBudgetTableView.dataSource = self;
+    self.subBudgetTableView.delegate = self;
     CGRect tableViewFrame = CGRectMake(0,
                                        0,
                                        self.view.frame.size.width,
                                        self.view.frame.size.height);
     
-    self.dataArray=[[NSMutableArray alloc]init];
+    self.arrNode=[[NSMutableArray alloc]init];
+    self.arrNode1Name=[[NSMutableArray alloc]init];
+    self.arrNode1Budget=[[NSMutableArray alloc]init];
     
-    _myTableView.frame = tableViewFrame;
-    [self.view addSubview:_myTableView];
-    [self.view sendSubviewToBack:_myTableView];
+    self.subBudgetTableView.frame = tableViewFrame;
+    [self.view addSubview:_subBudgetTableView];
+    [self.view sendSubviewToBack:_subBudgetTableView];
     [self addTestData];//添加演示数据
-    [self reloadDataForDisplayArray];//初始化将要显示的数据
 }
 
 -(void) addTestData{
@@ -67,254 +69,111 @@
     GDataXMLElement *node2=[arrNode2 objectAtIndex:[self.xmlSubIndex integerValue]];
         
         
-        NSMutableArray *arrCLNode3=[[NSMutableArray alloc]init];
+
         NSArray *arrNode3=[node2 children];
+        int i=0;
         for (GDataXMLElement *node3 in arrNode3)
         {
-            NSString *clNode3Name=[[node3 attributeForName:@"name"]stringValue];
-            NSString *clNode3Content=[[node3 attributeForName:@"budget"]stringValue];
-            CLTreeViewNode *clNode3=[self getCLNodeWithName:clNode3Name NodelLevel:0 NodelContent:clNode3Content];
-            [arrCLNode3 addObject:clNode3];
+            i++;
+            NSString *Node3Name=[[node3 attributeForName:@"name"]stringValue];
+            NSString *Node3Budget=[[node3 attributeForName:@"budget"]stringValue];
             
-            NSMutableArray *arrCLNode4=[[NSMutableArray alloc]init];
-            NSArray *arrNode4=[node3 children];
-            for (GDataXMLElement *node4 in arrNode4)
-            {
-                //NSLog(@"%@",[[node4 attributeForName:@"item_name"]stringValue]);
-                NSString *clNode4Name=[[node4 attributeForName:@"item_name"]stringValue];
-                NSString *clNode4Content=[[node4 attributeForName:@"item_total"]stringValue];
-                CLTreeViewNode *clNode4=[self getCLNodeWithName:clNode4Name NodelLevel:1 NodelContent:clNode4Content];
-                [arrCLNode4 addObject:clNode4];
-                
-            }
-            clNode3.sonNodes=arrCLNode4;
-            [self.dataArray addObject:clNode3];
+            BudgetTypeList budgetTypeGroup;
+            
+            
+            NSValue *budgetType=[NSValue value:<#(const void *)#> withObjCType:<#(const char *)#>]
+            
+            [self.arrNode1Name addObject:Node3Name];
+            [self.arrNode1Budget addObject:Node3Budget];
+          
+            
         }
     
     
     
 }
 
--(CLTreeViewNode *)getCLNodeWithName:(NSString *)name NodelLevel:(NSUInteger)nodeLevel NodelContent:(NSString*)nodeContent
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CLTreeViewNode *clNode=[[CLTreeViewNode alloc]init];
-    if (nodeLevel==0)
+    static NSString *budgetTblViewIdentifier=@"BudgetSubTblViewIdentifier";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:budgetTblViewIdentifier];
+    NSUInteger row=[indexPath row];
+    
+    if (cell==nil)
     {
-        clNode.nodeLevel=0;
-        clNode.type=0;
-        clNode.sonNodes=nil;
-        CLTreeView_LEVEL0_Model *clNodeModel=[[CLTreeView_LEVEL0_Model alloc]init];
-        clNodeModel.name=name;
-        clNodeModel.headImgPath=@"contacts_collect.png";
-        clNodeModel.headImgUrl=nil;
-        clNode.nodeData=clNodeModel;
-    }
-    else if(nodeLevel==1)
-    {
-        clNode.nodeLevel = 1;
-        clNode.type = 1;
-        clNode.sonNodes = nil;
-        clNode.isExpanded = FALSE;
-        CLTreeView_LEVEL1_Model *clNodeModel =[[CLTreeView_LEVEL1_Model alloc]init];
-        clNodeModel.name = name;
-        clNodeModel.sonCnt =nodeContent;
-        clNode.nodeData = clNodeModel;
-    }
-    else
-    {
-        clNode.nodeLevel = 2;
-        clNode.type = 2;
-        clNode.sonNodes = nil;
-        clNode.isExpanded = FALSE;
-        CLTreeView_LEVEL2_Model *clNodeModel =[[CLTreeView_LEVEL2_Model alloc]init];
-        clNodeModel.name = name;
-        clNodeModel.signture =nodeContent;
-        clNodeModel.headImgPath = @"head6.jpg";
-        clNodeModel.headImgUrl = nil;
-        clNode.nodeData = clNodeModel;
+        cell=[[UITableViewCell alloc]
+              initWithStyle:UITableViewCellStyleValue2
+              reuseIdentifier:budgetTblViewIdentifier];
         
+        CALayer *nameLayer=[self getNameLayerWithRowIndex:row];   //预算名称
+        [cell.layer addSublayer:nameLayer];
+        
+        CALayer *totalLayer=[self getTotalLayerWithRowIndex:row];  //预算金额
+        [cell.layer addSublayer:totalLayer];
+
     }
     
+    return cell;
+
+}
+
+-(CALayer*)getNameLayerWithRowIndex:(NSUInteger)rowIndex
+{
+    CATextLayer *nameLayer=[[CATextLayer alloc]init];
+    [nameLayer setFont:@"AppleGothic"];
+    [nameLayer setFontSize:15];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.02f,
+                                   [UIScreen mainScreen].bounds.size.height*0.04f,
+                                   [UIScreen mainScreen].bounds.size.width*0.5f,
+                                   [UIScreen mainScreen].bounds.size.height*0.5f)];
     
-    return clNode;
+    [nameLayer setString:[self.arrNode1Name objectAtIndex:rowIndex]];
+    [nameLayer setAlignmentMode:kCAAlignmentLeft];
+    [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
+    [nameLayer setContentsScale:2];
+    
+    return nameLayer;
     
 }
 
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+-(CALayer*)getTotalLayerWithRowIndex:(NSUInteger)rowIndex
+{
+    CATextLayer *nameLayer=[[CATextLayer alloc]init];
+    [nameLayer setFont:@"AppleGothic"];
+    [nameLayer setFontSize:15];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.6f,
+                                   [UIScreen mainScreen].bounds.size.height*0.04f,
+                                   [UIScreen mainScreen].bounds.size.width*0.4f,
+                                   [UIScreen mainScreen].bounds.size.height*0.5f)];
+    NSString *budgetStr=[NSString stringWithFormat:@"%@",[self.arrNode1Budget objectAtIndex:rowIndex]];
+    
+    [nameLayer setString:budgetStr];
+    [nameLayer setAlignmentMode:kCAAlignmentLeft];
+    [nameLayer setForegroundColor:[[UIColor blueColor] CGColor]];
+    [nameLayer setContentsScale:2];
+    
+    return nameLayer;
+    
 }
 
--(NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section{
-    return _displayArray.count;
+
+
+
+-(NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.arrNode1Name.count;
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *indentifier = @"level0cell";
-    static NSString *indentifier1 = @"level1cell";
-    static NSString *indentifier2 = @"level2cell";
-    CLTreeViewNode *node = [_displayArray objectAtIndex:indexPath.row];
-    
-    if(node.type == 0){//类型为0的cell
-        CLTreeView_LEVEL0_Cell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-        if(cell == nil){
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"Level0_Cell" owner:self options:nil] lastObject];
-        }
-        cell.node = node;
-        [self loadDataForTreeViewCell:cell with:node];//重新给cell装载数据
-        [cell setNeedsDisplay]; //重新描绘cell
-        return cell;
-    }
-    else if(node.type == 1){//类型为1的cell
-        CLTreeView_LEVEL1_Cell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier1];
-        if(cell == nil){
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"Level1_Cell" owner:self options:nil] lastObject];
-        }
-        cell.node = node;
-        [self loadDataForTreeViewCell:cell with:node];
-        [cell setNeedsDisplay];
-        return cell;
-    }
-    else{//类型为2的cell
-        CLTreeView_LEVEL2_Cell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier2];
-        if(cell == nil){
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"Level2_Cell" owner:self options:nil] lastObject];
-        }
-        cell.node = node;
-        [self loadDataForTreeViewCell:cell with:node];
-        [cell setNeedsDisplay];
-        return cell;
-    }
-}
-
-/*---------------------------------------
- 为不同类型cell填充数据
- --------------------------------------- */
--(void) loadDataForTreeViewCell:(UITableViewCell*)cell with:(CLTreeViewNode*)node{
-    if(node.type == 0){
-        CLTreeView_LEVEL0_Model *nodeData = node.nodeData;
-        ((CLTreeView_LEVEL0_Cell*)cell).name.text = nodeData.name;
-        if(nodeData.headImgPath != nil){
-            //本地图片
-            [((CLTreeView_LEVEL0_Cell*)cell).imageView setImage:[UIImage imageNamed:nodeData.headImgPath]];
-        }
-        else if (nodeData.headImgUrl != nil){
-            //加载图片，这里是同步操作。建议使用SDWebImage异步加载图片
-            [((CLTreeView_LEVEL0_Cell*)cell).imageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:nodeData.headImgUrl]]];
-        }
-    }
-    
-    else if(node.type == 1){
-        CLTreeView_LEVEL1_Model *nodeData = node.nodeData;
-        ((CLTreeView_LEVEL1_Cell*)cell).name.text = nodeData.name;
-        ((CLTreeView_LEVEL1_Cell*)cell).sonCount.text = nodeData.sonCnt;
-    }
-    
-    else{
-        CLTreeView_LEVEL2_Model *nodeData = node.nodeData;
-        ((CLTreeView_LEVEL2_Cell*)cell).name.text = nodeData.name;
-        ((CLTreeView_LEVEL2_Cell*)cell).signture.text = nodeData.signture;
-        if(nodeData.headImgPath != nil){
-            //本地图片
-            [((CLTreeView_LEVEL2_Cell*)cell).headImg setImage:[UIImage imageNamed:nodeData.headImgPath]];
-        }
-        else if (nodeData.headImgUrl != nil){
-            //加载图片，这里是同步操作。建议使用SDWebImage异步加载图片
-            [((CLTreeView_LEVEL2_Cell*)cell).headImg setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:nodeData.headImgUrl]]];
-        }
-    }
-}
 
 /*---------------------------------------
  cell高度默认为50
  --------------------------------------- */
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return 50;
+    return [UIScreen mainScreen].bounds.size.height*0.08f;
 }
 
-/*---------------------------------------
- 处理cell选中事件，需要自定义的部分
- --------------------------------------- */
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    CLTreeViewNode *node = [_displayArray objectAtIndex:indexPath.row];
-    [self reloadDataForDisplayArrayChangeAt:indexPath.row];//修改cell的状态(关闭或打开)
-    if(node.type == 2){
-        //处理叶子节点选中，此处需要自定义
-    }
-    else{
-        CLTreeView_LEVEL0_Cell *cell = (CLTreeView_LEVEL0_Cell*)[tableView cellForRowAtIndexPath:indexPath];
-        if(cell.node.isExpanded ){
-            [self rotateArrow:cell with:M_PI_2];
-        }
-        else{
-            [self rotateArrow:cell with:0];
-        }
-    }
-}
 
-/*---------------------------------------
- 旋转箭头图标
- --------------------------------------- */
--(void) rotateArrow:(CLTreeView_LEVEL0_Cell*) cell with:(double)degree{
-    [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        cell.arrowView.layer.transform = CATransform3DMakeRotation(degree, 0, 0, 1);
-    } completion:NULL];
-}
-
-/*---------------------------------------
- 初始化将要显示的cell的数据
- --------------------------------------- */
--(void) reloadDataForDisplayArray{
-    NSMutableArray *tmp = [[NSMutableArray alloc]init];
-    for (CLTreeViewNode *node in _dataArray) {
-        [tmp addObject:node];
-        if(node.isExpanded){
-            for(CLTreeViewNode *node2 in node.sonNodes){
-                [tmp addObject:node2];
-                if(node2.isExpanded){
-                    for(CLTreeViewNode *node3 in node2.sonNodes){
-                        [tmp addObject:node3];
-                    }
-                }
-            }
-        }
-    }
-    _displayArray = [NSArray arrayWithArray:tmp];
-    [self.myTableView reloadData];
-}
-
-/*---------------------------------------
- 修改cell的状态(关闭或打开)
- --------------------------------------- */
--(void) reloadDataForDisplayArrayChangeAt:(NSInteger)row{
-    NSMutableArray *tmp = [[NSMutableArray alloc]init];
-    NSInteger cnt=0;
-    for (CLTreeViewNode *node in _dataArray) {
-        [tmp addObject:node];
-        if(cnt == row){
-            node.isExpanded = !node.isExpanded;
-        }
-        ++cnt;
-        if(node.isExpanded){
-            for(CLTreeViewNode *node2 in node.sonNodes){
-                [tmp addObject:node2];
-                if(cnt == row){
-                    node2.isExpanded = !node2.isExpanded;
-                }
-                ++cnt;
-                if(node2.isExpanded){
-                    for(CLTreeViewNode *node3 in node2.sonNodes){
-                        [tmp addObject:node3];
-                        ++cnt;
-                    }
-                }
-            }
-        }
-    }
-    _displayArray = [NSArray arrayWithArray:tmp];
-    [self.myTableView reloadData];
-}
 
 
 

@@ -88,7 +88,7 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView //设置加载进度委托事件
 {
     UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0,
-                                                         [UIScreen mainScreen].bounds.size.height*0.157f,
+                                                         [UIScreen mainScreen].bounds.size.height*0.162f,
                                                          [UIScreen mainScreen].bounds.size.width,
                                                          [UIScreen mainScreen].bounds.size.height*0.9f)];
     [view setTag:108];

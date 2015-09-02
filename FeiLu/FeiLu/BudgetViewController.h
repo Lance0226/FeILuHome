@@ -10,6 +10,7 @@
 
 @interface BudgetViewController : UIViewController<UIWebViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
+
 @property (nonatomic,retain) NSURL     *panoURL;                          //全景图URL
 
 @property (nonatomic,retain) UIWebView *panoView;                         //全景图画布
@@ -19,5 +20,7 @@
 @property (strong,nonatomic) UITableView* budgetTblView;                  //预算表tableview
 
 @property (strong,nonatomic) UIActivityIndicatorView *indicator; //指示器
+
+
 
 @end
