@@ -13,6 +13,9 @@
 
 @property (retain,nonatomic) UITableView     *subBudgetTableView;
 @property (retain,nonatomic) NSMutableArray  *arrNodeType;            //一级二级分级队列
+@property (retain,nonatomic) NSMutableArray  *arrNodeEditFlag;        //0为不需要更新 1为需要更新
+@property (retain,nonatomic) NSMutableArray  *arrLevelOneNodeStatus;  //一级结点状态队列 0为收缩，1为展开
+@property (retain,nonatomic) NSMutableArray  *arrLevelTwoNodeStatus;  //二级结点状态队列 0为隐藏，1为显示
 
 @property (retain,nonatomic) NSMutableArray  *arrLevelOneNode;       //一级节点数组
 @property (retain,nonatomic) NSMutableArray  *arrLevelTwoNode;
@@ -24,8 +27,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [self initBudgetView];
+        [super viewDidLoad];
+        [self initBudgetView];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,6 +50,9 @@
     self.arrNodeType=[[NSMutableArray alloc]init];
     self.arrLevelOneNode=[[NSMutableArray alloc]init];
     self.arrLevelTwoNode=[[NSMutableArray alloc]init];
+    self.arrLevelOneNodeStatus=[[NSMutableArray alloc]init];
+    self.arrLevelTwoNodeStatus=[[NSMutableArray alloc]init];
+    self.arrNodeEditFlag=[[NSMutableArray alloc]init];
     
     self.subBudgetTableView.frame = tableViewFrame;
     [self.view addSubview:_subBudgetTableView];
@@ -77,8 +84,10 @@
         for (GDataXMLElement *node3 in arrNode3) //一级列表循环
         {
             m++;
-            //一级结点数据类型部分
-            NSValue *node3Type=[self setBudgetLevelGroupWithType:0 Category:0 Parent:-1 Index:m];
+    
+            NSValue *node3Type=[self setBudgetLevelGroupWithType:0 Category:0 Parent:-1 Index:m Uid:m+n+1];
+            [self.arrLevelOneNodeStatus addObject:[NSNumber numberWithInt:0]];//设置所有一级结点起始状态为收缩。
+            [self.arrNodeEditFlag addObject:[NSNumber numberWithBool:YES]];
             [self.arrNodeType addObject:node3Type];
             
             //一级结点数据内容部分
@@ -91,12 +100,14 @@
             for (GDataXMLElement *node4 in arrNode4)
             {
                 n++;
+                [self.arrLevelTwoNodeStatus addObject:[NSNumber numberWithInt:0]];//设置所有二级结点起始状态为隐藏
+                [self.arrNodeEditFlag addObject:[NSNumber numberWithBool:YES]];
                 //根据传入xml参数序号的不同，选择不同的结构体封装
                 switch ([self.xmlSubIndex integerValue])
                 {
                  case 0:{
                          //第一类二级结点数据类型
-                         NSValue *node4Type=[self setBudgetLevelGroupWithType:1 Category:0 Parent:m Index:n];
+                         NSValue *node4Type=[self setBudgetLevelGroupWithType:1 Category:0 Parent:m Index:n Uid:m+n+1];
                          [self.arrNodeType addObject:node4Type];
                      
                          //第一类二级结点数据内容
@@ -108,7 +119,7 @@
                  
                     case 1:{
                         //第二类二级结点数据类型
-                        NSValue *node4Type=[self setBudgetLevelGroupWithType:1 Category:1 Parent:m Index:n];
+                        NSValue *node4Type=[self setBudgetLevelGroupWithType:1 Category:1 Parent:m Index:n Uid:m+n+1];
                         [self.arrNodeType addObject:node4Type];
                      
                         //第二类二级结点数据内容
@@ -120,7 +131,7 @@
                         
                     case 2:{
                         //第三类二级结点数据类型
-                        NSValue *node4Type=[self setBudgetLevelGroupWithType:1 Category:2 Parent:m Index:n];
+                        NSValue *node4Type=[self setBudgetLevelGroupWithType:1 Category:2 Parent:m Index:n Uid:m+n+1];
                         [self.arrNodeType addObject:node4Type];
                         
                         //第三类二级结点数据内容
@@ -142,12 +153,13 @@
 }
 
 //将数据结点类型结构体，转为nsvalue
--(NSValue*)setBudgetLevelGroupWithType:(int)type  Category:(int)category Parent:(int)parent Index:(int)index
+-(NSValue*)setBudgetLevelGroupWithType:(int)type  Category:(int)category Parent:(int)parent Index:(int)index Uid:(int)uid
 {
     BudgetLevelGroup budgetLevelGroup;
     budgetLevelGroup.type=type;
     budgetLevelGroup.category=category;
     budgetLevelGroup.parent=parent;
+    budgetLevelGroup.uid=uid;
     budgetLevelGroup.index=index;
     NSValue *budgetType=[NSValue value:&budgetLevelGroup withObjCType:@encode(BudgetLevelGroup)];
     return budgetType;
@@ -200,17 +212,22 @@
     static NSString *budgetTblViewIdentifier=@"BudgetSubTblViewIdentifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:budgetTblViewIdentifier];
     NSUInteger row=[indexPath row];
+    NSNumber *nFlag=[self.arrNodeEditFlag objectAtIndex:row];
+    bool flag=[nFlag boolValue];
     
-    if (cell==nil)
+    
+    if (cell==nil||flag)
     {
         cell=[[UITableViewCell alloc]
               initWithStyle:UITableViewCellStyleValue2
               reuseIdentifier:budgetTblViewIdentifier];
+        [self.arrNodeEditFlag replaceObjectAtIndex:row withObject:[NSNumber numberWithBool:NO]];
+        
         
         NSMutableArray *arrCellLayers=[self getCALayersWithRowIndex:row];
-        for (CALayer *layer in arrCellLayers)
+        for (UIView *view in arrCellLayers)
         {
-            [cell.layer addSublayer:layer];
+            [cell.contentView addSubview:view];
         }
 
     }
@@ -244,11 +261,11 @@
 {
     
     NSMutableArray *arrLvOneCALayers=[[NSMutableArray alloc]init];
-    
+    //名称
     NSValue *content=[self.arrLevelOneNode objectAtIndex:index];
     BudgetLevelOneNodeGroup budgetLevelOneNodeGroup;
     [content getValue:&budgetLevelOneNodeGroup];
-    
+    //预算
     const char *cName=budgetLevelOneNodeGroup.name;
     NSString *name=[NSString stringWithCString:cName encoding:NSUTF8StringEncoding];
     
@@ -258,7 +275,7 @@
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
     [nameLayer setFont:@"AppleGothic"];
     [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.02f,
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.15f,
                                    [UIScreen mainScreen].bounds.size.height*0.04f,
                                    [UIScreen mainScreen].bounds.size.width*0.5f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
@@ -282,12 +299,69 @@
     [budgetLayer setForegroundColor:[[UIColor blueColor] CGColor]];
     [budgetLayer setContentsScale:2];
     
-    [arrLvOneCALayers addObject:nameLayer];
-    [arrLvOneCALayers addObject:budgetLayer];
+    //展开按钮
+    UIButton *expandBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.00f,
+                                                                   [UIScreen mainScreen].bounds.size.height*0.03f,
+                                                                   [UIScreen mainScreen].bounds.size.width*0.12f,
+                                                                   [UIScreen mainScreen].bounds.size.height*0.04f)];
+    [expandBtn setBackgroundColor:[UIColor colorWithRed:0.0f
+                                                  green:0.584f
+                                                   blue:0.815f
+                                                  alpha:1]];
+    
+    [expandBtn setTitle:@"+" forState:UIControlStateNormal];
+    [expandBtn addTarget:self action:@selector(pressedExpandBtn:) forControlEvents:UIControlEventTouchDown];
+    [expandBtn setTag:index];
+    
+    UIView *view=[[UIView alloc]init];
+    [view.layer addSublayer:nameLayer];
+    [view.layer addSublayer:budgetLayer];
+    
+    [arrLvOneCALayers addObject:view];
+    [arrLvOneCALayers addObject:expandBtn];
     return arrLvOneCALayers;
 
 
     
+}
+
+-(void)pressedExpandBtn:(UIButton *)btn
+{
+    NSUInteger btnIndex=btn.tag;
+    if ([[self.arrLevelOneNodeStatus objectAtIndex:btnIndex]intValue]==0)
+    {
+        NSLog(@"aa");
+        [self.arrLevelOneNodeStatus replaceObjectAtIndex:btnIndex withObject:[NSNumber numberWithInt:1]];
+        for (NSValue *nodeValue in self.arrNodeType)
+        {
+            BudgetLevelGroup budgetLevelGroup;
+            [nodeValue getValue:&budgetLevelGroup];
+            if (budgetLevelGroup.parent==btnIndex)
+            {
+                [self.arrLevelTwoNodeStatus replaceObjectAtIndex:btnIndex withObject:[NSNumber numberWithInt:1]];
+                [self.arrNodeEditFlag replaceObjectAtIndex:budgetLevelGroup.uid withObject:[NSNumber numberWithBool:YES]];
+            }
+            
+        }
+    }
+    else if ([[self.arrLevelOneNodeStatus objectAtIndex:btnIndex]intValue]==1)
+    {
+        NSLog(@"bb");
+        [self.arrLevelOneNodeStatus replaceObjectAtIndex:btnIndex withObject:[NSNumber numberWithInt:0]];
+        for (NSValue *nodeValue in self.arrNodeType)
+        {
+            BudgetLevelGroup budgetLevelGroup;
+            [nodeValue getValue:&budgetLevelGroup];
+            if (budgetLevelGroup.parent==btnIndex)
+            {
+                [self.arrLevelTwoNodeStatus replaceObjectAtIndex:btnIndex withObject:[NSNumber numberWithInt:0]];
+                [self.arrNodeEditFlag replaceObjectAtIndex:budgetLevelGroup.uid withObject:[NSNumber numberWithBool:YES]];
+            }
+            
+        }
+    }
+    
+    [self.subBudgetTableView reloadData];
 }
 
 
@@ -296,7 +370,13 @@
 {
      NSMutableArray *arrLvTwoCALayers=[[NSMutableArray alloc]init];
      NSValue *content=[self.arrLevelTwoNode objectAtIndex:index];
+    UIView *view=[[UIView alloc]init];
     
+    NSNumber *valueStatus=[self.arrLevelTwoNodeStatus objectAtIndex:index];
+    NSInteger status=[valueStatus integerValue];
+    if (status==0)
+    {
+        
     switch (category)
     {
         case 0:{BudgetLevelTwoTypeOneGroup budgetLevelTwoTypeOneGroup;
@@ -316,9 +396,9 @@
               [nameLayer setAlignmentMode:kCAAlignmentLeft];
               [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
               [nameLayer setContentsScale:2];
-
-              [arrLvTwoCALayers addObject:nameLayer];
-               NSLog(@"a");
+            
+              [view.layer addSublayer:nameLayer];
+              [arrLvTwoCALayers addObject:view];
                break;
                }
         case 1:{BudgetLevelTwoTypeTwoGroup budgetLevelTwoTypeTwoGroup;
@@ -339,8 +419,8 @@
                [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
                [nameLayer setContentsScale:2];
             
-               [arrLvTwoCALayers addObject:nameLayer];
-               NSLog(@"b");
+               [view.layer addSublayer:nameLayer];
+               [arrLvTwoCALayers addObject:view];
             
                break;
                }
@@ -362,12 +442,14 @@
                [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
                [nameLayer setContentsScale:2];
             
-               [arrLvTwoCALayers addObject:nameLayer];
+               [view.layer addSublayer:nameLayer];
+               [arrLvTwoCALayers addObject:view];
                NSLog(@"c");
                break;
                }
         default:
             break;
+    }
     }
     
     return arrLvTwoCALayers;

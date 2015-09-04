@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BudgetSubViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
+@interface BudgetSubViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,retain) NSNumber  *xmlIndex;
 @property (nonatomic,retain) NSNumber  *xmlSubIndex;
 
@@ -17,6 +17,7 @@ typedef struct
     int type;        //0为1级节点，1为2级节点
     int category;    //1级节点均为0，2级节点第一类为0，第二类为1，第三类为2
     int parent;      //父节点序号，从零开始，没有父节点为－1
+    int uid;         //结点总id
     int index;
 }BudgetLevelGroup;
 
