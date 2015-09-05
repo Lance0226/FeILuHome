@@ -181,7 +181,7 @@
 //-------------------------------------------------------------------------------------
 -(NSMutableArray*)GetPlanNameListFromJson    //从json数据解析
 {
-    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_name.json"]];
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://101.200.196.121:8080/plan_name.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
 
@@ -215,7 +215,7 @@
 
 -(NSMutableArray*)GetPlanPreviewListFromJson    //从json数据解析预览图
 {
-    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_preview_url.json"]];
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://101.200.196.121:8080/plan_preview_url.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
     
@@ -252,7 +252,7 @@
 
 -(NSMutableArray*)GetPlanPanoListFromJson    //从json数据解析全景图
 {
-    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/plan_pano_url.json"]];
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://101.200.196.121:8080/plan_pano_url.json"]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
     

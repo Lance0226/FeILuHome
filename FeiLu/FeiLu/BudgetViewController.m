@@ -43,6 +43,7 @@
 {
     [self.panoView removeFromSuperview ];
     [self initBudgetTableView];
+    [self.view bringSubviewToFront:self.sectionControl];
 }
 
 
@@ -88,7 +89,7 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView //设置加载进度委托事件
 {
     UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0,
-                                                         [UIScreen mainScreen].bounds.size.height*0.162f,
+                                                         [UIScreen mainScreen].bounds.size.height*0.182f,
                                                          [UIScreen mainScreen].bounds.size.width,
                                                          [UIScreen mainScreen].bounds.size.height*0.9f)];
     [view setTag:108];
@@ -194,11 +195,11 @@
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
     [nameLayer setFont:@"AppleGothic"];
     [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.4f,
-                                   [UIScreen mainScreen].bounds.size.height*0.04f,
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.5f,
+                                   [UIScreen mainScreen].bounds.size.height*0.05f,
                                    [UIScreen mainScreen].bounds.size.width*0.4f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
-    NSString *budgetStr=[NSString stringWithFormat:@"金额：%@",[self.arrBudgetTotal objectAtIndex:rowIndex]];
+    NSString *budgetStr=[NSString stringWithFormat:@"%@",[self.arrBudgetTotal objectAtIndex:rowIndex]];
     
     [nameLayer setString:budgetStr];
     [nameLayer setAlignmentMode:kCAAlignmentLeft];
@@ -212,8 +213,8 @@
 -(UIButton *)getDetailBtn:(NSUInteger)rowInex
 {
     
-    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.80f,
-                                                                   [UIScreen mainScreen].bounds.size.height*0.02f,
+    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.85f,
+                                                                   [UIScreen mainScreen].bounds.size.height*0.03f,
                                                                    [UIScreen mainScreen].bounds.size.width*0.12f,
                                                                    [UIScreen mainScreen].bounds.size.height*0.05f)];
     [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f
@@ -264,7 +265,7 @@
 -(void)parserXML
 {
     NSError *error;
-    NSString *strXMLURL=[NSString stringWithFormat:@"http://localhost:8080/xml%ld.xml",(long)[self.xmlIndex intValue]];
+    NSString *strXMLURL=[NSString stringWithFormat:@"http://101.200.196.121:8080/xml%ld.xml",(long)[self.xmlIndex intValue]];
     NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:strXMLURL]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
     NSString *str=[[NSString alloc]initWithData:reposne encoding:NSUTF8StringEncoding];
@@ -294,17 +295,18 @@
 -(void)initSectionBar
 {
     NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"设计效果",@"设计方案",nil];
-    UISegmentedControl *sectionControl=[[UISegmentedControl alloc] initWithItems:sectionArr];
-    [sectionControl setFrame:CGRectMake(0,
-                                        [UIScreen mainScreen].bounds.size.height*0.095,
+    self.sectionControl=[[UISegmentedControl alloc]initWithItems:sectionArr];
+    [self.sectionControl setFrame:CGRectMake(0,
+                                        [UIScreen mainScreen].bounds.size.height*0.113f,
                                         [UIScreen mainScreen].bounds.size.width,
-                                        [UIScreen mainScreen].bounds.size.height*0.067)];
-    [sectionControl setSelectedSegmentIndex:0];
+                                        [UIScreen mainScreen].bounds.size.height*0.067f)];
     
-    [sectionControl addTarget:self action:@selector(switchSection:) forControlEvents:UIControlEventValueChanged];
-    [sectionControl setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:sectionControl];
-    [self.view bringSubviewToFront:sectionControl];
+    [self.sectionControl setSelectedSegmentIndex:0];
+    
+    [self.sectionControl addTarget:self action:@selector(switchSection:) forControlEvents:UIControlEventValueChanged];
+    [self.sectionControl setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:self.sectionControl];
+    [self.view bringSubviewToFront:self.sectionControl];
 }
 
 

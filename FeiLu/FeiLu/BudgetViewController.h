@@ -17,9 +17,11 @@
 
 @property (nonatomic,retain) NSNumber  *xmlIndex;                         //传递的预算列表的xml的序数
 
-@property (strong,nonatomic) UITableView* budgetTblView;                  //预算表tableview
+@property (retain,nonatomic) UITableView* budgetTblView;                  //预算表tableview
 
-@property (strong,nonatomic) UIActivityIndicatorView *indicator; //指示器
+@property (retain,nonatomic) UIActivityIndicatorView *indicator; //指示器
+
+@property (retain,nonatomic) UISegmentedControl *sectionControl;
 
 
 

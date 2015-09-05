@@ -21,6 +21,10 @@
     UIStoryboard *stroyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:
                                                   [stroyboard instantiateInitialViewController]];
+    navigationController.navigationBar.frame=CGRectMake(0,
+                                                        0,
+                                                        [UIScreen mainScreen].bounds.size.width,
+                                                        [UIScreen mainScreen].bounds.size.height/10);
     self.window.rootViewController=nil;
     self.window.rootViewController=navigationController;
     [self.window makeKeyAndVisible];
