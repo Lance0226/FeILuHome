@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7EDB90FB1B8ED40E00474FC5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */; };
 		7EE2BD9B1B7DA9AB006EB43B /* ESrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */; };
-		7EE6D9E71B955236008BFB1A /* BudgetSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6D9E61B955236008BFB1A /* BudgetSubViewController.m */; };
+		7EE6D9E71B955236008BFB1A /* BudgetSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE6D9E61B955236008BFB1A /* BudgetSubVC.m */; };
 		7EF55F061B7CA022005D0DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F051B7CA022005D0DA1 /* main.m */; };
 		7EF55F091B7CA022005D0DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F081B7CA022005D0DA1 /* AppDelegate.m */; };
 		7EF55F0C1B7CA022005D0DA1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF55F0B1B7CA022005D0DA1 /* HomeViewController.m */; };
@@ -48,8 +48,8 @@
 		7EDB90FA1B8ED40E00474FC5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7EE2BD991B7DA9AB006EB43B /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
 		7EE2BD9A1B7DA9AB006EB43B /* ESrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESrollerView.m; sourceTree = "<group>"; };
-		7EE6D9E51B955236008BFB1A /* BudgetSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetSubViewController.h; sourceTree = "<group>"; };
-		7EE6D9E61B955236008BFB1A /* BudgetSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetSubViewController.m; sourceTree = "<group>"; };
+		7EE6D9E51B955236008BFB1A /* BudgetSubVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetSubVC.h; sourceTree = "<group>"; };
+		7EE6D9E61B955236008BFB1A /* BudgetSubVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetSubVC.m; sourceTree = "<group>"; };
 		7EF55F001B7CA022005D0DA1 /* FeiLu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeiLu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF55F041B7CA022005D0DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF55F051B7CA022005D0DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 				7EF55F0E1B7CA022005D0DA1 /* PlanViewController.m */,
 				7EF8542E1B8DBD620063282E /* BudgetViewController.h */,
 				7EF8542F1B8DBD620063282E /* BudgetViewController.m */,
-				7EE6D9E51B955236008BFB1A /* BudgetSubViewController.h */,
-				7EE6D9E61B955236008BFB1A /* BudgetSubViewController.m */,
+				7EE6D9E51B955236008BFB1A /* BudgetSubVC.h */,
+				7EE6D9E61B955236008BFB1A /* BudgetSubVC.m */,
 				7EF55F101B7CA022005D0DA1 /* Main.storyboard */,
 				7EF55F131B7CA022005D0DA1 /* Images.xcassets */,
 				7EF55F151B7CA022005D0DA1 /* LaunchScreen.xib */,
@@ -369,7 +369,7 @@
 				F7E861301B9A958C001832BE /* RATreeNode.m in Sources */,
 				F7E861351B9A958C001832BE /* RATreeView+Private.m in Sources */,
 				F7E861371B9A958C001832BE /* RATreeView+TableViewDelegate.m in Sources */,
-				7EE6D9E71B955236008BFB1A /* BudgetSubViewController.m in Sources */,
+				7EE6D9E71B955236008BFB1A /* BudgetSubVC.m in Sources */,
 				F7E861381B9A958C001832BE /* RATreeView+UIScrollView.m in Sources */,
 				7EF854301B8DBD620063282E /* BudgetViewController.m in Sources */,
 				7EF55F0F1B7CA022005D0DA1 /* PlanViewController.m in Sources */,

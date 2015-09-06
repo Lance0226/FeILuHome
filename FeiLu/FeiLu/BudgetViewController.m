@@ -8,7 +8,7 @@
 
 #import "BudgetViewController.h"
 #import "GDataXMLNode.h"
-#import "BudgetSubViewController.h"
+#import "BudgetSubVC.h"
 
 @interface BudgetViewController ()
 @property (nonatomic,retain) NSMutableArray *arrBudgetName;   //预算名称列表
@@ -238,7 +238,7 @@
         {
 
             
-            BudgetSubViewController *budgetSubVC=[[BudgetSubViewController alloc]init];
+            BudgetSubVC *budgetSubVC=[[BudgetSubVC alloc]init];
             budgetSubVC.xmlIndex=self.xmlIndex;
             budgetSubVC.xmlSubIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             [self.navigationController pushViewController:budgetSubVC animated:YES];

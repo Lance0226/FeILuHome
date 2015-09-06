@@ -8,7 +8,7 @@
 
 #import "PlanViewController.h"
 #import "BudgetViewController.h"
-#import "BudgetSubViewController.h"
+#import "BudgetSubVC.h"
 
 
 @interface PlanViewController ()
