@@ -7,259 +7,264 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C8B9A6C303AD8D688D6777D3554E5C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21E86784018043CD505D8CD7C287890 /* Foundation.framework */; };
-		21153D6F2874321BB5E3D442943AD68D /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 145DB0140ABE228452E16CCDCB8CDBF4 /* GDataXMLNode.h */; };
-		6579436567D0B2D8DD36E90F4505F45C /* GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF7727F50C7FF269B31A4D822398B /* GDataXML-HTML-dummy.m */; };
-		8EC609FCEC95BD1ED245D610216A7E03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21E86784018043CD505D8CD7C287890 /* Foundation.framework */; };
-		A1C104411A61590CBA93335AAAE029EC /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFFE82A4AF18E3759C64B9A0D1C2ED /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F7CB8061F4404A7FD9C7FA0B2067A6FE /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DAC0C1F8DB01E98E5A8A1DA00FF79D /* Pods-dummy.m */; };
+		01960808EF193E53EE5576EF /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D132E8B60B8132D27879D782 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5D0B3FC84676778AF0A92DD0 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF50317F6C6D1C85AF69AEA /* Pods-dummy.m */; };
+		6809A3D74B473ACFDE477200 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = BF1FA546AD3D63BE498A6A45 /* GDataXMLNode.h */; };
+		C1D4F37A172393EF7F182342 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4755EB025A286E865FFE116 /* Foundation.framework */; };
+		DA12D4C73DC58B0598BBCEDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4755EB025A286E865FFE116 /* Foundation.framework */; };
+		E4CFC657069D5F281AFD8FB4 /* Pods-GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 418EF1E508CEB253F3D29119 /* Pods-GDataXML-HTML-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8C72F1D7E8DDD763F3C2FD32452801E5 /* PBXContainerItemProxy */ = {
+		EB10DF8B30BE3F70676E7044 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = A62C2BD52A5F613EDBDD6235 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C7235EAA85CBD1CE3187EBFFA70842FD;
-			remoteInfo = "GDataXML-HTML";
+			remoteGlobalIDString = A962E67CD85A281BCE8EC475;
+			remoteInfo = "Pods-GDataXML-HTML";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		145DB0140ABE228452E16CCDCB8CDBF4 /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = "GDataXML-HTML/lib/GDataXMLNode.h"; sourceTree = "<group>"; };
-		15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		63DAC0C1F8DB01E98E5A8A1DA00FF79D /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		7DBFFE82A4AF18E3759C64B9A0D1C2ED /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = "GDataXML-HTML/lib/GDataXMLNode.m"; sourceTree = "<group>"; };
-		89C343BAD71F1E939E97F83D375B3357 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		93BEF7727F50C7FF269B31A4D822398B /* GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
-		A03F779939C79D73E4CCB0A7301BA9B0 /* GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
-		A21E86784018043CD505D8CD7C287890 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		DAF8266EBB43B3AD31C61564F82F01A8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC506E43473FB1EDF84BFEC0A64C9008 /* libGDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libGDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCBBA82FDC94206E30731D4FB0C975AA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		DDD0AC34AF7ED7F1051DB9DBA44BE04A /* GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
-		E280A429EFF4E4F1486B205B57587890 /* GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
+		0BF50317F6C6D1C85AF69AEA /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		16356FDADBB7A19FC9D9B025 /* Pods-GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
+		411849BF99618640BB4B756C /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		418EF1E508CEB253F3D29119 /* Pods-GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
+		5D0B4DE42B82A6A129DBBCB0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		60DB78910076F2F23C0AD3B0 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		82F3ECE7FE09B3B73936B379 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		852B31E42A340D2119309944 /* Pods-GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
+		943740CA0C2476FA319796EF /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		9654F6174805735BE5BB182F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		A4755EB025A286E865FFE116 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A85C37E0FC9C4FAA109E1832 /* libPods-GDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF1FA546AD3D63BE498A6A45 /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = "GDataXML-HTML/lib/GDataXMLNode.h"; sourceTree = "<group>"; };
+		D132E8B60B8132D27879D782 /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = "GDataXML-HTML/lib/GDataXMLNode.m"; sourceTree = "<group>"; };
+		D88C3DB3C2A794DA73BC6F18 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2ACCA308DA9972C7F6B501E /* Pods-GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
+		F4D044BD1D1362BFC4E10010 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F71AD8C9EA976073426460D2 /* Pods.autodebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.autodebug.xcconfig; sourceTree = "<group>"; };
+		FEF062D0ADE0AD1D8345D614 /* Pods.autorelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.autorelease.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5DF8470E29D2A3D6C3998F7C219A4696 /* Frameworks */ = {
+		5291513694CCB854E44B04F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EC609FCEC95BD1ED245D610216A7E03 /* Foundation.framework in Frameworks */,
+				DA12D4C73DC58B0598BBCEDC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD671FA0735F85757F2A7078F541512F /* Frameworks */ = {
+		F9A22841B838218373539E51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C8B9A6C303AD8D688D6777D3554E5C1 /* Foundation.framework in Frameworks */,
+				C1D4F37A172393EF7F182342 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		034DC99B7732962E71F109408A37FD03 /* Pods */ = {
+		1554455DC3AB8B955703EA75 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				799728C4121CCC1DE488021647024774 /* GDataXML-HTML */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A21E86784018043CD505D8CD7C287890 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		799728C4121CCC1DE488021647024774 /* GDataXML-HTML */ = {
-			isa = PBXGroup;
-			children = (
-				145DB0140ABE228452E16CCDCB8CDBF4 /* GDataXMLNode.h */,
-				7DBFFE82A4AF18E3759C64B9A0D1C2ED /* GDataXMLNode.m */,
-				E6C51F6C72C4059E9354F6319947207C /* Support Files */,
-			);
-			path = "GDataXML-HTML";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				034DC99B7732962E71F109408A37FD03 /* Pods */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		952EEBFAF8F7E620423C9F156F25A506 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				15A529C27057E4A57D259CBC6E6CE49C /* Pods-acknowledgements.markdown */,
-				BF59BC15D23E1E1912C8F334E7236813 /* Pods-acknowledgements.plist */,
-				63DAC0C1F8DB01E98E5A8A1DA00FF79D /* Pods-dummy.m */,
-				641AE05DD55E5E6AC1590CD7B4A18F97 /* Pods-resources.sh */,
-				89C343BAD71F1E939E97F83D375B3357 /* Pods.debug.xcconfig */,
-				DCBBA82FDC94206E30731D4FB0C975AA /* Pods.release.xcconfig */,
+				F4D044BD1D1362BFC4E10010 /* Pods-acknowledgements.markdown */,
+				411849BF99618640BB4B756C /* Pods-acknowledgements.plist */,
+				0BF50317F6C6D1C85AF69AEA /* Pods-dummy.m */,
+				60DB78910076F2F23C0AD3B0 /* Pods-environment.h */,
+				943740CA0C2476FA319796EF /* Pods-resources.sh */,
+				F71AD8C9EA976073426460D2 /* Pods.autodebug.xcconfig */,
+				FEF062D0ADE0AD1D8345D614 /* Pods.autorelease.xcconfig */,
+				9654F6174805735BE5BB182F /* Pods.debug.xcconfig */,
+				5D0B4DE42B82A6A129DBBCB0 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		3146183B85F0DC0CDA30FF0B = {
 			isa = PBXGroup;
 			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+				82F3ECE7FE09B3B73936B379 /* Podfile */,
+				F30CB4231A529D8DEBEAAC61 /* Frameworks */,
+				7A8B6990719677B84F181878 /* Pods */,
+				F6946FCE05BDA08E2C52ED01 /* Products */,
+				8E12979E1F92E5FC4E8B90E5 /* Targets Support Files */,
 			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+		3CA008994716501C5D212A59 /* GDataXML-HTML */ = {
 			isa = PBXGroup;
 			children = (
-				DC506E43473FB1EDF84BFEC0A64C9008 /* libGDataXML-HTML.a */,
-				DAF8266EBB43B3AD31C61564F82F01A8 /* libPods.a */,
+				BF1FA546AD3D63BE498A6A45 /* GDataXMLNode.h */,
+				D132E8B60B8132D27879D782 /* GDataXMLNode.m */,
+				D01CEEC1ABA8522B8981298D /* Support Files */,
 			);
-			name = Products;
+			path = "GDataXML-HTML";
 			sourceTree = "<group>";
 		};
-		D2411A5FE7F7A004607BED49990C37F4 /* Targets Support Files */ = {
+		747D5066546F121413711A42 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				952EEBFAF8F7E620423C9F156F25A506 /* Pods */,
+				A4755EB025A286E865FFE116 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7A8B6990719677B84F181878 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CA008994716501C5D212A59 /* GDataXML-HTML */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E12979E1F92E5FC4E8B90E5 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1554455DC3AB8B955703EA75 /* Pods */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		E6C51F6C72C4059E9354F6319947207C /* Support Files */ = {
+		D01CEEC1ABA8522B8981298D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DDD0AC34AF7ED7F1051DB9DBA44BE04A /* GDataXML-HTML.xcconfig */,
-				E280A429EFF4E4F1486B205B57587890 /* GDataXML-HTML-Private.xcconfig */,
-				93BEF7727F50C7FF269B31A4D822398B /* GDataXML-HTML-dummy.m */,
-				A03F779939C79D73E4CCB0A7301BA9B0 /* GDataXML-HTML-prefix.pch */,
+				852B31E42A340D2119309944 /* Pods-GDataXML-HTML.xcconfig */,
+				F2ACCA308DA9972C7F6B501E /* Pods-GDataXML-HTML-Private.xcconfig */,
+				418EF1E508CEB253F3D29119 /* Pods-GDataXML-HTML-dummy.m */,
+				16356FDADBB7A19FC9D9B025 /* Pods-GDataXML-HTML-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/GDataXML-HTML";
+			path = "../Target Support Files/Pods-GDataXML-HTML";
+			sourceTree = "<group>";
+		};
+		F30CB4231A529D8DEBEAAC61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				747D5066546F121413711A42 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6946FCE05BDA08E2C52ED01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D88C3DB3C2A794DA73BC6F18 /* libPods.a */,
+				A85C37E0FC9C4FAA109E1832 /* libPods-GDataXML-HTML.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		14020A580CFEC9235A5DE89B3B725E61 /* Headers */ = {
+		00FA9F28061CF4D87569C8DD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21153D6F2874321BB5E3D442943AD68D /* GDataXMLNode.h in Headers */,
+				6809A3D74B473ACFDE477200 /* GDataXMLNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		788AB6845A1AE9F363208D2011DEA700 /* Pods */ = {
+		906A501798A2BCEC97D2787F /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 435897673F20245714A636D78A372D5E /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = FC6067D9CC854B0C61AD4B41 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				E6AE824955C3607886C9D740907F22DD /* Sources */,
-				5DF8470E29D2A3D6C3998F7C219A4696 /* Frameworks */,
+				15C44EFCCDC9E6AD3270A11E /* Sources */,
+				5291513694CCB854E44B04F4 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				90F004E6210E04836CDE795FF50F0A8B /* PBXTargetDependency */,
+				1288A313C9798EEABC6F185B /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = DAF8266EBB43B3AD31C61564F82F01A8 /* libPods.a */;
+			productReference = D88C3DB3C2A794DA73BC6F18 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		C7235EAA85CBD1CE3187EBFFA70842FD /* GDataXML-HTML */ = {
+		A962E67CD85A281BCE8EC475 /* Pods-GDataXML-HTML */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C45E9BA120792DD545D53FC91CBA1033 /* Build configuration list for PBXNativeTarget "GDataXML-HTML" */;
+			buildConfigurationList = BDF5560D99EF2ECAFD6A9EC1 /* Build configuration list for PBXNativeTarget "Pods-GDataXML-HTML" */;
 			buildPhases = (
-				55C83A72C896DEB7017C0C0445448F79 /* Sources */,
-				FD671FA0735F85757F2A7078F541512F /* Frameworks */,
-				14020A580CFEC9235A5DE89B3B725E61 /* Headers */,
+				D17A27AC6BC6F4DC3358A593 /* Sources */,
+				F9A22841B838218373539E51 /* Frameworks */,
+				00FA9F28061CF4D87569C8DD /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "GDataXML-HTML";
-			productName = "GDataXML-HTML";
-			productReference = DC506E43473FB1EDF84BFEC0A64C9008 /* libGDataXML-HTML.a */;
+			name = "Pods-GDataXML-HTML";
+			productName = "Pods-GDataXML-HTML";
+			productReference = A85C37E0FC9C4FAA109E1832 /* libPods-GDataXML-HTML.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		A62C2BD52A5F613EDBDD6235 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 5EC495901824B108E0C77F3B /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			mainGroup = 3146183B85F0DC0CDA30FF0B;
+			productRefGroup = F6946FCE05BDA08E2C52ED01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7235EAA85CBD1CE3187EBFFA70842FD /* GDataXML-HTML */,
-				788AB6845A1AE9F363208D2011DEA700 /* Pods */,
+				906A501798A2BCEC97D2787F /* Pods */,
+				A962E67CD85A281BCE8EC475 /* Pods-GDataXML-HTML */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		55C83A72C896DEB7017C0C0445448F79 /* Sources */ = {
+		15C44EFCCDC9E6AD3270A11E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6579436567D0B2D8DD36E90F4505F45C /* GDataXML-HTML-dummy.m in Sources */,
-				A1C104411A61590CBA93335AAAE029EC /* GDataXMLNode.m in Sources */,
+				5D0B3FC84676778AF0A92DD0 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6AE824955C3607886C9D740907F22DD /* Sources */ = {
+		D17A27AC6BC6F4DC3358A593 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7CB8061F4404A7FD9C7FA0B2067A6FE /* Pods-dummy.m in Sources */,
+				01960808EF193E53EE5576EF /* GDataXMLNode.m in Sources */,
+				E4CFC657069D5F281AFD8FB4 /* Pods-GDataXML-HTML-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		90F004E6210E04836CDE795FF50F0A8B /* PBXTargetDependency */ = {
+		1288A313C9798EEABC6F185B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "GDataXML-HTML";
-			target = C7235EAA85CBD1CE3187EBFFA70842FD /* GDataXML-HTML */;
-			targetProxy = 8C72F1D7E8DDD763F3C2FD32452801E5 /* PBXContainerItemProxy */;
+			name = "Pods-GDataXML-HTML";
+			target = A962E67CD85A281BCE8EC475 /* Pods-GDataXML-HTML */;
+			targetProxy = EB10DF8B30BE3F70676E7044 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		354567CF13F0EDE659F36EBD663F8E3D /* Release */ = {
+		02CA71430D41BB6F3B43A986 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCBBA82FDC94206E30731D4FB0C975AA /* Pods.release.xcconfig */;
+			baseConfigurationReference = 5D0B4DE42B82A6A129DBBCB0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -273,7 +278,7 @@
 			};
 			name = Release;
 		};
-		511103F7F15A7E8F83B268EA03462CAB /* Release */ = {
+		0ECA5F816A3040684C64EB21 /* AutoRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -293,7 +298,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "AUTORELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -302,44 +307,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = AutoRelease;
 		};
-		545C690A1145ED824529EC53F6030759 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E280A429EFF4E4F1486B205B57587890 /* GDataXML-HTML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		654DE0A8EC0534D7B3776F76AD2FFFE2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C343BAD71F1E939E97F83D375B3357 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		AA05AF9C3A14EE0E32F42C6E6D42D34F /* Debug */ = {
+		63AAE3F483623A0697A4DE09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -378,12 +350,175 @@
 			};
 			name = Debug;
 		};
-		B0A0584C32D09E19C81D1A6E9E958058 /* Debug */ = {
+		912596E3D34D943557265ADC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E280A429EFF4E4F1486B205B57587890 /* GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B462D7EF887C39D434544360 /* AutoDebug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F71AD8C9EA976073426460D2 /* Pods.autodebug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = AutoDebug;
+		};
+		B7E0CA0F3D91C84718773965 /* AutoRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEF062D0ADE0AD1D8345D614 /* Pods.autorelease.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = AutoRelease;
+		};
+		C35169F798B97E44A3F1CEF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9654F6174805735BE5BB182F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D591248D9E10BD09B5904BCE /* AutoDebug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "AUTODEBUG=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AutoDebug;
+		};
+		D7E43E0251AC032476CAFE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2ACCA308DA9972C7F6B501E /* Pods-GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-GDataXML-HTML/Pods-GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E483DDF642CF9029EE4161D6 /* AutoRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2ACCA308DA9972C7F6B501E /* Pods-GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-GDataXML-HTML/Pods-GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = AutoRelease;
+		};
+		F4FA95EE52AF7977825E1F09 /* AutoDebug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2ACCA308DA9972C7F6B501E /* Pods-GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-GDataXML-HTML/Pods-GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = AutoDebug;
+		};
+		FC16D44CBE2DCA0F60DBEF34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2ACCA308DA9972C7F6B501E /* Pods-GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-GDataXML-HTML/Pods-GDataXML-HTML-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -397,34 +532,40 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		5EC495901824B108E0C77F3B /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA05AF9C3A14EE0E32F42C6E6D42D34F /* Debug */,
-				511103F7F15A7E8F83B268EA03462CAB /* Release */,
+				D591248D9E10BD09B5904BCE /* AutoDebug */,
+				0ECA5F816A3040684C64EB21 /* AutoRelease */,
+				63AAE3F483623A0697A4DE09 /* Debug */,
+				912596E3D34D943557265ADC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		435897673F20245714A636D78A372D5E /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		BDF5560D99EF2ECAFD6A9EC1 /* Build configuration list for PBXNativeTarget "Pods-GDataXML-HTML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				654DE0A8EC0534D7B3776F76AD2FFFE2 /* Debug */,
-				354567CF13F0EDE659F36EBD663F8E3D /* Release */,
+				F4FA95EE52AF7977825E1F09 /* AutoDebug */,
+				E483DDF642CF9029EE4161D6 /* AutoRelease */,
+				FC16D44CBE2DCA0F60DBEF34 /* Debug */,
+				D7E43E0251AC032476CAFE8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C45E9BA120792DD545D53FC91CBA1033 /* Build configuration list for PBXNativeTarget "GDataXML-HTML" */ = {
+		FC6067D9CC854B0C61AD4B41 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0A0584C32D09E19C81D1A6E9E958058 /* Debug */,
-				545C690A1145ED824529EC53F6030759 /* Release */,
+				B462D7EF887C39D434544360 /* AutoDebug */,
+				B7E0CA0F3D91C84718773965 /* AutoRelease */,
+				C35169F798B97E44A3F1CEF6 /* Debug */,
+				02CA71430D41BB6F3B43A986 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = A62C2BD52A5F613EDBDD6235 /* Project object */;
 }
