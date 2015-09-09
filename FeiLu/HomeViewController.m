@@ -81,7 +81,7 @@
     [self.view addSubview:adLogo1View];
     
     UIImageView *adLogo2View=[[UIImageView alloc]initWithImage:adLogo2];
-    [adLogo2View setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.433f,
+    [adLogo2View setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.443f,
                                      [UIScreen mainScreen].bounds.size.height*0.23f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f )];
@@ -93,6 +93,31 @@
                                      [UIScreen mainScreen].bounds.size.width*0.125f,
                                      [UIScreen mainScreen].bounds.size.width*0.125 )];
     [self.view addSubview:adLogo3View];
+    
+    UILabel *lableLogo1=[[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.0407f,
+                                                                 [UIScreen mainScreen].bounds.size.height*0.29f,
+                                                                 [UIScreen mainScreen].bounds.size.width*0.17f,
+                                                                 [UIScreen mainScreen].bounds.size.width*0.125f )];
+    [lableLogo1 setText:@"广告宣传"];
+    [lableLogo1 setAdjustsFontSizeToFitWidth:YES];
+    [self.view addSubview:lableLogo1];
+    
+    UILabel *lableLogo2=[[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.418f,
+                                                                 [UIScreen mainScreen].bounds.size.height*0.29f,
+                                                                 [UIScreen mainScreen].bounds.size.width*0.17f,
+                                                                 [UIScreen mainScreen].bounds.size.width*0.125f )];
+    [lableLogo2 setText:@"小区推广"];
+    [lableLogo2 setAdjustsFontSizeToFitWidth:YES];
+    [self.view addSubview:lableLogo2];
+    
+    UILabel *lableLogo3=[[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.780f,
+                                                                 [UIScreen mainScreen].bounds.size.height*0.29f,
+                                                                 [UIScreen mainScreen].bounds.size.width*0.17f,
+                                                                 [UIScreen mainScreen].bounds.size.width*0.125f )];
+    [lableLogo3 setText:@"个性设计"];
+    [lableLogo3 setAdjustsFontSizeToFitWidth:YES];
+    [self.view addSubview:lableLogo3];
+
     
 }
 
