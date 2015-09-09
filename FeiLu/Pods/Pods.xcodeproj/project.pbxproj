@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0094CD05FD5C27290C612791B1E68010 /* GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5693A2DF587490841E12940149787 /* GDataXML-HTML-dummy.m */; };
-		51A227277E65F02871F2CAFD2F8A6FBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5501C6FB9BCF5B1D00B6185BB3530C9 /* Foundation.framework */; };
-		87C24A5E7B36B068C7DE60FF97DAF5E0 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD729BAF274A92FB73767CD6F6557B97 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9D1CC20FDAA3A1D56C7364712B04F6F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5501C6FB9BCF5B1D00B6185BB3530C9 /* Foundation.framework */; };
-		C41C3907E346DCC83C5543F12571D151 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E6858CB45B02824D3C89F6E9C28ABBE9 /* GDataXMLNode.h */; };
+		9D1CC20FDAA3A1D56C7364712B04F6F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9681D023D1692EACA6FE465E59AFA50E /* Foundation.framework */; };
+		A41525A70995A0318CFC2F0A4A9510CB /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 21FC1603754D26875B16A899663AC50B /* GDataXMLNode.h */; };
+		A9FDF5136BB5492180766397283DF5EF /* GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C70961636CEF6C5267FBCA7CFDB287AD /* GDataXML-HTML-dummy.m */; };
+		C31F2A9A5B9F16F3381A46DFB8C5C658 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 550EBB1C4929CA21B37B1A8635E0C531 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D1BB6B412058A5A5BC7C74B0E13C946E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9681D023D1692EACA6FE465E59AFA50E /* Foundation.framework */; };
 		E7041086C394DA79BB9C2956C3DBE90F /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21508D6BEEF67993A5720952CAF28983 /* Pods-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DAF76B17B2BFC2D8BF514AA021C3D96C /* PBXContainerItemProxy */ = {
+		F48874B026EB323F7DCEFC10DD973784 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B102C539DE1EE78429DF7550322FC904;
+			remoteGlobalIDString = 27D072EE899C78F256202B1DB66E2D85;
 			remoteInfo = "GDataXML-HTML";
 		};
 /* End PBXContainerItemProxy section */
@@ -28,38 +28,38 @@
 /* Begin PBXFileReference section */
 		17533D713D6ACECB9FAE2538E0334883 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5C824B167802557DE15FD3ED3E23DB /* Pods.autodebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.autodebug.xcconfig; sourceTree = "<group>"; };
+		2050BD3E7DF73111267B062E1686DC90 /* libGDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libGDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21508D6BEEF67993A5720952CAF28983 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		21FC1603754D26875B16A899663AC50B /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = "GDataXML-HTML/lib/GDataXMLNode.h"; sourceTree = "<group>"; };
 		3AAD8679713E1AC24753EF721C030D0F /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		6BC5693A2DF587490841E12940149787 /* GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
+		550EBB1C4929CA21B37B1A8635E0C531 /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = "GDataXML-HTML/lib/GDataXMLNode.m"; sourceTree = "<group>"; };
 		7821446F710BEAD34AF49A76EDFD8003 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		9681D023D1692EACA6FE465E59AFA50E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A03F779939C79D73E4CCB0A7301BA9B0 /* GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
 		A94E52C6EC6C3F09A89663BA4209704E /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		AD729BAF274A92FB73767CD6F6557B97 /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = "GDataXML-HTML/lib/GDataXMLNode.m"; sourceTree = "<group>"; };
-		ADD4F7A923DDE4E0EC37C30A72361952 /* GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
+		B2DF44B95DBFD56E632CB405CD95433C /* GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
 		B5B57DC4EE9576DCC6E6D8ABECF7D98B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C70961636CEF6C5267FBCA7CFDB287AD /* GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
 		CB4A7E66E8CFAC3E5EEFA0B3E137B0C1 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DDD0AC34AF7ED7F1051DB9DBA44BE04A /* GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
 		DF016B980ED764D9D0BF166D6850F8E3 /* Pods.autorelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.autorelease.xcconfig; sourceTree = "<group>"; };
-		DFF2F00BB4B674E2B58D3163A2683AD6 /* libGDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libGDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5501C6FB9BCF5B1D00B6185BB3530C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E6858CB45B02824D3C89F6E9C28ABBE9 /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = "GDataXML-HTML/lib/GDataXMLNode.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7F195954FBE68CB1CE085BF9125560CB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				51A227277E65F02871F2CAFD2F8A6FBA /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B61449713BA994199FF31C314516BA25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9D1CC20FDAA3A1D56C7364712B04F6F9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAB3C52664B47F8D6E255C57107C460A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BB6B412058A5A5BC7C74B0E13C946E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E5501C6FB9BCF5B1D00B6185BB3530C9 /* Foundation.framework */,
+				9681D023D1692EACA6FE465E59AFA50E /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -93,8 +93,8 @@
 		799728C4121CCC1DE488021647024774 /* GDataXML-HTML */ = {
 			isa = PBXGroup;
 			children = (
-				E6858CB45B02824D3C89F6E9C28ABBE9 /* GDataXMLNode.h */,
-				AD729BAF274A92FB73767CD6F6557B97 /* GDataXMLNode.m */,
+				21FC1603754D26875B16A899663AC50B /* GDataXMLNode.h */,
+				550EBB1C4929CA21B37B1A8635E0C531 /* GDataXMLNode.m */,
 				E6C51F6C72C4059E9354F6319947207C /* Support Files */,
 			);
 			path = "GDataXML-HTML";
@@ -138,7 +138,7 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DFF2F00BB4B674E2B58D3163A2683AD6 /* libGDataXML-HTML.a */,
+				2050BD3E7DF73111267B062E1686DC90 /* libGDataXML-HTML.a */,
 				17533D713D6ACECB9FAE2538E0334883 /* libPods.a */,
 			);
 			name = Products;
@@ -148,8 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				DDD0AC34AF7ED7F1051DB9DBA44BE04A /* GDataXML-HTML.xcconfig */,
-				ADD4F7A923DDE4E0EC37C30A72361952 /* GDataXML-HTML-Private.xcconfig */,
-				6BC5693A2DF587490841E12940149787 /* GDataXML-HTML-dummy.m */,
+				B2DF44B95DBFD56E632CB405CD95433C /* GDataXML-HTML-Private.xcconfig */,
+				C70961636CEF6C5267FBCA7CFDB287AD /* GDataXML-HTML-dummy.m */,
 				A03F779939C79D73E4CCB0A7301BA9B0 /* GDataXML-HTML-prefix.pch */,
 			);
 			name = "Support Files";
@@ -159,17 +159,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		B6C27BF4E207C3DC5A1DFD8DB5083B4A /* Headers */ = {
+		66A35F8E76AF805E3B6C028810AB124E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C41C3907E346DCC83C5543F12571D151 /* GDataXMLNode.h in Headers */,
+				A41525A70995A0318CFC2F0A4A9510CB /* GDataXMLNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		27D072EE899C78F256202B1DB66E2D85 /* GDataXML-HTML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4F0E367BAF857AA95A14E4AA855686E /* Build configuration list for PBXNativeTarget "GDataXML-HTML" */;
+			buildPhases = (
+				9A872EA9D28425FE88E793034D9EFEFA /* Sources */,
+				CAB3C52664B47F8D6E255C57107C460A /* Frameworks */,
+				66A35F8E76AF805E3B6C028810AB124E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GDataXML-HTML";
+			productName = "GDataXML-HTML";
+			productReference = 2050BD3E7DF73111267B062E1686DC90 /* libGDataXML-HTML.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		81B797543844FC17386DC8C35AFA6AC8 /* Pods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B79340AE78F38E893FCA06769F397A50 /* Build configuration list for PBXNativeTarget "Pods" */;
@@ -180,28 +197,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				36CF46A8D0884A4FB8EE269912F7A513 /* PBXTargetDependency */,
+				D5A0CA11D0048D0694F9A3A88E903126 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
 			productReference = 17533D713D6ACECB9FAE2538E0334883 /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		B102C539DE1EE78429DF7550322FC904 /* GDataXML-HTML */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7E65858640EA09F0B016EBA96C77880 /* Build configuration list for PBXNativeTarget "GDataXML-HTML" */;
-			buildPhases = (
-				F5DB7C55D89C18A295BAF4CA18BFECE1 /* Sources */,
-				7F195954FBE68CB1CE085BF9125560CB /* Frameworks */,
-				B6C27BF4E207C3DC5A1DFD8DB5083B4A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "GDataXML-HTML";
-			productName = "GDataXML-HTML";
-			productReference = DFF2F00BB4B674E2B58D3163A2683AD6 /* libGDataXML-HTML.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -225,7 +225,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B102C539DE1EE78429DF7550322FC904 /* GDataXML-HTML */,
+				27D072EE899C78F256202B1DB66E2D85 /* GDataXML-HTML */,
 				81B797543844FC17386DC8C35AFA6AC8 /* Pods */,
 			);
 		};
@@ -240,30 +240,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F5DB7C55D89C18A295BAF4CA18BFECE1 /* Sources */ = {
+		9A872EA9D28425FE88E793034D9EFEFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0094CD05FD5C27290C612791B1E68010 /* GDataXML-HTML-dummy.m in Sources */,
-				87C24A5E7B36B068C7DE60FF97DAF5E0 /* GDataXMLNode.m in Sources */,
+				A9FDF5136BB5492180766397283DF5EF /* GDataXML-HTML-dummy.m in Sources */,
+				C31F2A9A5B9F16F3381A46DFB8C5C658 /* GDataXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		36CF46A8D0884A4FB8EE269912F7A513 /* PBXTargetDependency */ = {
+		D5A0CA11D0048D0694F9A3A88E903126 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "GDataXML-HTML";
-			target = B102C539DE1EE78429DF7550322FC904 /* GDataXML-HTML */;
-			targetProxy = DAF76B17B2BFC2D8BF514AA021C3D96C /* PBXContainerItemProxy */;
+			target = 27D072EE899C78F256202B1DB66E2D85 /* GDataXML-HTML */;
+			targetProxy = F48874B026EB323F7DCEFC10DD973784 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03B0B452CCCADBEF34A9B8B1F75651B2 /* AutoRelease */ = {
+		0288FD0936928B4A6C25D761A8C6B60E /* AutoRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADD4F7A923DDE4E0EC37C30A72361952 /* GDataXML-HTML-Private.xcconfig */;
+			baseConfigurationReference = B2DF44B95DBFD56E632CB405CD95433C /* GDataXML-HTML-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
@@ -276,6 +276,22 @@
 				SKIP_INSTALL = YES;
 			};
 			name = AutoRelease;
+		};
+		1A6E808E768DDDE88046CCA6131C9DCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2DF44B95DBFD56E632CB405CD95433C /* GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		1E698C278BE9DD8CF271A1A5A4ACB558 /* AutoRelease */ = {
 			isa = XCBuildConfiguration;
@@ -292,22 +308,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = AutoRelease;
-		};
-		4995DE6A16475929212FA9CDDE25D974 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADD4F7A923DDE4E0EC37C30A72361952 /* GDataXML-HTML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
 		};
 		511103F7F15A7E8F83B268EA03462CAB /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -343,9 +343,9 @@
 			};
 			name = Release;
 		};
-		6B619D16DF207A57743D48FFAABB6BE3 /* Release */ = {
+		68B646F622CD086759C667FCBC0BFAD2 /* AutoDebug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADD4F7A923DDE4E0EC37C30A72361952 /* GDataXML-HTML-Private.xcconfig */;
+			baseConfigurationReference = B2DF44B95DBFD56E632CB405CD95433C /* GDataXML-HTML-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
@@ -357,7 +357,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = AutoDebug;
 		};
 		7443714361C62CD46E59443B2926D4C7 /* AutoRelease */ = {
 			isa = XCBuildConfiguration;
@@ -457,9 +457,9 @@
 			};
 			name = Release;
 		};
-		A7CB23CAC6660DA43E9F334A0881463A /* AutoDebug */ = {
+		A7C5D93567BAA2663DDE2BBADA0DC31D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADD4F7A923DDE4E0EC37C30A72361952 /* GDataXML-HTML-Private.xcconfig */;
+			baseConfigurationReference = B2DF44B95DBFD56E632CB405CD95433C /* GDataXML-HTML-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/GDataXML-HTML/GDataXML-HTML-prefix.pch";
@@ -471,7 +471,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = AutoDebug;
+			name = Release;
 		};
 		AA05AF9C3A14EE0E32F42C6E6D42D34F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -542,6 +542,17 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A4F0E367BAF857AA95A14E4AA855686E /* Build configuration list for PBXNativeTarget "GDataXML-HTML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68B646F622CD086759C667FCBC0BFAD2 /* AutoDebug */,
+				0288FD0936928B4A6C25D761A8C6B60E /* AutoRelease */,
+				1A6E808E768DDDE88046CCA6131C9DCD /* Debug */,
+				A7C5D93567BAA2663DDE2BBADA0DC31D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B79340AE78F38E893FCA06769F397A50 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -549,17 +560,6 @@
 				1E698C278BE9DD8CF271A1A5A4ACB558 /* AutoRelease */,
 				C33BA8BFAE8354000CE1BD6EEB1FFB42 /* Debug */,
 				9555CEA231AC6E5B9485F543E641EA50 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7E65858640EA09F0B016EBA96C77880 /* Build configuration list for PBXNativeTarget "GDataXML-HTML" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A7CB23CAC6660DA43E9F334A0881463A /* AutoDebug */,
-				03B0B452CCCADBEF34A9B8B1F75651B2 /* AutoRelease */,
-				4995DE6A16475929212FA9CDDE25D974 /* Debug */,
-				6B619D16DF207A57743D48FFAABB6BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

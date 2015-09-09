@@ -27,6 +27,9 @@
 		5111B07D1AE6A11A00317E71 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5111B07A1AE6A11A00317E71 /* RongCloud.bundle */; };
 		5C0253F41B53D6F8003F48D9 /* RCDBlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0253F31B53D6F8003F48D9 /* RCDBlackListViewController.m */; };
 		5C7629831B54F7E60027DA82 /* RCDBlackListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7629821B54F7E60027DA82 /* RCDBlackListCell.m */; };
+		7E2F49FE4D05D08FFAEC623C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C592F823F22BEA26C035CF2F /* libPods.a */; };
+		7E2FAFBD1BA0004E00BDF9FD /* BudgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */; };
+		7E2FAFBF1BA00A5300BDF9FD /* libGDataXML-HTML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */; };
 		8C55EB511B2A8CE5004285F4 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C55EB501B2A8CE5004285F4 /* Emoji.plist */; };
 		8CCBC9871AEDDF8600BA1135 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCBC9861AEDDF8600BA1135 /* AssetsLibrary.framework */; };
 		A6447A3E1B1DC12500EA2CEE /* RCWKRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A6447A3B1B1DC12500EA2CEE /* RCWKRequestHandler.m */; };
@@ -233,6 +236,9 @@
 		5C0253F31B53D6F8003F48D9 /* RCDBlackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RCDBlackListViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5C7629811B54F7E60027DA82 /* RCDBlackListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RCDBlackListCell.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5C7629821B54F7E60027DA82 /* RCDBlackListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RCDBlackListCell.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7E2FAFBB1BA0004E00BDF9FD /* BudgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewController.h; sourceTree = "<group>"; };
+		7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewController.m; sourceTree = "<group>"; };
+		7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGDataXML-HTML.a"; path = "Pods/../build/Debug-iphoneos/libGDataXML-HTML.a"; sourceTree = SOURCE_ROOT; };
 		8C55EB501B2A8CE5004285F4 /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Emoji.plist; path = framework/Emoji.plist; sourceTree = SOURCE_ROOT; };
 		8CCBC9861AEDDF8600BA1135 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		A6447A081B1DBE6500EA2CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -607,6 +613,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2FAFBF1BA00A5300BDF9FD /* libGDataXML-HTML.a in Frameworks */,
 				8CCBC9871AEDDF8600BA1135 /* AssetsLibrary.framework in Frameworks */,
 				E4FCD7C41AD69DFB00915650 /* ImageIO.framework in Frameworks */,
 				E4C331081A0C728500E31B9A /* libz.dylib in Frameworks */,
@@ -630,6 +637,7 @@
 				E4C330F21A0C721D00E31B9A /* AVFoundation.framework in Frameworks */,
 				E4C4E7E61A0A2F2E00140067 /* UIKit.framework in Frameworks */,
 				E4C4E7E41A0A2F2800140067 /* CoreGraphics.framework in Frameworks */,
+				7E2F49FE4D05D08FFAEC623C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,6 +1075,7 @@
 		E4C4E7E71A0A309100140067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */,
 				8C55EB501B2A8CE5004285F4 /* Emoji.plist */,
 				A6BD04171B1EEA6B00ACAF17 /* RongIMLib.framework */,
 				8CCBC9861AEDDF8600BA1135 /* AssetsLibrary.framework */,
@@ -1102,6 +1111,8 @@
 		E4D40F1F1A031F460045097C = {
 			isa = PBXGroup;
 			children = (
+				7E2FAFBB1BA0004E00BDF9FD /* BudgetViewController.h */,
+				7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */,
 				F79C41A81B9DEEFB00076D3F /* PlanViewController.h */,
 				F79C41A91B9DEEFB00076D3F /* PlanViewController.m */,
 				F75BE2E11B9DDF96000865E5 /* RATreeView */,
@@ -1636,6 +1647,7 @@
 				E4E9395F1AD65A95001E0AC6 /* RCAnimatedImagesView.m in Sources */,
 				E4BFAE651A1219EA007165B1 /* RCDAddressBookViewController.m in Sources */,
 				E4E939CF1AD65E30001E0AC6 /* pinyin.c in Sources */,
+				7E2FAFBD1BA0004E00BDF9FD /* BudgetViewController.m in Sources */,
 				E4E939451AD65A95001E0AC6 /* AFNetworkReachabilityManager.m in Sources */,
 				E4E939B21AD65CD6001E0AC6 /* RCDSelectPersonViewController.m in Sources */,
 				E4E939481AD65A95001E0AC6 /* AFURLRequestSerialization.m in Sources */,
@@ -1799,6 +1811,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/framework";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/libxml2/**",
+					"$(inherited)",
+					"/Users/lance/Desktop/FeiLuHome/FeiLu/Pods/Headers/Public/**",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/RCloudMessage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_NO_PIE = YES;
@@ -1806,13 +1823,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCloudMessage/Utilities/umsdk_IOS_analytics_idfa_v3.4.6/UMAnalytics_Sdk_3.4.6",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = RCloudMessage;
 				PROVISIONING_PROFILE = $APP_PROFILE;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = arm64;
 			};
 			name = AutoDebug;
 		};
@@ -1871,6 +1890,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/framework";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/libxml2/**",
+					"$(inherited)",
+					"/Users/lance/Desktop/FeiLuHome/FeiLu/Pods/Headers/Public/**",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/RCloudMessage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_NO_PIE = YES;
@@ -1878,13 +1902,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCloudMessage/Utilities/umsdk_IOS_analytics_idfa_v3.4.6/UMAnalytics_Sdk_3.4.6",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = RCloudMessage;
 				PROVISIONING_PROFILE = $APP_PROFILE;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = arm64;
 			};
 			name = AutoRelease;
 		};
@@ -1989,6 +2015,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/framework";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/libxml2/**",
+					"$(inherited)",
+					"/Users/lance/Desktop/FeiLuHome/FeiLu/Pods/Headers/Public/**",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/RCloudMessage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_NO_PIE = YES;
@@ -1996,13 +2027,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCloudMessage/Utilities/umsdk_IOS_analytics_idfa_v3.4.6/UMAnalytics_Sdk_3.4.6",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = RCloudMessage;
 				PROVISIONING_PROFILE = "0e5e0673-cfd4-48c1-bacc-5e2d3e32f2a2";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -2020,6 +2053,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/framework";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/libxml2/**",
+					"$(inherited)",
+					"/Users/lance/Desktop/FeiLuHome/FeiLu/Pods/Headers/Public/**",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/RCloudMessage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_NO_PIE = YES;
@@ -2027,13 +2065,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RCloudMessage/Utilities/umsdk_IOS_analytics_idfa_v3.4.6/UMAnalytics_Sdk_3.4.6",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				OTHER_LIBTOOLFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = RCloudMessage;
 				PROVISIONING_PROFILE = "5935ba81-982a-494c-afb1-a673b8d21d32";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
