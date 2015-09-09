@@ -156,6 +156,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="方案" image="Setting" id="ovj-4I-chp"/>
+                    <navigationItem key="navigationItem" title="方案" id="CW9-9h-5Ee"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1y-Ua-wVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,7 +199,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="首页" image="message" id="ToU-a9-WZ8"/>
-                    <navigationItem key="navigationItem" title="会话" id="hjv-3j-BLm">
+                    <navigationItem key="navigationItem" title="首页" id="hjv-3j-BLm">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="6Ck-ET-GA4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="6Qo-va-M8i">
                                 <rect key="frame" x="451" y="7" width="22" height="22"/>
@@ -960,8 +961,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3K5-Vy-4bX" id="Fhq-UW-AA7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于融云" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="370-nW-5zo">
-                                                    <rect key="frame" x="40" y="13" width="80" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_rongcloud" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-fs-ysu">
+                                                    <rect key="frame" x="0.0" y="15" width="40" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Php-qI-bcW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="关于飞鹿" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="370-nW-5zo">
+                                                    <rect key="frame" x="40" y="14" width="80" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="cXS-HL-jQ0"/>
                                                         <constraint firstAttribute="height" constant="21" id="kiV-oU-TKT"/>
@@ -970,12 +977,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_rongcloud" translatesAutoresizingMaskIntoConstraints="NO" id="R1c-fs-ysu">
-                                                    <rect key="frame" x="0.0" y="15" width="40" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Php-qI-bcW"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="370-nW-5zo" firstAttribute="leading" secondItem="R1c-fs-ysu" secondAttribute="trailing" id="OjX-Pm-wV6"/>

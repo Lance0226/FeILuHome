@@ -48,6 +48,7 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+
   //重定向log到本地问题
   //在info.plist中打开Application supports iTunes file sharing
   //    if (![[[UIDevice currentDevice] model] isEqualToString:@"iPhone
@@ -430,6 +431,7 @@
   [DEFAULTS removeObjectForKey:@"userPwd"];
   [DEFAULTS removeObjectForKey:@"userToken"];
   [DEFAULTS removeObjectForKey:@"userCookie"];
+    
   if (self.window.rootViewController != nil) {
     UIStoryboard *storyboard =
         [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -438,6 +440,11 @@
     UINavigationController *navi =
         [[UINavigationController alloc] initWithRootViewController:loginVC];
     self.window.rootViewController = navi;
+      
+      //UINavigationController *navigationController=[[UINavigationController alloc] initWithRootViewController:
+                                                    //[storyboard instantiateInitialViewController]];
+      //self.window.rootViewController=nil;
+      //self.window.rootViewController=navigationController;
   }
   [[RCIMClient sharedRCIMClient] disconnect:NO];
 }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SVSegmentedControl.h"
 
 @interface BudgetViewController : UIViewController<UIWebViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -21,7 +22,7 @@
 
 @property (retain,nonatomic) UIActivityIndicatorView *indicator; //指示器
 
-@property (retain,nonatomic) UISegmentedControl *sectionControl;
+@property (retain,nonatomic) SVSegmentedControl *sectionControl;
 
 
 

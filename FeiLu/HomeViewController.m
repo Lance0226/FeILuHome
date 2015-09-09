@@ -31,6 +31,22 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    UILabel *titleView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 44)];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont boldSystemFontOfSize:19];
+    titleView.textColor = [UIColor whiteColor];
+    titleView.textAlignment = NSTextAlignmentCenter;
+    titleView.text = @"首 页";
+    self.tabBarController.navigationItem.titleView = titleView;
+    // self.tabBarController.navigationItem.title = @"客服";
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    
+    
+}
+
 
 //加入广告栏
 -(void)initAdvertiseBar
@@ -38,7 +54,7 @@
     
     EScrollerView *scroller=[[EScrollerView alloc]
                              initWithFrameRect:CGRectMake(0,
-                                                          [UIScreen mainScreen].bounds.size.height*0.09f,
+                                                          [UIScreen mainScreen].bounds.size.height*0.003f,
                                                           [UIScreen mainScreen].bounds.size.width,
                                                           [UIScreen mainScreen].bounds.size.height*0.2f)
                              ImageArray:[NSArray arrayWithObjects:@"home_page1.png",@"home_page2.png",
@@ -59,21 +75,21 @@
     
     UIImageView *adLogo1View=[[UIImageView alloc]initWithImage:adLogo1];
     [adLogo1View setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.0667f,
-                                     [UIScreen mainScreen].bounds.size.height*0.3f,
+                                     [UIScreen mainScreen].bounds.size.height*0.23f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f )];
     [self.view addSubview:adLogo1View];
     
     UIImageView *adLogo2View=[[UIImageView alloc]initWithImage:adLogo2];
     [adLogo2View setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.433f,
-                                     [UIScreen mainScreen].bounds.size.height*0.3f,
+                                     [UIScreen mainScreen].bounds.size.height*0.23f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f )];
     [self.view addSubview:adLogo2View];
     
     UIImageView *adLogo3View=[[UIImageView alloc]initWithImage:adLogo3];
     [adLogo3View setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.8f,
-                                     [UIScreen mainScreen].bounds.size.height*0.3f,
+                                     [UIScreen mainScreen].bounds.size.height*0.23f,
                                      [UIScreen mainScreen].bounds.size.width*0.125f,
                                      [UIScreen mainScreen].bounds.size.width*0.125 )];
     [self.view addSubview:adLogo3View];
@@ -86,7 +102,7 @@
                       [UIScreen mainScreen].bounds.size.width*0.66f,
                       [UIScreen mainScreen].bounds.size.width*0.93f];
     UIWebView *webView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
-                                                                  [UIScreen mainScreen].bounds.size.height*0.4f,
+                                                                  [UIScreen mainScreen].bounds.size.height*0.35f,
                                                                   [UIScreen mainScreen].bounds.size.width,
                                                                   [UIScreen mainScreen].bounds.size.height*1.5f)];
     [webView loadHTMLString:string baseURL:nil];

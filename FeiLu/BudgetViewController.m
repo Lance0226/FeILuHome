@@ -8,7 +8,8 @@
 
 #import "BudgetViewController.h"
 #import "GDataXMLNode.h"
-//#import "BudgetSubVC.h"
+#import "BudgetSubVC.h"
+
 
 @interface BudgetViewController ()
 @property (nonatomic,retain) NSMutableArray *arrBudgetName;   //预算名称列表
@@ -62,6 +63,7 @@
 {
     self.arrBudgetName=[[NSMutableArray alloc]init];
     self.arrBudgetTotal=[[NSMutableArray alloc]init];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 
@@ -89,7 +91,7 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView //设置加载进度委托事件
 {
     UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0,
-                                                         [UIScreen mainScreen].bounds.size.height*0.182f,
+                                                         [UIScreen mainScreen].bounds.size.height*0.066f,
                                                          [UIScreen mainScreen].bounds.size.width,
                                                          [UIScreen mainScreen].bounds.size.height*0.9f)];
     [view setTag:108];
@@ -133,7 +135,7 @@
     self.budgetTblView=[[UITableView alloc]init];
     [self.budgetTblView setBackgroundColor:[UIColor whiteColor]];
     CGRect ViewFrame = CGRectMake(0,
-                                  self.view.frame.size.height*0.162,
+                                  self.view.frame.size.height*0.066,
                                   self.view.frame.size.width,
                                   self.view.frame.size.height);
     [self.budgetTblView setFrame:ViewFrame];
@@ -238,10 +240,10 @@
         {
             
             
-            //BudgetSubVC *budgetSubVC=[[BudgetSubVC alloc]init];
-            //budgetSubVC.xmlIndex=self.xmlIndex;
-            //budgetSubVC.xmlSubIndex=[[NSNumber alloc]initWithUnsignedLong:i];
-            //[self.navigationController pushViewController:budgetSubVC animated:YES];
+            BudgetSubVC *budgetSubVC=[[BudgetSubVC alloc]init];
+            budgetSubVC.xmlIndex=self.xmlIndex;
+            budgetSubVC.xmlSubIndex=[[NSNumber alloc]initWithUnsignedLong:i];
+            [self.navigationController pushViewController:budgetSubVC animated:YES];
             
         }
     }
@@ -295,16 +297,22 @@
 -(void)initSectionBar
 {
     NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"设计效果",@"设计方案",nil];
-    self.sectionControl=[[UISegmentedControl alloc]initWithItems:sectionArr];
+    self.sectionControl=[[SVSegmentedControl alloc]initWithSectionTitles:sectionArr];
     [self.sectionControl setFrame:CGRectMake(0,
-                                             [UIScreen mainScreen].bounds.size.height*0.113f,
+                                             [UIScreen mainScreen].bounds.size.height*0.003f,
                                              [UIScreen mainScreen].bounds.size.width,
                                              [UIScreen mainScreen].bounds.size.height*0.067f)];
     
-    [self.sectionControl setSelectedSegmentIndex:0];
+    [self.sectionControl.layer setBorderWidth:0.0f];
+    [self.sectionControl setTextColor:[UIColor grayColor]];
+    [self.sectionControl setBackgroundTintColor:[UIColor colorWithWhite:0.0f alpha:0.0f]];
     
     [self.sectionControl addTarget:self action:@selector(switchSection:) forControlEvents:UIControlEventValueChanged];
     [self.sectionControl setBackgroundColor:[UIColor whiteColor]];
+    [self.sectionControl setTintColor:[UIColor whiteColor]];
+    [self.sectionControl setTextShadowColor:[UIColor colorWithWhite:1.0f alpha:0.0f]];
+    [self.sectionControl setInnerShadowColor:[UIColor whiteColor]];
+    [self.sectionControl.thumb setTintColor:[UIColor colorWithRed:0.0f/255.0f green:180.0f/255.0f blue:255.0f/255.0f alpha:1.0f]];
     [self.view addSubview:self.sectionControl];
     [self.view bringSubviewToFront:self.sectionControl];
 }

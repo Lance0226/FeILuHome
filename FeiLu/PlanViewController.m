@@ -7,8 +7,8 @@
 //
 
 #import "PlanViewController.h"
-//#import "BudgetViewController.h"
-//#import "BudgetSubVC.h"
+#import "BudgetViewController.h"
+#import "BudgetSubVC.h"
 
 
 @interface PlanViewController ()
@@ -34,6 +34,25 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    UILabel *titleView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 44)];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont boldSystemFontOfSize:19];
+    titleView.textColor = [UIColor whiteColor];
+    titleView.textAlignment = NSTextAlignmentCenter;
+    titleView.text = @"方 案";
+    self.tabBarController.navigationItem.titleView = titleView;
+    UIBarButtonItem *backitem=[[UIBarButtonItem alloc]init];
+    backitem.title=@"返回";
+    self.tabBarController.navigationItem.backBarButtonItem=backitem;
+    // self.tabBarController.navigationItem.title = @"客服";
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    
+    
+}
+
 -(void)initData
 {
     self.projectNameList=[self GetPlanNameListFromJson];
@@ -50,7 +69,7 @@
     
     self.projectTableView=[[UITableView alloc]init];
     self.projectTableView.frame=CGRectMake(0,
-                                           [UIScreen mainScreen].bounds.size.height*0.083f,
+                                           0,
                                            [UIScreen mainScreen].bounds.size.width,
                                            [UIScreen mainScreen].bounds.size.height*0.9f);
     self.projectTableView.scrollEnabled=YES;
@@ -164,13 +183,13 @@
         {
             NSLog(@"%lu",(unsigned long)i);
             
-            //BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
+            BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
             
-            //budgetVC.title=@"家装项目信息";
-            //budgetVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
-            //budgetVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
+            budgetVC.title=@"家装项目信息";
+            budgetVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
+            budgetVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             
-            //[self.navigationController pushViewController:budgetVC animated:YES];
+            [self.navigationController pushViewController:budgetVC animated:YES];
             
             
             

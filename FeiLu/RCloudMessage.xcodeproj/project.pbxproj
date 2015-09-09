@@ -30,6 +30,8 @@
 		7E2F49FE4D05D08FFAEC623C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C592F823F22BEA26C035CF2F /* libPods.a */; };
 		7E2FAFBD1BA0004E00BDF9FD /* BudgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */; };
 		7E2FAFBF1BA00A5300BDF9FD /* libGDataXML-HTML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */; };
+		7E2FAFC21BA00C4500BDF9FD /* BudgetSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FAFC11BA00C4500BDF9FD /* BudgetSubVC.m */; };
+		7E2FAFC41BA01F2E00BDF9FD /* libSVSegmentedControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2FAFC31BA01F2E00BDF9FD /* libSVSegmentedControl.a */; };
 		8C55EB511B2A8CE5004285F4 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C55EB501B2A8CE5004285F4 /* Emoji.plist */; };
 		8CCBC9871AEDDF8600BA1135 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCBC9861AEDDF8600BA1135 /* AssetsLibrary.framework */; };
 		A6447A3E1B1DC12500EA2CEE /* RCWKRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A6447A3B1B1DC12500EA2CEE /* RCWKRequestHandler.m */; };
@@ -239,6 +241,9 @@
 		7E2FAFBB1BA0004E00BDF9FD /* BudgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewController.h; sourceTree = "<group>"; };
 		7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewController.m; sourceTree = "<group>"; };
 		7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGDataXML-HTML.a"; path = "Pods/../build/Debug-iphoneos/libGDataXML-HTML.a"; sourceTree = SOURCE_ROOT; };
+		7E2FAFC01BA00C4500BDF9FD /* BudgetSubVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetSubVC.h; sourceTree = "<group>"; };
+		7E2FAFC11BA00C4500BDF9FD /* BudgetSubVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetSubVC.m; sourceTree = "<group>"; };
+		7E2FAFC31BA01F2E00BDF9FD /* libSVSegmentedControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSVSegmentedControl.a; path = "Pods/../build/Debug-iphoneos/libSVSegmentedControl.a"; sourceTree = SOURCE_ROOT; };
 		8C55EB501B2A8CE5004285F4 /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Emoji.plist; path = framework/Emoji.plist; sourceTree = SOURCE_ROOT; };
 		8CCBC9861AEDDF8600BA1135 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		A6447A081B1DBE6500EA2CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -613,6 +618,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2FAFC41BA01F2E00BDF9FD /* libSVSegmentedControl.a in Frameworks */,
 				7E2FAFBF1BA00A5300BDF9FD /* libGDataXML-HTML.a in Frameworks */,
 				8CCBC9871AEDDF8600BA1135 /* AssetsLibrary.framework in Frameworks */,
 				E4FCD7C41AD69DFB00915650 /* ImageIO.framework in Frameworks */,
@@ -1075,6 +1081,7 @@
 		E4C4E7E71A0A309100140067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E2FAFC31BA01F2E00BDF9FD /* libSVSegmentedControl.a */,
 				7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */,
 				8C55EB501B2A8CE5004285F4 /* Emoji.plist */,
 				A6BD04171B1EEA6B00ACAF17 /* RongIMLib.framework */,
@@ -1111,6 +1118,8 @@
 		E4D40F1F1A031F460045097C = {
 			isa = PBXGroup;
 			children = (
+				7E2FAFC01BA00C4500BDF9FD /* BudgetSubVC.h */,
+				7E2FAFC11BA00C4500BDF9FD /* BudgetSubVC.m */,
 				7E2FAFBB1BA0004E00BDF9FD /* BudgetViewController.h */,
 				7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */,
 				F79C41A81B9DEEFB00076D3F /* PlanViewController.h */,
@@ -1681,6 +1690,7 @@
 				E4E939471AD65A95001E0AC6 /* AFURLConnectionOperation.m in Sources */,
 				E4E939561AD65A95001E0AC6 /* JSONModelError.m in Sources */,
 				E4E9396C1AD65A95001E0AC6 /* UIButton+WebCache.m in Sources */,
+				7E2FAFC21BA00C4500BDF9FD /* BudgetSubVC.m in Sources */,
 				F75BE2F91B9DDF96000865E5 /* RATreeNodeInfo.m in Sources */,
 				E4BFAE621A1219D8007165B1 /* RCDLoginViewController.m in Sources */,
 				A677D69E1B81EBB9007D5D90 /* RealTimeLocationEndCell.m in Sources */,

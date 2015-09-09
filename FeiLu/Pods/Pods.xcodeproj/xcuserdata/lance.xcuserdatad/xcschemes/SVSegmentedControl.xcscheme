@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "68466F0501FDFA7DE60A36CF"
-               BuildableName = "libGDataXML-HTML.a"
-               BlueprintName = "GDataXML-HTML"
+               BlueprintIdentifier = "224F6D35A001B688F88E95EA"
+               BuildableName = "libSVSegmentedControl.a"
+               BlueprintName = "SVSegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -14,15 +14,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>27D072EE899C78F256202B1DB66E2D85</key>
+		<key>1817B4BC2A840787C1145344BE3649A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81B797543844FC17386DC8C35AFA6AC8</key>
+		<key>47E5BD7977C890505E593924AC4028A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4BC7A95369F0C7D178EBA5C48B2086E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

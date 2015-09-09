@@ -1,10 +1,13 @@
 PODS:
   - GDataXML-HTML (1.1.0)
+  - SVSegmentedControl (0.2)
 
 DEPENDENCIES:
   - GDataXML-HTML (~> 1.1.0)
+  - SVSegmentedControl
 
 SPEC CHECKSUMS:
   GDataXML-HTML: 944b1bf8ecb8ce0c5431731ab8298d0cd411b8c8
+  SVSegmentedControl: cc585b217cd1bc43a14a96a8fdfd16a1c3845b25
 
 COCOAPODS: 0.38.2
