@@ -122,17 +122,25 @@
 }
 
 -(void)initVedio
-{
+{   /*
     NSString *string=[NSString stringWithFormat:@"<iframe height=%f width=%f src='http://player.youku.com/embed/XNzE4MzgyMzYw' frameborder=0 allowfullscreen></iframe>",
                       [UIScreen mainScreen].bounds.size.width*0.66f,
                       [UIScreen mainScreen].bounds.size.width*0.93f];
+     */
+    
+    NSString *str=[NSString stringWithFormat:@"<iframe height=%f width=%f src='http://101.200.196.121:8080/html5/0000.html' frameborder=0 allowfullscreen></iframe>",
+                   [UIScreen mainScreen].bounds.size.width*0.66f,
+                   [UIScreen mainScreen].bounds.size.width*0.93f];
+    
     UIWebView *webView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
                                                                   [UIScreen mainScreen].bounds.size.height*0.35f,
                                                                   [UIScreen mainScreen].bounds.size.width,
                                                                   [UIScreen mainScreen].bounds.size.height*1.5f)];
-    [webView loadHTMLString:string baseURL:nil];
+    [webView loadHTMLString:str baseURL:nil];
     [self.view addSubview:webView];
 }
+
+
 
 
 
