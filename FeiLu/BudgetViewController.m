@@ -182,7 +182,7 @@
     [nameLayer setFontSize:18];
     [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.1f,
                                    [UIScreen mainScreen].bounds.size.height*0.04f,
-                                   [UIScreen mainScreen].bounds.size.width*0.4f,
+                                   [UIScreen mainScreen].bounds.size.width*0.6f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
     
     [nameLayer setString:[self.arrBudgetName objectAtIndex:rowIndex]];
