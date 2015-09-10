@@ -11,11 +11,12 @@
 @interface RADataObject : NSObject
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *budget;
 @property (strong, nonatomic) NSMutableArray *children;
 
-- (id)initWithName:(NSString *)name children:(NSMutableArray *)array;
+- (id)initWithName:(NSString *)name budget:(NSString*)budget children:(NSMutableArray *)array;
 
-+ (id)dataObjectWithName:(NSString *)name children:(NSMutableArray *)children;
++ (id)dataObjectWithName:(NSString *)name budget:(NSString*)budget children:(NSMutableArray *)children;
 
 -(void)addChildrenWithNewObject:(RADataObject*)object;
 

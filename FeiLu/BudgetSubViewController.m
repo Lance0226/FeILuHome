@@ -14,7 +14,7 @@
 //  Copyright (c) 2015 lance. All rights reserved.
 //
 
-#import "BudgetSubVC.h"
+#import "BudgetSubViewController.h"
 #import "GDataXMLNode.h"
 
 #import "RATreeView.h"
@@ -23,7 +23,7 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
-@interface BudgetSubVC ()<RATreeViewDelegate, RATreeViewDataSource>
+@interface BudgetSubViewController ()<RATreeViewDelegate, RATreeViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *data;
 @property (strong, nonatomic) id expanded;
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation BudgetSubVC
+@implementation BudgetSubViewController
 
 - (void)viewDidLoad
 {
@@ -89,13 +89,14 @@
         m++;
         
         NSString *node3Name=[[node3 attributeForName:@"name"]stringValue];
-        RADataObject *node3Object=[[RADataObject alloc]initWithName:node3Name children:[[NSMutableArray alloc]init]];
+        NSString *node3Budget=[[node3 attributeForName:@"budget"]stringValue];
+        RADataObject *node3Object=[[RADataObject alloc]initWithName:node3Name budget:node3Budget children:[[NSMutableArray alloc]init]];
         
         NSArray *arrNode4=[node3 children];
         for (GDataXMLElement *node4 in arrNode4)
         {
             n++;
-            NSLog(@"m:%d,n:%d",m,n);
+            //NSLog(@"m:%d,n:%d",m,n);
             //根据传入xml参数序号的不同，选择不同的结构体封装
             switch ([self.xmlSubIndex integerValue])
             {
@@ -103,7 +104,9 @@
                     
                     //第一类二级结点数据内容
                     NSString *node4Name=[[node4 attributeForName:@"item_name"]stringValue];
-                    RADataObject *node4Object=[[RADataObject alloc]initWithName:node4Name children:nil];
+                    NSString *node4Budget=[[node4 attributeForName:@"item_total"]stringValue];
+                    NSLog(@"%@",node4Budget);
+                    RADataObject *node4Object=[[RADataObject alloc]initWithName:node4Name  budget:node4Budget children:nil];
                     [node3Object addChildrenWithNewObject:node4Object];
                     break;
                 }
@@ -111,8 +114,8 @@
                 case 1:{
                     //第二类二级结点数据内容
                     NSString *node4Name=[[node4 attributeForName:@"item_name"]stringValue];
-                    
-                    RADataObject *node4Object=[[RADataObject alloc]initWithName:node4Name children:nil];
+                    NSString *node4Budget=[[node4 attributeForName:@"item_total"]stringValue];
+                    RADataObject *node4Object=[[RADataObject alloc]initWithName:node4Name budget:node4Budget children:nil];
                     [node3Object addChildrenWithNewObject:node4Object];
                     break;
                 }
@@ -122,7 +125,8 @@
                     
                     //第三类二级结点数据内容
                     NSString *node4Name=[[node4 attributeForName:@"item_name"]stringValue];
-                    RADataObject *node4Object=[[RADataObject alloc]initWithName:node4Name children:nil];
+                    NSString *node4Budget=[[node4 attributeForName:@"item_total"]stringValue];
+                    RADataObject *node4Object=[[RADataObject alloc]initWithName:node4Name budget:node4Budget children:nil];
                     [node3Object addChildrenWithNewObject:node4Object];
                     break;
                 }
@@ -179,7 +183,7 @@
 - (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
     if (treeNodeInfo.treeDepthLevel == 0) {
-        cell.backgroundColor = UIColorFromRGB(0xF7F7F7);
+        cell.backgroundColor = UIColorFromRGB(0xFFFFFF);
     } else if (treeNodeInfo.treeDepthLevel == 1) {
         cell.backgroundColor = UIColorFromRGB(0xD1EEFC);
     } else if (treeNodeInfo.treeDepthLevel == 2) {
@@ -191,15 +195,35 @@
 
 - (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
-    NSInteger numberOfChildren = [treeNodeInfo.children count];
+    //NSInteger numberOfChildren = [treeNodeInfo.children count];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %d", numberOfChildren];
+    CALayer *budgetLayer=[self getNameLayerWithRowIndex:((RADataObject *)item).budget];
+    [cell.layer addSublayer:budgetLayer];
     cell.textLabel.text = ((RADataObject *)item).name;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (treeNodeInfo.treeDepthLevel == 0) {
         cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     return cell;
+}
+
+-(CALayer*)getNameLayerWithRowIndex:(NSString*)budget
+{
+    CATextLayer *nameLayer=[[CATextLayer alloc]init];
+    [nameLayer setFont:@"Helvetica"];
+    [nameLayer setFontSize:18];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.62f,
+                                   [UIScreen mainScreen].bounds.size.height*0.02f,
+                                   [UIScreen mainScreen].bounds.size.width*0.4f,
+                                   [UIScreen mainScreen].bounds.size.height*0.5f)];
+    
+    [nameLayer setString:budget];
+    [nameLayer setAlignmentMode:kCAAlignmentLeft];
+    [nameLayer setForegroundColor:[[UIColor blueColor] CGColor]];
+    [nameLayer setContentsScale:2];
+    
+    return nameLayer;
+    
 }
 
 - (NSInteger)treeView:(RATreeView *)treeView numberOfChildrenOfItem:(id)item

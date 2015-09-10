@@ -8,7 +8,7 @@
 
 #import "BudgetViewController.h"
 #import "GDataXMLNode.h"
-#import "BudgetSubVC.h"
+#import "BudgetSubViewController.h"
 
 
 @interface BudgetViewController ()
@@ -77,11 +77,12 @@
     self.panoView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
                                                              [UIScreen mainScreen].bounds.size.height*0.066f,
                                                              [UIScreen mainScreen].bounds.size.width,
-                                                             [UIScreen mainScreen].bounds.size.height*0.933f)];
+                                                             [UIScreen mainScreen].bounds.size.height*0.853f)];
+
     [self.panoView setBackgroundColor:[UIColor whiteColor]];
     [self.panoView setDelegate:self];
     self.panoView.scrollView.scrollEnabled=NO;
-    NSURLRequest *request=[NSURLRequest requestWithURL:self.panoURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0f];
+    NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:self.panoURL] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0f];
     [self.panoView loadRequest:request];
     
 }
@@ -158,6 +159,7 @@
               initWithStyle:UITableViewCellStyleValue2
               reuseIdentifier:budgetTblViewIdentifier];
         
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         CALayer *nameLayer=[self getNameLayerWithRowIndex:row];   //预算名称
         [cell.layer addSublayer:nameLayer];
         
@@ -176,9 +178,9 @@
 -(CALayer*)getNameLayerWithRowIndex:(NSUInteger)rowIndex
 {
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
-    [nameLayer setFont:@"AppleGothic"];
-    [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.02f,
+    [nameLayer setFont:@"Helvetica"];
+    [nameLayer setFontSize:18];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.1f,
                                    [UIScreen mainScreen].bounds.size.height*0.04f,
                                    [UIScreen mainScreen].bounds.size.width*0.4f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
@@ -195,13 +197,13 @@
 -(CALayer*)getTotalLayerWithRowIndex:(NSUInteger)rowIndex
 {
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
-    [nameLayer setFont:@"AppleGothic"];
-    [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.5f,
-                                   [UIScreen mainScreen].bounds.size.height*0.05f,
-                                   [UIScreen mainScreen].bounds.size.width*0.4f,
+    [nameLayer setFont:@"Helvetica"];
+    [nameLayer setFontSize:17];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.1f,
+                                   [UIScreen mainScreen].bounds.size.height*0.10f,
+                                   [UIScreen mainScreen].bounds.size.width*0.6f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
-    NSString *budgetStr=[NSString stringWithFormat:@"%@",[self.arrBudgetTotal objectAtIndex:rowIndex]];
+    NSString *budgetStr=[NSString stringWithFormat:@"报价合计:%@",[self.arrBudgetTotal objectAtIndex:rowIndex]];
     
     [nameLayer setString:budgetStr];
     [nameLayer setAlignmentMode:kCAAlignmentLeft];
@@ -215,16 +217,19 @@
 -(UIButton *)getDetailBtn:(NSUInteger)rowInex
 {
     
-    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.85f,
-                                                                   [UIScreen mainScreen].bounds.size.height*0.03f,
-                                                                   [UIScreen mainScreen].bounds.size.width*0.12f,
-                                                                   [UIScreen mainScreen].bounds.size.height*0.05f)];
+    UIButton *detailBtn=[[UIButton alloc]init];
+    CGRect btnFrame=CGRectMake([UIScreen mainScreen].bounds.size.width*0.7f,
+                               [UIScreen mainScreen].bounds.size.height*0.05f,
+                               [UIScreen mainScreen].bounds.size.width*0.2f,
+                               [UIScreen mainScreen].bounds.size.height*0.05f);
+    [detailBtn setFrame:btnFrame];
+    [detailBtn.layer setCornerRadius:[UIScreen mainScreen].bounds.size.width/80];
     [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f
                                                   green:0.584f
                                                    blue:0.815f
                                                   alpha:1]];
     
-    [detailBtn setTitle:@"详情" forState:UIControlStateNormal];
+    [detailBtn setTitle:@"详 情" forState:UIControlStateNormal];
     [detailBtn addTarget:self action:@selector(pressedDetailBtn:) forControlEvents:UIControlEventTouchDown];
     [detailBtn setTag:rowInex];
     
@@ -240,7 +245,7 @@
         {
             
             
-            BudgetSubVC *budgetSubVC=[[BudgetSubVC alloc]init];
+            BudgetSubViewController *budgetSubVC=[[BudgetSubViewController alloc]init];
             budgetSubVC.xmlIndex=self.xmlIndex;
             budgetSubVC.xmlSubIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             [self.navigationController pushViewController:budgetSubVC animated:YES];
@@ -259,7 +264,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [UIScreen mainScreen].bounds.size.height*0.1f;
+    return [UIScreen mainScreen].bounds.size.height*0.15f;
 }
 //-------------------------------------------------------------------------------------------------------------------
 //xml读取

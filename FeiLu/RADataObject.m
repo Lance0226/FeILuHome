@@ -11,19 +11,20 @@
 @implementation RADataObject
 
 
-- (id)initWithName:(NSString *)name children:(NSMutableArray *)children
+- (id)initWithName:(NSString *)name budget:(NSString*)budget children:(NSMutableArray *)children
 {
     self = [super init];
     if (self) {
         self.children = children;
         self.name = name;
+        self.budget=budget;
     }
     return self;
 }
 
-+ (id)dataObjectWithName:(NSString *)name children:(NSMutableArray *)children
++ (id)dataObjectWithName:(NSString *)name budget:(NSString*)budget children:(NSMutableArray *)children
 {
-    return [[self alloc] initWithName:name children:children];
+    return [[self alloc] initWithName:name budget:budget children:children];
 }
 
 -(void)addChildrenWithNewObject:(RADataObject*)object

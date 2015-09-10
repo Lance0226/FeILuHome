@@ -130,10 +130,10 @@
     
     NSString *str=[NSString stringWithFormat:@"<iframe height=%f width=%f src='http://101.200.196.121:8080/html5/0000.html' frameborder=0 allowfullscreen></iframe>",
                    [UIScreen mainScreen].bounds.size.width*0.66f,
-                   [UIScreen mainScreen].bounds.size.width*0.93f];
+                   [UIScreen mainScreen].bounds.size.width*0.96f];
     
     UIWebView *webView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
-                                                                  [UIScreen mainScreen].bounds.size.height*0.35f,
+                                                                  [UIScreen mainScreen].bounds.size.height*0.37f,
                                                                   [UIScreen mainScreen].bounds.size.width,
                                                                   [UIScreen mainScreen].bounds.size.height*1.5f)];
     [webView loadHTMLString:str baseURL:nil];

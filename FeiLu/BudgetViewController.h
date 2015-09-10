@@ -12,7 +12,7 @@
 @interface BudgetViewController : UIViewController<UIWebViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 
-@property (nonatomic,retain) NSURL     *panoURL;                          //全景图URL
+@property (nonatomic,retain) NSString     *panoURL;                          //全景图URL
 
 @property (nonatomic,retain) UIWebView *panoView;                         //全景图画布
 

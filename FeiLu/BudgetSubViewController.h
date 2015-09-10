@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BudgetSubVC : UIViewController
+@interface BudgetSubViewController : UIViewController
 @property (nonatomic,retain) NSNumber  *xmlIndex;
 @property (nonatomic,retain) NSNumber  *xmlSubIndex;
 

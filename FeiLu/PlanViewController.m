@@ -8,7 +8,7 @@
 
 #import "PlanViewController.h"
 #import "BudgetViewController.h"
-#import "BudgetSubVC.h"
+#import "BudgetSubViewController.h"
 
 
 @interface PlanViewController ()
@@ -97,13 +97,13 @@
         cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleValue2
                 reuseIdentifier:projectTableIdentifier];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        
-        CALayer *previewImageLayer=[self setPreviewImage:row];
+        UIImageView *previewImageLayer=[self setPreviewImage:row];
         CALayer *nameLayer=[self setProjectName:row];
         UIButton *detailBtn=[self setDetailBtn:row];
         
-        [cell.layer addSublayer:previewImageLayer];
+        [cell.contentView addSubview:previewImageLayer];
         [cell.layer addSublayer:nameLayer];
         [cell.contentView addSubview:detailBtn];
     }
@@ -114,25 +114,31 @@
     
 }
 
--(CALayer *)setPreviewImage:(NSUInteger)rowIndex
+-(UIImageView *)setPreviewImage:(NSUInteger)rowIndex
 {
-    CALayer *previewImageLayer=[CALayer layer];
-    [previewImageLayer setFrame:CGRectMake(0,
-                                           [UIScreen mainScreen].bounds.size.height*0.033f,
-                                           [UIScreen mainScreen].bounds.size.width*0.25f,
-                                           [UIScreen mainScreen].bounds.size.height*0.1f)];
-    
     UIImage *previewImage=(UIImage *)[self.projectPreviewImage objectAtIndex:rowIndex];
-    [previewImageLayer setContents:(id)(previewImage.CGImage)];
-    return previewImageLayer;
+    UIImageView *previewImageView=[[UIImageView alloc]initWithImage:previewImage];
+    
+    [previewImageView setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.05f,
+                                           [UIScreen mainScreen].bounds.size.height*0.03f,
+                                           [UIScreen mainScreen].bounds.size.width*0.35f,
+                                           [UIScreen mainScreen].bounds.size.height*0.12f)];
+    
+    [previewImageView.layer setCornerRadius:[UIScreen mainScreen].bounds.size.width*0.02];
+    [previewImageView.layer setMasksToBounds:YES];
+    
+    
+
+
+    return previewImageView;
 }
 
 -(CALayer *)setProjectName:(NSUInteger)rowIndex
 {
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
-    [nameLayer setFont:@"HelveticaNeue"];
+    [nameLayer setFont:@"Helvetica"];
     [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.25f,
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.4f,
                                    [UIScreen mainScreen].bounds.size.height*0.067f,
                                    [UIScreen mainScreen].bounds.size.width*0.25f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
@@ -146,10 +152,11 @@
 -(UIButton *)setDetailBtn:(NSUInteger)rowInex
 {
     
-    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.75f,
+    UIButton *detailBtn=[[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.8f,
                                                                    [UIScreen mainScreen].bounds.size.height*0.067f,
                                                                    [UIScreen mainScreen].bounds.size.width*0.167f,
                                                                    [UIScreen mainScreen].bounds.size.height*0.05f)];
+    [detailBtn.layer setCornerRadius:[UIScreen mainScreen].bounds.size.width/80];
     [detailBtn setBackgroundColor:[UIColor colorWithRed:0.0f
                                                   green:0.584f
                                                    blue:0.815f
@@ -186,7 +193,7 @@
             BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
             
             budgetVC.title=@"家装项目信息";
-            budgetVC.panoURL=[NSURL URLWithString:(NSString*)[self.projectPanoURL objectAtIndex:i]];
+            budgetVC.panoURL=(NSString*)[self.projectPanoURL objectAtIndex:i];
             budgetVC.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:i];
             
             [self.navigationController pushViewController:budgetVC animated:YES];
