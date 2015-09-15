@@ -9,6 +9,7 @@
 #import "BudgetViewController.h"
 #import "GDataXMLNode.h"
 #import "BudgetSubViewController.h"
+#import <ShareSDK/ShareSDK.h>
 
 
 @interface BudgetViewController ()
@@ -24,6 +25,7 @@
     
     [super viewDidLoad];
     [self initializeData];           //加载数据
+    [self initShareSdkBtn];
     [self parserXML];                //解析xml
     [self initiliazePanoView];
     [self addPanoView];
@@ -64,6 +66,7 @@
     self.arrBudgetName=[[NSMutableArray alloc]init];
     self.arrBudgetTotal=[[NSMutableArray alloc]init];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
 }
 
 
@@ -85,7 +88,28 @@
     NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:self.panoURL] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60.0f];
     [self.panoView loadRequest:request];
     
+    
+    
+    
 }
+
+
+-(void)initShareSdkBtn
+{
+    UIButton *shareBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [shareBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.8f,
+                                  [UIScreen mainScreen].bounds.size.height*0.015f,
+                                  [UIScreen mainScreen].bounds.size.width*0.115f,
+                                  [UIScreen mainScreen].bounds.size.height*0.05f)];
+
+    [shareBtn setTitle:@"分享" forState:UIControlStateNormal];
+    [shareBtn.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [shareBtn addTarget:self action:@selector(pressedShareSDKBtn:) forControlEvents:UIControlEventTouchDown];
+    [self.navigationController.navigationBar addSubview:shareBtn];
+    
+}
+
+
 
 
 
@@ -147,6 +171,44 @@
     self.budgetTblView.dataSource=self;
     
 }
+
+-(void)pressedShareSDKBtn:(id)sender
+{
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
+    
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
+                                       defaultContent:@"测试一下"
+                                                image:[ShareSDK imageWithPath:imagePath]
+                                                title:@"ShareSDK"
+                                                  url:@"http://www.mob.com"
+                                          description:@"这是一条测试信息"
+                                            mediaType:SSPublishContentMediaTypeNews];
+    //创建弹出菜单容器
+    id<ISSContainer> container = [ShareSDK container];
+    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+    
+    //弹出分享菜单
+    [ShareSDK showShareActionSheet:container
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions:nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(@"分享成功");
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(@"分享失败,错误码:%ld,错误描述:%@", [error errorCode], [error errorDescription]);
+                                }
+                            }];
+    NSLog(@"bbbb");
+}
+
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

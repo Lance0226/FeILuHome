@@ -22,6 +22,7 @@
 
 @property (retain,nonatomic) UIActivityIndicatorView *indicator; //指示器
 
+
 @property (retain,nonatomic) SVSegmentedControl *sectionControl;
 
 
