@@ -60,7 +60,7 @@
                              ImageArray:[NSArray arrayWithObjects:@"home_page1.png",@"home_page2.png",
                                          @"home_page3.png",@"home_page4", nil]
                              TitleArray:[NSArray
-                                         arrayWithObjects:@"11",@"22",@"33",@"44", nil]];
+                                         arrayWithObjects:@"一",@"二",@"三",@"四", nil]];
     scroller.delegate=self;
     [self.view addSubview:scroller];
     

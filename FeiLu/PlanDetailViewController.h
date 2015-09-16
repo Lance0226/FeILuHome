@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SVSegmentedControl.h"
+#import "EScrollerView.h"
 
 @interface PlanDetailViewController : UIViewController<UIWebViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -27,6 +28,11 @@
 @property (retain,nonatomic) UIActivityIndicatorView *indicator;          //指示器
 
 @property (retain,nonatomic) NSNumber   *curSectionIndex;                 //根据切换条记录当前页面
+
+
+@property (retain,nonatomic) EScrollerView *scrollerView1;               //俯视图
+
+@property (retain,nonatomic) EScrollerView *scrollerView2;               //预览图
 
 
 @property (retain,nonatomic) SVSegmentedControl *sectionControl;

@@ -379,8 +379,37 @@
                                         [UIScreen mainScreen].bounds.size.height*0.066f,
                                         [UIScreen mainScreen].bounds.size.width,
                                         [UIScreen mainScreen].bounds.size.height*0.9f)];
-    [self.perspView setBackgroundColor:[UIColor redColor]];
+    
+    self.scrollerView1=[[EScrollerView alloc]
+                        initWithFrameRect:CGRectMake(0,
+                                                     0,
+                                                     [UIScreen mainScreen].bounds.size.width,
+                                                     [UIScreen mainScreen].bounds.size.height*0.33f)
+                        ImageArray:[NSArray arrayWithObjects:@"topcamera.jpg",@"topview.jpg",
+                                     nil]
+                        TitleArray:[NSArray
+                                    arrayWithObjects:@"立体俯视图",@"平面俯视图", nil]];
+    self.scrollerView1.delegate=self;
+
+
+    
+    
+    self.scrollerView2=[[EScrollerView alloc]
+                             initWithFrameRect:CGRectMake(0,
+                                                          [UIScreen mainScreen].bounds.size.height*0.33f,
+                                                          [UIScreen mainScreen].bounds.size.width,
+                                                          [UIScreen mainScreen].bounds.size.height*0.5f)
+                             ImageArray:[NSArray arrayWithObjects:@"img1.png",@"img2.png",
+                                         @"img3.png", nil]
+                             TitleArray:[NSArray
+                                         arrayWithObjects:@"效果图1",@"效果图2",@"效果图3", nil]];
+    self.scrollerView2.delegate=self;
+
+    [self.perspView addSubview:self.scrollerView1];
+    [self.perspView addSubview:self.scrollerView2];
+    
     [self.view addSubview:self.perspView];
+   
 }
 
 
@@ -419,7 +448,7 @@
 //切换条
 -(void)initSectionBar
 {
-    NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"全景方案",@"预算方案",@"平面方案",nil];
+    NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"全景方案",@"平面方案",@"预算方案",nil];
     self.sectionControl=[[SVSegmentedControl alloc]initWithSectionTitles:sectionArr];
     [self.sectionControl setFrame:CGRectMake(0,
                                              [UIScreen mainScreen].bounds.size.height*0.003f,
