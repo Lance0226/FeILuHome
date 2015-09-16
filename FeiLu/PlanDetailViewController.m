@@ -33,6 +33,11 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.shareBtn removeFromSuperview];//离开页面移除分享按钮
+}
+
 
 
 -(void)selectPanoView
@@ -315,7 +320,7 @@
             BudgetSubViewController *budgetSubVC=[[BudgetSubViewController alloc]init];
             budgetSubVC.xmlIndex=self.xmlIndex;
             budgetSubVC.xmlSubIndex=[[NSNumber alloc]initWithUnsignedLong:i];
-            [self.shareBtn removeFromSuperview];
+            //[self.shareBtn removeFromSuperview];
             [self.navigationController pushViewController:budgetSubVC animated:YES];
             
         }
