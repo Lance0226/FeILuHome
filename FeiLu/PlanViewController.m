@@ -7,7 +7,7 @@
 //
 
 #import "PlanViewController.h"
-#import "BudgetViewController.h"
+#import "PlanDetailViewController.h"
 #import "BudgetSubViewController.h"
 
 
@@ -190,7 +190,7 @@
         {
             NSLog(@"%lu",(unsigned long)i);
             
-            BudgetViewController *budgetVC=[[BudgetViewController alloc]init];
+            PlanDetailViewController *budgetVC=[[PlanDetailViewController alloc]init];
             
             budgetVC.title=@"家装项目信息";
             budgetVC.panoURL=(NSString*)[self.projectPanoURL objectAtIndex:i];

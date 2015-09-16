@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 RongCloud. All rights reserved.
 //
 
-#import "BudgetViewController.h"
+#import "PlanDetailViewController.h"
 #import "GDataXMLNode.h"
 #import "BudgetSubViewController.h"
 #import <ShareSDK/ShareSDK.h>
 
 
-@interface BudgetViewController ()
+@interface PlanDetailViewController ()
 @property (nonatomic,retain) NSMutableArray *arrBudgetName;   //预算名称列表
 @property (nonatomic,retain) NSMutableArray *arrBudgetTotal;  //预算合计列表
 
 @end
 
-@implementation BudgetViewController
+@implementation PlanDetailViewController
 
 - (void)viewDidLoad
 {
@@ -28,26 +28,65 @@
     [self initShareSdkBtn];
     [self parserXML];                //解析xml
     [self initiliazePanoView];
-    [self addPanoView];
+    [self selectPanoView];
     [self initSectionBar];
     
 }
 
 
 
--(void)addPanoView
+-(void)selectPanoView
 {
-    [self.budgetTblView removeFromSuperview];
+    if ([self.curSectionIndex isEqualToNumber:[NSNumber numberWithInteger:1]])
+        {
+            [self.perspView removeFromSuperview];
+        }
+    else if([self.curSectionIndex isEqualToNumber:[NSNumber numberWithInteger:2]])
+          {
+              [self.budgetTblView removeFromSuperview];
+          }
+    self.curSectionIndex=[NSNumber numberWithInteger:0];
+    
     [self.view addSubview:self.panoView];
     [self.view sendSubviewToBack:self.panoView];
 }
 
--(void)removePanoView
+-(void)selectPerspView
 {
-    [self.panoView removeFromSuperview ];
+    if ([self.curSectionIndex isEqualToNumber:[NSNumber numberWithInteger:0]])
+    {
+        [self.panoView removeFromSuperview];
+    }
+    else if([self.curSectionIndex isEqualToNumber:[NSNumber numberWithInteger:2]])
+    {
+        [self.budgetTblView removeFromSuperview];
+    }
+    
+    self.curSectionIndex=[NSNumber numberWithInteger:1];
+    
+    [self initPerspView];
+}
+
+
+-(void)selectBudgetView
+{
+    
+    if ([self.curSectionIndex isEqualToNumber:[NSNumber numberWithInteger:0]])
+    {
+        [self.panoView removeFromSuperview];
+    }
+    else if([self.curSectionIndex isEqualToNumber:[NSNumber numberWithInteger:1]])
+    {
+        [self.perspView removeFromSuperview];
+    }
+    
+    self.curSectionIndex=[NSNumber numberWithInteger:2];
+
+
     [self initBudgetTableView];
     [self.view bringSubviewToFront:self.sectionControl];
 }
+
 
 
 
@@ -66,6 +105,8 @@
     self.arrBudgetName=[[NSMutableArray alloc]init];
     self.arrBudgetTotal=[[NSMutableArray alloc]init];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    self.curSectionIndex=[NSNumber numberWithInteger:0];//设置初始进度条位置为0，为全景页面
     
 }
 
@@ -154,7 +195,7 @@
     NSLog(@"Fail load :%@",error);
 }
 //-------------------------------------------------------------------------------------------------------------------
-
+//预算表页面
 -(void)initBudgetTableView
 {
     self.budgetTblView=[[UITableView alloc]init];
@@ -329,6 +370,21 @@
     return [UIScreen mainScreen].bounds.size.height*0.15f;
 }
 //-------------------------------------------------------------------------------------------------------------------
+//透视图页面
+
+-(void)initPerspView
+{
+    self.perspView=[[UIView alloc]init];
+    [self.perspView setFrame:CGRectMake(0,
+                                        [UIScreen mainScreen].bounds.size.height*0.066f,
+                                        [UIScreen mainScreen].bounds.size.width,
+                                        [UIScreen mainScreen].bounds.size.height*0.9f)];
+    [self.perspView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:self.perspView];
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------
 //xml读取
 
 -(void)parserXML
@@ -363,7 +419,7 @@
 //切换条
 -(void)initSectionBar
 {
-    NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"设计效果",@"设计方案",nil];
+    NSArray *sectionArr=[[NSArray alloc] initWithObjects:@"全景方案",@"预算方案",@"平面方案",nil];
     self.sectionControl=[[SVSegmentedControl alloc]initWithSectionTitles:sectionArr];
     [self.sectionControl setFrame:CGRectMake(0,
                                              [UIScreen mainScreen].bounds.size.height*0.003f,
@@ -393,8 +449,9 @@
 {
     NSInteger index=seg.selectedSegmentIndex;
     switch (index) {
-        case 0:[self addPanoView];break;
-        case 1:[self removePanoView];break;
+        case 0:[self selectPanoView];break;
+        case 1:[self selectPerspView];break;
+        case 2:[self selectBudgetView];break;
         default: NSLog(@"Segment number error"); break;
     }
     

@@ -28,7 +28,7 @@
 		5C0253F41B53D6F8003F48D9 /* RCDBlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0253F31B53D6F8003F48D9 /* RCDBlackListViewController.m */; };
 		5C7629831B54F7E60027DA82 /* RCDBlackListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7629821B54F7E60027DA82 /* RCDBlackListCell.m */; };
 		7E2F49FE4D05D08FFAEC623C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C592F823F22BEA26C035CF2F /* libPods.a */; };
-		7E2FAFBD1BA0004E00BDF9FD /* BudgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */; };
+		7E2FAFBD1BA0004E00BDF9FD /* PlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FAFBC1BA0004E00BDF9FD /* PlanDetailViewController.m */; };
 		7E2FAFBF1BA00A5300BDF9FD /* libGDataXML-HTML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */; };
 		7E2FAFC21BA00C4500BDF9FD /* BudgetSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2FAFC11BA00C4500BDF9FD /* BudgetSubViewController.m */; };
 		7E2FAFC41BA01F2E00BDF9FD /* libSVSegmentedControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2FAFC31BA01F2E00BDF9FD /* libSVSegmentedControl.a */; };
@@ -318,8 +318,8 @@
 		5C0253F31B53D6F8003F48D9 /* RCDBlackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RCDBlackListViewController.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5C7629811B54F7E60027DA82 /* RCDBlackListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RCDBlackListCell.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5C7629821B54F7E60027DA82 /* RCDBlackListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RCDBlackListCell.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		7E2FAFBB1BA0004E00BDF9FD /* BudgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewController.h; sourceTree = "<group>"; };
-		7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewController.m; sourceTree = "<group>"; };
+		7E2FAFBB1BA0004E00BDF9FD /* PlanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDetailViewController.h; sourceTree = "<group>"; };
+		7E2FAFBC1BA0004E00BDF9FD /* PlanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDetailViewController.m; sourceTree = "<group>"; };
 		7E2FAFBE1BA00A5300BDF9FD /* libGDataXML-HTML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGDataXML-HTML.a"; path = "Pods/../build/Debug-iphoneos/libGDataXML-HTML.a"; sourceTree = SOURCE_ROOT; };
 		7E2FAFC01BA00C4500BDF9FD /* BudgetSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetSubViewController.h; sourceTree = "<group>"; };
 		7E2FAFC11BA00C4500BDF9FD /* BudgetSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetSubViewController.m; sourceTree = "<group>"; };
@@ -1569,8 +1569,8 @@
 				7E6992431BA8192700C026DB /* ShareSDK */,
 				7E2FAFC01BA00C4500BDF9FD /* BudgetSubViewController.h */,
 				7E2FAFC11BA00C4500BDF9FD /* BudgetSubViewController.m */,
-				7E2FAFBB1BA0004E00BDF9FD /* BudgetViewController.h */,
-				7E2FAFBC1BA0004E00BDF9FD /* BudgetViewController.m */,
+				7E2FAFBB1BA0004E00BDF9FD /* PlanDetailViewController.h */,
+				7E2FAFBC1BA0004E00BDF9FD /* PlanDetailViewController.m */,
 				F79C41A81B9DEEFB00076D3F /* PlanViewController.h */,
 				F79C41A91B9DEEFB00076D3F /* PlanViewController.m */,
 				F75BE2E11B9DDF96000865E5 /* RATreeView */,
@@ -2119,7 +2119,7 @@
 				E4E9395F1AD65A95001E0AC6 /* RCAnimatedImagesView.m in Sources */,
 				E4BFAE651A1219EA007165B1 /* RCDAddressBookViewController.m in Sources */,
 				E4E939CF1AD65E30001E0AC6 /* pinyin.c in Sources */,
-				7E2FAFBD1BA0004E00BDF9FD /* BudgetViewController.m in Sources */,
+				7E2FAFBD1BA0004E00BDF9FD /* PlanDetailViewController.m in Sources */,
 				E4E939451AD65A95001E0AC6 /* AFNetworkReachabilityManager.m in Sources */,
 				E4E939B21AD65CD6001E0AC6 /* RCDSelectPersonViewController.m in Sources */,
 				E4E939481AD65A95001E0AC6 /* AFURLRequestSerialization.m in Sources */,
