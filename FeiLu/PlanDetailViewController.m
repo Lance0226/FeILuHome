@@ -26,7 +26,8 @@
     [super viewDidLoad];
     [self initializeData];           //加载数据
     [self initShareSdkBtn];
-    [self parserXML];                //解析xml
+    [self parserXML];//解析xml
+    [self GetImgsFromJson];
     [self initiliazePanoView];
     [self selectPanoView];
     [self initSectionBar];
@@ -109,6 +110,10 @@
 {
     self.arrBudgetName=[[NSMutableArray alloc]init];
     self.arrBudgetTotal=[[NSMutableArray alloc]init];
+    
+    self.arrInfoImg=[[NSMutableDictionary alloc]init];
+    self.arrPerspImg=[[NSMutableDictionary alloc]init];
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     self.curSectionIndex=[NSNumber numberWithInteger:0];//设置初始进度条位置为0，为全景页面
@@ -286,7 +291,7 @@
     
 }
 
--(UIButton *)getDetailBtn:(NSUInteger)rowInex
+-(UIButton *)getDetailBtn:(NSUInteger)rowIndex
 {
     
     UIButton *detailBtn=[[UIButton alloc]init];
@@ -303,7 +308,7 @@
     
     [detailBtn setTitle:@"详 情" forState:UIControlStateNormal];
     [detailBtn addTarget:self action:@selector(pressedDetailBtn:) forControlEvents:UIControlEventTouchDown];
-    [detailBtn setTag:rowInex];
+    [detailBtn setTag:rowIndex];
     
     return detailBtn;
 }
@@ -315,7 +320,7 @@
     {
         if (btn.tag==i)
         {
-            
+            NSLog(@"rrrrrrr%lu",(unsigned long)i);
             
             BudgetSubViewController *budgetSubVC=[[BudgetSubViewController alloc]init];
             budgetSubVC.xmlIndex=self.xmlIndex;
@@ -395,10 +400,8 @@
                                                      0,
                                                      [UIScreen mainScreen].bounds.size.width,
                                                      [UIScreen mainScreen].bounds.size.height*0.33f)
-                        ImageArray:[NSArray arrayWithObjects:@"topcamera.jpg",@"topview.jpg",
-                                     nil]
-                        TitleArray:[NSArray
-                                    arrayWithObjects:@"立体俯视图",@"平面俯视图", nil]];
+                        ImageArray:[self getObjectArray:self.arrInfoImg]
+                        TitleArray:[self getKeyArray:self.arrInfoImg]];
     self.scrollerView1.delegate=self;
 
 
@@ -409,10 +412,8 @@
                                                           [UIScreen mainScreen].bounds.size.height*0.33f,
                                                           [UIScreen mainScreen].bounds.size.width,
                                                           [UIScreen mainScreen].bounds.size.height*0.5f)
-                             ImageArray:[NSArray arrayWithObjects:@"img1.png",@"img2.png",
-                                         @"img3.png", nil]
-                             TitleArray:[NSArray
-                                         arrayWithObjects:@"效果图1",@"效果图2",@"效果图3", nil]];
+                             ImageArray:[self getObjectArray:self.arrPerspImg]
+                             TitleArray:[self getKeyArray:self.arrPerspImg]];
     self.scrollerView2.delegate=self;
 
     [self.perspView addSubview:self.scrollerView1];
@@ -421,6 +422,33 @@
     [self.view addSubview:self.perspView];
    
 }
+
+-(NSMutableArray*) getKeyArray :(NSMutableDictionary*)dict
+{
+    NSEnumerator *keyEnum=[dict keyEnumerator]; //键值枚举
+    
+    NSMutableArray    *keyArr=[[NSMutableArray alloc]init]; //键值队列
+    
+    for (NSObject *object in keyEnum)
+    {
+        [keyArr addObject:object];
+    }
+    return keyArr;
+}
+
+-(NSMutableArray*) getObjectArray :(NSMutableDictionary*)dict
+{
+    NSEnumerator *objectEnum=[dict objectEnumerator]; //键值枚举
+    
+    NSMutableArray    *objectArr=[[NSMutableArray alloc]init]; //键值队列
+    
+    for (NSObject *object in objectEnum)
+    {
+        [objectArr addObject:object];
+    }
+    return objectArr;
+}
+
 
 
 //-------------------------------------------------------------------------------------------------------------------
@@ -453,6 +481,60 @@
     
 }
 
+
+-(void)GetImgsFromJson    //从json数据解析预览图
+{
+    NSString *url=[NSString stringWithFormat:@"http://101.200.196.121:8080/img%ld.json",[self.xmlIndex integerValue]+1];
+    NSLog(@"%@",url);
+    NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
+    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:reposne options:NSJSONReadingMutableLeaves error:nil];
+    
+    NSEnumerator *keyEnum=[dict keyEnumerator]; //键值枚举
+    
+    NSMutableArray    *keyArr=[[NSMutableArray alloc]init]; //键值队列
+    
+    for (NSObject *object in keyEnum)
+    {
+        [keyArr addObject:object];
+    }
+
+    
+    for (NSObject *object in keyArr)
+    {
+        int i=0;
+        if([(NSString*)object isEqualToString:@"renderinfo1"])
+        {
+        NSObject *url=[dict objectForKey:object];
+        
+        NSURL *imageURL=[NSURL URLWithString:(NSString *)url];
+        NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
+        UIImage *image=[UIImage imageWithData:imageData];
+        [self.arrInfoImg setObject:image forKey:@"立体俯视图"];
+        }
+        else  if([(NSString*)object isEqualToString:@"renderinfo2"])
+        {
+            NSObject *url=[dict objectForKey:object];
+            
+            NSURL *imageURL=[NSURL URLWithString:(NSString *)url];
+            NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
+            UIImage *image=[UIImage imageWithData:imageData];
+            [self.arrInfoImg setObject:image forKey:@"平面俯视图"];
+        }
+        else
+        {
+            i++;
+            NSObject *url=[dict objectForKey:object];
+            
+            NSURL *imageURL=[NSURL URLWithString:(NSString *)url];
+            NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
+            UIImage *image=[UIImage imageWithData:imageData];
+            [self.arrPerspImg setObject:image forKey:[NSString stringWithFormat:@"效果图%d",i] ];
+
+        }
+    }
+    
+}
 
 //-------------------------------------------------------------------------------------------------------------------
 //切换条

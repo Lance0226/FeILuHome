@@ -31,6 +31,10 @@
 
 @property (retain,nonatomic) NSNumber   *curSectionIndex;                 //根据切换条记录当前页面
 
+@property (retain,nonatomic) NSMutableDictionary *arrInfoImg;
+
+@property (retain,nonatomic) NSMutableDictionary *arrPerspImg;
+
 
 @property (retain,nonatomic) EScrollerView *scrollerView1;               //俯视图
 

@@ -209,12 +209,13 @@
 //-------------------------------------------------------------------------------------
 -(void)pressedDetailBtn:(UIButton *)btn
 {
+    //NSLog(@"%lu",(unsigned long)self.projectNameList.count);
     NSUInteger max_index=self.projectNameList.count;
     for (NSUInteger i=0; i<max_index; i++)
     {
         if (btn.tag==i)
         {
-            NSLog(@"%lu",(unsigned long)i);
+            NSLog(@"yyyyy%lu",(unsigned long)i);
             
             PlanDetailViewController *budgetVC=[[PlanDetailViewController alloc]init];
             

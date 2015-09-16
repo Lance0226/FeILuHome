@@ -66,7 +66,8 @@
 -(void) addTestData{
     NSError *error;
     //将xml序号传入字符串
-    self.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:1];
+    //self.xmlIndex=[[NSNumber alloc]initWithUnsignedLong:1];
+    NSLog(@"sssss%d",[self.xmlIndex intValue]);
     NSString *strXMLURL=[NSString stringWithFormat:@"http://101.200.196.121:8080/xml%ld.xml",(long)[self.xmlIndex intValue]];
     NSURLRequest *requset=[NSURLRequest requestWithURL:[NSURL URLWithString:strXMLURL]];
     NSData *reposne=[NSURLConnection sendSynchronousRequest:requset returningResponse:nil error:nil];
@@ -96,12 +97,13 @@
         for (GDataXMLElement *node4 in arrNode4)
         {
             n++;
+            NSLog(@"ttttt%ld",(long)[self.xmlSubIndex integerValue]);
             //NSLog(@"m:%d,n:%d",m,n);
             //根据传入xml参数序号的不同，选择不同的结构体封装
             switch ([self.xmlSubIndex integerValue])
             {
                 case 0:{
-                    
+                    NSLog(@"aaaa");
                     //第一类二级结点数据内容
                     NSString *node4Name=[[node4 attributeForName:@"item_name"]stringValue];
                     NSString *node4Budget=[[node4 attributeForName:@"item_total"]stringValue];
@@ -112,6 +114,7 @@
                 }
                     
                 case 1:{
+                    NSLog(@"bbbb");
                     //第二类二级结点数据内容
                     NSString *node4Name=[[node4 attributeForName:@"item_name"]stringValue];
                     NSString *node4Budget=[[node4 attributeForName:@"item_total"]stringValue];
@@ -122,7 +125,7 @@
                     
                 case 2:{
                     
-                    
+                    NSLog(@"cccc");
                     //第三类二级结点数据内容
                     NSString *node4Name=[[node4 attributeForName:@"item_name"]stringValue];
                     NSString *node4Budget=[[node4 attributeForName:@"item_total"]stringValue];
