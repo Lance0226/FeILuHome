@@ -932,6 +932,22 @@
 			name = DB;
 			sourceTree = "<group>";
 		};
+		7E51177F1BA9393A000D60AC /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				31DBCC6E44CFA555CCAB10A3 /* Pods */,
+				E4D40F291A031F460045097C /* Products */,
+				E4C4E7E71A0A309100140067 /* Frameworks */,
+				A6447A181B1DBE6500EA2CEE /* 融云 Demo WatchKit App */,
+				A6447A061B1DBE6500EA2CEE /* 融云 Demo WatchKit Extension */,
+				E4D40F2A1A031F460045097C /* RCloudMessage */,
+				A6447A351B1DC0F400EA2CEE /* RCWatchKitCommon */,
+				F75BE2E11B9DDF96000865E5 /* RATreeView */,
+				7E6992431BA8192700C026DB /* ShareSDK */,
+			);
+			name = Dependency;
+			sourceTree = "<group>";
+		};
 		7E6992431BA8192700C026DB /* ShareSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1566,8 +1582,7 @@
 		E4D40F1F1A031F460045097C = {
 			isa = PBXGroup;
 			children = (
-				F75BE2E11B9DDF96000865E5 /* RATreeView */,
-				7E6992431BA8192700C026DB /* ShareSDK */,
+				7E51177F1BA9393A000D60AC /* Dependency */,
 				7E2FAFC01BA00C4500BDF9FD /* BudgetSubViewController.h */,
 				7E2FAFC11BA00C4500BDF9FD /* BudgetSubViewController.m */,
 				7E2FAFBB1BA0004E00BDF9FD /* PlanDetailViewController.h */,
@@ -1580,13 +1595,6 @@
 				F75BE2D61B9DD76C000865E5 /* EScrollerView.m */,
 				F75BE2D21B9DD6D7000865E5 /* HomeViewController.h */,
 				F75BE2D31B9DD6D7000865E5 /* HomeViewController.m */,
-				A6447A351B1DC0F400EA2CEE /* RCWatchKitCommon */,
-				E4D40F2A1A031F460045097C /* RCloudMessage */,
-				A6447A061B1DBE6500EA2CEE /* 融云 Demo WatchKit Extension */,
-				A6447A181B1DBE6500EA2CEE /* 融云 Demo WatchKit App */,
-				E4C4E7E71A0A309100140067 /* Frameworks */,
-				E4D40F291A031F460045097C /* Products */,
-				31DBCC6E44CFA555CCAB10A3 /* Pods */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;

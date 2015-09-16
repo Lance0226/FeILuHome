@@ -137,16 +137,16 @@
 
 -(void)initShareSdkBtn
 {
-    UIButton *shareBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [shareBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.8f,
+    self.shareBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.shareBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.8f,
                                   [UIScreen mainScreen].bounds.size.height*0.015f,
                                   [UIScreen mainScreen].bounds.size.width*0.115f,
                                   [UIScreen mainScreen].bounds.size.height*0.05f)];
 
-    [shareBtn setTitle:@"分享" forState:UIControlStateNormal];
-    [shareBtn.titleLabel setAdjustsFontSizeToFitWidth:YES];
-    [shareBtn addTarget:self action:@selector(pressedShareSDKBtn:) forControlEvents:UIControlEventTouchDown];
-    [self.navigationController.navigationBar addSubview:shareBtn];
+    [self.shareBtn setTitle:@"分享" forState:UIControlStateNormal];
+    [self.shareBtn.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.shareBtn addTarget:self action:@selector(pressedShareSDKBtn:) forControlEvents:UIControlEventTouchDown];
+    [self.navigationController.navigationBar addSubview:self.shareBtn];
     
 }
 
@@ -221,8 +221,8 @@
     id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
                                        defaultContent:@"测试一下"
                                                 image:[ShareSDK imageWithPath:imagePath]
-                                                title:@"ShareSDK"
-                                                  url:@"http://www.mob.com"
+                                                title:@"飞鹿家居分享"
+                                                  url:@"http://www.xuanran001.com/rwrule/vs/39d273c7-9bc6-4c36-b628-a53d4107bb7f.html"
                                           description:@"这是一条测试信息"
                                             mediaType:SSPublishContentMediaTypeNews];
     //创建弹出菜单容器
@@ -351,6 +351,7 @@
             BudgetSubViewController *budgetSubVC=[[BudgetSubViewController alloc]init];
             budgetSubVC.xmlIndex=self.xmlIndex;
             budgetSubVC.xmlSubIndex=[[NSNumber alloc]initWithUnsignedLong:i];
+            [self.shareBtn removeFromSuperview];
             [self.navigationController pushViewController:budgetSubVC animated:YES];
             
         }

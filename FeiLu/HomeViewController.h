@@ -10,4 +10,8 @@
 
 @interface HomeViewController :UIViewController<UIWebViewDelegate>
 
+@property (retain,nonatomic) UIWebView *webView;
+
+@property (retain,nonatomic) UIActivityIndicatorView *indicator;          //指示器
+
 @end

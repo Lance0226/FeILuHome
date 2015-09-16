@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     [self initAdvertiseBar];
-    [self initVedio];
+    [self initPano];
     [self initAdLogo];
     
     
@@ -57,10 +57,10 @@
                                                           [UIScreen mainScreen].bounds.size.height*0.003f,
                                                           [UIScreen mainScreen].bounds.size.width,
                                                           [UIScreen mainScreen].bounds.size.height*0.2f)
-                             ImageArray:[NSArray arrayWithObjects:@"home_page1.png",@"home_page2.png",
-                                         @"home_page3.png",@"home_page4", nil]
+                             ImageArray:[NSArray arrayWithObjects:@"home_page1.png",
+                                         @"home_page3.png",@"home_page5", nil]
                              TitleArray:[NSArray
-                                         arrayWithObjects:@"一",@"二",@"三",@"四", nil]];
+                                         arrayWithObjects:@"全景APP方案",@"定制化家装方案",@"定制化推广方案", nil]];
     scroller.delegate=self;
     [self.view addSubview:scroller];
     
@@ -121,23 +121,62 @@
     
 }
 
--(void)initVedio
+-(void)initPano
 {   /*
     NSString *string=[NSString stringWithFormat:@"<iframe height=%f width=%f src='http://player.youku.com/embed/XNzE4MzgyMzYw' frameborder=0 allowfullscreen></iframe>",
                       [UIScreen mainScreen].bounds.size.width*0.66f,
                       [UIScreen mainScreen].bounds.size.width*0.93f];
      */
     
-    NSString *str=[NSString stringWithFormat:@"<iframe height=%f width=%f src='http://101.200.196.121:8080/html5/0000.html' frameborder=0 allowfullscreen></iframe>",
-                   [UIScreen mainScreen].bounds.size.width*0.66f,
-                   [UIScreen mainScreen].bounds.size.width*0.96f];
-    
-    UIWebView *webView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
+    NSString *str=@"http://www.xuanran001.com/public/repository/0d02/bda1/00bb/45d9/b490/7755/24bf/7b63/html5/output/0000.html";
+    NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:str]];
+    self.webView=[[UIWebView alloc]initWithFrame:CGRectMake(0,
                                                                   [UIScreen mainScreen].bounds.size.height*0.37f,
                                                                   [UIScreen mainScreen].bounds.size.width,
-                                                                  [UIScreen mainScreen].bounds.size.height*1.5f)];
-    [webView loadHTMLString:str baseURL:nil];
-    [self.view addSubview:webView];
+                                                                  [UIScreen mainScreen].bounds.size.height*0.4f)];
+    [self.webView loadRequest:request];
+    [self.view addSubview:self.webView];
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView //设置加载进度委托事件
+{
+    UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0,
+                                                         [UIScreen mainScreen].bounds.size.height*0.066f,
+                                                         [UIScreen mainScreen].bounds.size.width,
+                                                         [UIScreen mainScreen].bounds.size.height*0.9f)];
+    [view setTag:108];
+    [view setBackgroundColor:[UIColor blackColor]];
+    [view setAlpha:0.5];
+    [self.view addSubview:view];
+    
+    self.indicator = [[UIActivityIndicatorView alloc]
+                      initWithFrame:CGRectMake(0.0f,
+                                               0.0f,
+                                               [UIScreen mainScreen].bounds.size.width*0.1f,
+                                               [UIScreen mainScreen].bounds.size.width*0.1f)];
+    [self.indicator setCenter:CGPointMake(view.center.x, view.center.y-[UIScreen mainScreen].bounds.size.height*0.2f)];
+    [self.indicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [view addSubview:self.indicator];
+    
+    [self.indicator startAnimating];
+    
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView  //加载完成去掉指示器
+{
+    [self.indicator stopAnimating];
+    UIView *view = (UIView*)[self.view viewWithTag:108];
+    [view removeFromSuperview];
+    NSLog(@"webViewDidFinishLoad");
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error  //加载错误时去掉指示器
+{
+    [self.indicator stopAnimating];
+    UIView *view = (UIView*)[self.view viewWithTag:108];
+    [view removeFromSuperview];
+    NSLog(@"webViewDidFinishLoad");
+    NSLog(@"Fail load :%@",error);
 }
 
 

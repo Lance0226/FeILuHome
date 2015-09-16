@@ -17,6 +17,8 @@
 
 @property (nonatomic,retain)NSMutableArray         *projectNameList;   //项目名字
 
+@property (nonatomic,retain)NSMutableArray         *projectStyleList;  //项目风格
+
 @property (nonatomic,retain)NSMutableArray         *projectPreviewImage;
 
 @property (nonatomic,retain)NSMutableArray         *projectPanoURL;

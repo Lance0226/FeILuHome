@@ -17,6 +17,8 @@
 
 @property (nonatomic,retain) NSNumber  *xmlIndex;                         //传递的预算列表的xml的序数
 
+@property (nonatomic,retain) UIButton *shareBtn;                          //导航栏分享按钮
+
 @property (nonatomic,retain) UIWebView *panoView;                         //全景图画布
 
 @property (retain,nonatomic) UITableView *budgetTblView;                  //预算表tableview

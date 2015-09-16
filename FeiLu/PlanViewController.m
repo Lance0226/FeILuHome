@@ -56,6 +56,7 @@
 -(void)initData
 {
     self.projectNameList=[self GetPlanNameListFromJson];
+    self.projectStyleList=[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:@"现代",@"简欧",@"田园",@"现代",@"欧式",nil]];
     self.projectPreviewImage=[self GetPlanPreviewListFromJson];
     
     
@@ -101,10 +102,12 @@
         
         UIImageView *previewImageLayer=[self setPreviewImage:row];
         CALayer *nameLayer=[self setProjectName:row];
+        CALayer *styleLayer=[self setProjectStyle:row];
         UIButton *detailBtn=[self setDetailBtn:row];
         
         [cell.contentView addSubview:previewImageLayer];
         [cell.layer addSublayer:nameLayer];
+        [cell.layer addSublayer:styleLayer];
         [cell.contentView addSubview:detailBtn];
     }
     
@@ -137,17 +140,40 @@
 {
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
     [nameLayer setFont:@"Helvetica"];
-    [nameLayer setFontSize:15];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.4f,
-                                   [UIScreen mainScreen].bounds.size.height*0.067f,
+    [nameLayer setFontSize:13];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.45f,
+                                   [UIScreen mainScreen].bounds.size.height*0.043f,
                                    [UIScreen mainScreen].bounds.size.width*0.25f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
+    //将项目名称字符串格式化
+    NSString *completeProjectName=[NSString stringWithFormat:@"名称: %@",[self.projectNameList objectAtIndex:rowIndex]];
     
-    [nameLayer setString:[self.projectNameList objectAtIndex:rowIndex]];
-    [nameLayer setAlignmentMode:kCAAlignmentCenter];
+    [nameLayer setString:completeProjectName];
+    [nameLayer setAlignmentMode:kCAAlignmentLeft];
+    [nameLayer setContentsScale:2];                                      //设置字体宽度，防止字体发虚
     [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
     return nameLayer;
 }
+
+-(CALayer *)setProjectStyle:(NSUInteger)rowIndex
+{
+    CATextLayer *nameLayer=[[CATextLayer alloc]init];
+    [nameLayer setFont:@"Helvetica"];
+    [nameLayer setFontSize:13];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.45f,
+                                   [UIScreen mainScreen].bounds.size.height*0.093f,
+                                   [UIScreen mainScreen].bounds.size.width*0.25f,
+                                   [UIScreen mainScreen].bounds.size.height*0.5f)];
+    //将项目名称字符串格式化
+    NSString *completeProjectName=[NSString stringWithFormat:@"风格: %@",[self.projectStyleList objectAtIndex:rowIndex]];
+    
+    [nameLayer setString:completeProjectName];
+    [nameLayer setAlignmentMode:kCAAlignmentLeft];
+    [nameLayer setContentsScale:2];                                      //设置字体宽度，防止字体发虚
+    [nameLayer setForegroundColor:[[UIColor blackColor] CGColor]];
+    return nameLayer;
+}
+
 
 -(UIButton *)setDetailBtn:(NSUInteger)rowInex
 {
