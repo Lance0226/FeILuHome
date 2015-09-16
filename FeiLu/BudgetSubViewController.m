@@ -159,7 +159,7 @@
 #pragma mark TreeView Delegate methods
 - (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
-    return 47;
+    return [UIScreen mainScreen].bounds.size.height/10;
 }
 
 - (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
@@ -197,9 +197,13 @@
 {
     //NSInteger numberOfChildren = [treeNodeInfo.children count];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    CALayer *budgetLayer=[self getNameLayerWithRowIndex:((RADataObject *)item).budget];
+    
+    CALayer *nameLayer=[self getNameLayerWithRowIndex:((RADataObject *)item).name];
+    CALayer *budgetLayer=[self getBudgetLayerWithRowIndex:((RADataObject *)item).budget];
+    
+    [cell.layer addSublayer:nameLayer];
     [cell.layer addSublayer:budgetLayer];
-    cell.textLabel.text = ((RADataObject *)item).name;
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (treeNodeInfo.treeDepthLevel == 0) {
         cell.detailTextLabel.textColor = [UIColor blackColor];
@@ -207,22 +211,42 @@
     return cell;
 }
 
+
 -(CALayer*)getNameLayerWithRowIndex:(NSString*)budget
 {
     CATextLayer *nameLayer=[[CATextLayer alloc]init];
     [nameLayer setFont:@"Helvetica"];
-    [nameLayer setFontSize:18];
-    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.62f,
+    [nameLayer setFontSize:16];
+    [nameLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.05f,
+                                     [UIScreen mainScreen].bounds.size.height*0.02f,
+                                     [UIScreen mainScreen].bounds.size.width*0.4f,
+                                     [UIScreen mainScreen].bounds.size.height*0.5f)];
+    
+    [nameLayer setString:budget];
+    [nameLayer setAlignmentMode:kCAAlignmentLeft];
+    [nameLayer setForegroundColor:[[UIColor blackColor]CGColor]];
+    [nameLayer setContentsScale:2];
+    
+    return nameLayer;
+    
+}
+
+-(CALayer*)getBudgetLayerWithRowIndex:(NSString*)budget
+{
+    CATextLayer *budgetLayer=[[CATextLayer alloc]init];
+    [budgetLayer setFont:@"Helvetica"];
+    [budgetLayer setFontSize:16];
+    [budgetLayer setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*0.52f,
                                    [UIScreen mainScreen].bounds.size.height*0.02f,
                                    [UIScreen mainScreen].bounds.size.width*0.4f,
                                    [UIScreen mainScreen].bounds.size.height*0.5f)];
     
-    [nameLayer setString:budget];
-    [nameLayer setAlignmentMode:kCAAlignmentLeft];
-    [nameLayer setForegroundColor:[[UIColor blueColor] CGColor]];
-    [nameLayer setContentsScale:2];
+    [budgetLayer setString:budget];
+    [budgetLayer setAlignmentMode:kCAAlignmentLeft];
+    [budgetLayer setForegroundColor:[[UIColor colorWithRed:33.0f/255.0f green:86.0f/255.0f blue:251.0f/255.0f alpha:1.0f] CGColor]];
+    [budgetLayer setContentsScale:2];
     
-    return nameLayer;
+    return budgetLayer;
     
 }
 

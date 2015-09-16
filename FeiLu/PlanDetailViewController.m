@@ -212,43 +212,7 @@
     self.budgetTblView.dataSource=self;
     
 }
-
--(void)pressedShareSDKBtn:(id)sender
-{
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
-    
-    //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
-                                       defaultContent:@"测试一下"
-                                                image:[ShareSDK imageWithPath:imagePath]
-                                                title:@"飞鹿家居分享"
-                                                  url:@"http://www.xuanran001.com/rwrule/vs/39d273c7-9bc6-4c36-b628-a53d4107bb7f.html"
-                                          description:@"这是一条测试信息"
-                                            mediaType:SSPublishContentMediaTypeNews];
-    //创建弹出菜单容器
-    id<ISSContainer> container = [ShareSDK container];
-    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
-    
-    //弹出分享菜单
-    [ShareSDK showShareActionSheet:container
-                         shareList:nil
-                           content:publishContent
-                     statusBarTips:YES
-                       authOptions:nil
-                      shareOptions:nil
-                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                
-                                if (state == SSResponseStateSuccess)
-                                {
-                                    NSLog(@"分享成功");
-                                }
-                                else if (state == SSResponseStateFail)
-                                {
-                                    NSLog(@"分享失败,错误码:%ld,错误描述:%@", [error errorCode], [error errorDescription]);
-                                }
-                            }];
-    NSLog(@"bbbb");
-}
+//-----------------------------------------------------------------------------------------
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -310,7 +274,7 @@
     
     [nameLayer setString:budgetStr];
     [nameLayer setAlignmentMode:kCAAlignmentLeft];
-    [nameLayer setForegroundColor:[[UIColor blueColor] CGColor]];
+    [nameLayer setForegroundColor:[[UIColor colorWithRed:53.0f/255.0f green:106.0f/255.0f blue:251.0f/255.0f alpha:1.0f] CGColor]];
     [nameLayer setContentsScale:2];
     
     return nameLayer;
@@ -370,6 +334,46 @@
 {
     return [UIScreen mainScreen].bounds.size.height*0.15f;
 }
+
+//---------------------------------------------------------------------------------------------------------------
+//分享至社交媒体
+-(void)pressedShareSDKBtn:(id)sender
+{
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"ShareSDK" ofType:@"png"];
+    
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"分享内容"
+                                       defaultContent:@"测试一下"
+                                                image:[ShareSDK imageWithPath:imagePath]
+                                                title:@"飞鹿家居分享"
+                                                  url:@"http://www.xuanran001.com/rwrule/vs/39d273c7-9bc6-4c36-b628-a53d4107bb7f.html"
+                                          description:@"这是一条测试信息"
+                                            mediaType:SSPublishContentMediaTypeNews];
+    //创建弹出菜单容器
+    id<ISSContainer> container = [ShareSDK container];
+    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+    
+    //弹出分享菜单
+    [ShareSDK showShareActionSheet:container
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions:nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(@"分享成功");
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(@"分享失败,错误码:%ld,错误描述:%@", [error errorCode], [error errorDescription]);
+                                }
+                            }];
+    NSLog(@"bbbb");
+}
+
 //-------------------------------------------------------------------------------------------------------------------
 //透视图页面
 
